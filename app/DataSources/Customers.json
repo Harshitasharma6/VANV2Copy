@@ -1,0 +1,262 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "zx_customers",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "zx_customer",
+    "MaxGetRowsCount": 2000,
+    "Name": "Customers",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number",
+      "zx_accountno": "Account no.",
+      "zx_address1": "Address 1",
+      "zx_address1street": "Address 1 (street)",
+      "zx_address2": "Address 2",
+      "zx_anniversarydate": "Anniversary date",
+      "zx_Beat": "Beat",
+      "zx_contactpersonmobileno": "Contact person mobile no.",
+      "zx_contactpersonname": "Contact person name",
+      "zx_creditlimit": "Credit limit",
+      "zx_creditlimitactivated": "Credit Limit Activated",
+      "zx_customer_AsyncOperations": "System Jobs",
+      "zx_customer_BulkDeleteFailures": "Bulk Delete Failures",
+      "zx_customer_DuplicateBaseRecord": "Duplicate Records (zx_customer_DuplicateBaseRecord)",
+      "zx_customer_DuplicateMatchingRecord": "Duplicate Records (zx_customer_DuplicateMatchingRecord)",
+      "zx_customer_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "zx_customer_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "zx_customer_ProcessSession": "Process Sessions",
+      "zx_customer_SyncErrors": "Sync Errors",
+      "zx_Customercategory": "Customer category",
+      "zx_Customergroupcode": "Customer group code",
+      "zx_customerid": "Customer",
+      "zx_customerstatus": "Customer status",
+      "zx_Customersubcategory": "Customer sub-category",
+      "zx_customertype": "Customer Type",
+      "zx_dateofbirth": "Date of birth",
+      "zx_Division": "Division",
+      "zx_email": "Email",
+      "zx_gstin": "GSTIN",
+      "zx_mobileno": "Mobile no.",
+      "zx_modeofpayment": "Mode Of Payment",
+      "zx_name": "Customer Code",
+      "zx_pannumber": "Pan number",
+      "zx_ParentCustomer": "Parent Customer",
+      "zx_pincode": "Pincode",
+      "zx_remainingcreditlimit": "Remaining Credit Limit",
+      "zx_RouteNo": "Route No.",
+      "zx_Salesperson": "Salesperson",
+      "zx_schemeapplicable": "Scheme applicable",
+      "zx_totalcreditlimit": "Total Credit limit",
+      "zx_VanNo": "Van No",
+      "zx_zx_customer_ParentCustomer_zx_customer": "Customer (NA)S",
+      "zx_zx_orderlines_CustomerNumber_zx_customer": "Order Lines"
+    },
+    "PreferredName": "Customers",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Customers (Views)",
+    "Name": "_zx_customer_views",
+    "RelatedEntityName": "Customers",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "543f38a8-834e-432a-974f-89fdf7e658ad": "Customer Lookup View",
+      "68da1675-bac8-4a8e-a7f8-726cfda63032": "Inactive Customers",
+      "9801aea4-3c1a-4fa8-b0c1-eb9ae11e6bd5": "Customer Associated View",
+      "e7f674a3-b290-417c-8231-8f6b56bc24a3": "Active Customers",
+      "e9774d0b-dd1b-444a-8de2-5d65813c0733": "Customer Advanced Find View"
+    }
+  },
+  {
+    "DisplayName": "Status (Customers)",
+    "Name": "zx_customer_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Customers"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Customers",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Customers)",
+    "Name": "zx_customer_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Customers"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Customers",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Credit Limit Activated (Customers)",
+    "Name": "zx_customer_zx_creditlimitactivated",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "zx_creditlimitactivated",
+        "OptionSetReferenceEntityName": "Customers"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "zx_creditlimitactivated",
+    "RelatedEntityName": "Customers",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Scheme applicable (Customers)",
+    "Name": "zx_customer_zx_schemeapplicable",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "zx_schemeapplicable",
+        "OptionSetReferenceEntityName": "Customers"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "zx_schemeapplicable",
+    "RelatedEntityName": "Customers",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Customer status (Choice)",
+    "Name": "zx_customerstatus",
+    "OptionSetInfoNameMapping": {
+      "425120000": "Requested for On-Boarding",
+      "425120001": "Pushed to ERP",
+      "425120002": "Customer",
+      "425120003": "Rejected On-Boarding",
+      "425120004": "On-Boarded"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": true,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "zx_customerstatus",
+        "OptionSetReferenceEntityName": "Customers"
+      },
+      "OptionSetReferenceItem1": {
+        "OptionSetReferenceColumnName": "zx_customerstatus",
+        "OptionSetReferenceEntityName": "Customers_1"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "zx_customerstatus",
+    "RelatedEntityName": "Customers",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Customer Type",
+    "Name": "zx_customertype",
+    "OptionSetInfoNameMapping": {
+      "425120000": "CORPORATE",
+      "425120001": "KEY",
+      "425120002": "RETAIL",
+      "425120003": "DEPO",
+      "915610001": "AGENT"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": true,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "zx_customertype",
+        "OptionSetReferenceEntityName": "Customers"
+      },
+      "OptionSetReferenceItem1": {
+        "OptionSetReferenceColumnName": "zx_customertype",
+        "OptionSetReferenceEntityName": "Customers_1"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "zx_customertype",
+    "RelatedEntityName": "Customers",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Payment Type (choice)",
+    "Name": "zx_paymenttype",
+    "OptionSetInfoNameMapping": {
+      "425120000": "CASH",
+      "425120001": "COUPON",
+      "425120002": "CREDIT",
+      "425120003": "KOTAK",
+      "915610001": "PAYTM"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": true,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "zx_modeofpayment",
+        "OptionSetReferenceEntityName": "Customers"
+      },
+      "OptionSetReferenceItem1": {
+        "OptionSetReferenceColumnName": "zx_modeofpayment",
+        "OptionSetReferenceEntityName": "Customers_1"
+      },
+      "OptionSetReferenceItem2": {
+        "OptionSetReferenceColumnName": "zx_modeofpayment",
+        "OptionSetReferenceEntityName": "Invoice Headers"
+      },
+      "OptionSetReferenceItem3": {
+        "OptionSetReferenceColumnName": "zx_modeofpayment",
+        "OptionSetReferenceEntityName": "Order Headers"
+      },
+      "OptionSetReferenceItem4": {
+        "OptionSetReferenceColumnName": "zx_modeofpayment",
+        "OptionSetReferenceEntityName": "Payments"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "zx_modeofpayment",
+    "RelatedEntityName": "Customers",
+    "Type": "OptionSetInfo"
+  }
+]

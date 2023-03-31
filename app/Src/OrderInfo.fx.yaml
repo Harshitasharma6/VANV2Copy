@@ -1,0 +1,450 @@
+"OrderInfo As screen.'phoneLayout_FluidGridWithHeaderPageLayout_ver3.0'":
+
+    Canvas1 As fluidGrid.fluidGridWithBlankCard:
+        BorderThickness: =0
+        Height: =960
+        Width: =Parent.Width
+        Y: =Header_5.Y + Header_5.Height
+        ZIndex: =3
+
+        DataCard1 As dataCard:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderStyle: =BorderStyle.Solid
+            BorderThickness: =0
+            DisplayMode: =DisplayMode.Edit
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =1601
+            Width: =Parent.Width
+            X: =0
+            Y: =0
+            ZIndex: =1
+
+            btnCustomer360InfoBackground_2 As button:
+                DisabledBorderColor: =ColorFade(Self.Fill, -30%)
+                DisabledFill: =_VarGblAppColors.LightText
+                DisplayMode: =DisplayMode.Disabled
+                Fill: =_VarGblAppColors.LightText
+                Height: =688
+                RadiusBottomLeft: =20
+                RadiusBottomRight: =20
+                RadiusTopLeft: =20
+                RadiusTopRight: =20
+                Size: =24
+                Text: =""
+                Width: =Parent.Width-20
+                X: =10
+                Y: =199
+                ZIndex: =1
+
+            OrderHeader As gallery.variableTemplateHeightGallery:
+                AccessibleLabel: ="OrderHeader"
+                DelayItemLoading: =true
+                Height: =1262
+                Items: |-
+                    =Table(
+                          {
+                            col1: "Order Type",
+                            col2: Text(oh.'Order Type')
+                        },
+                        {
+                            col1: "Order Date",
+                            col2: Text(
+                                oh.'Order Date',
+                                "dd-mm-yyyy"
+                            )
+                        },
+                        {
+                            col1: "Customer",
+                            col2: oh.Customer.'Customer Name'
+                        },
+                        {
+                            col1: "Delivery Date",
+                            col2: Text(
+                                oh.'Delivery Date',
+                                "dd-mm-yyyy"
+                            )
+                        },
+                        {
+                            col1: "Route",
+                            col2: Text(oh.'Route No'.'Name (zx_names)')
+                        },
+                        {
+                            col1: "Salesperson",
+                            col2: Text(oh.Salesperson.'First Name')
+                        },
+                        {
+                            col1: "Total Deposit Amount",
+                            col2: Text(oh.'Total Deposit Amount')
+                        },
+                        {
+                            col1: "Van No",
+                            col2: Text(oh.'Van No'.Name)
+                        },
+                        {
+                            col1: "Reason",
+                            col2: Text(oh.Reason)
+                        },
+                        {
+                            col1: "Total Quantity",
+                            col2: Text(oh.'Total Quantity')
+                        }
+                    )
+                Layout: =Layout.Vertical
+                LoadingSpinner: =LoadingSpinner.Data
+                TabIndex: =0
+                TemplateSize: =84
+                Y: =199
+                ZIndex: =2
+
+                Col1 As label:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =Color.Black
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    FocusedBorderThickness: =4
+                    OnSelect: |-
+                        =//Navigate('customer info',ScreenTransition.Fade, {detailsssssss69: ThisItem.Account});
+                        //Reset(customerinfo)
+                        Navigate('Customer Detail Screen', ScreenTransition.Cover, {CustData:ThisItem})
+                    Size: =16
+                    TabIndex: =0
+                    Text: =ThisItem.col1
+                    Width: =379
+                    X: =30
+                    Y: =14
+                    ZIndex: =5
+
+                lblGalCustomerAddress_16 As label:
+                    Align: =Align.Right
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =Color.Black
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    FocusedBorderThickness: =4
+                    Size: =16
+                    Text: =If(!IsBlank(ThisItem.col2),ThisItem.col2,"-")
+                    Width: =308
+                    X: =290
+                    Y: =14
+                    ZIndex: =18
+
+                shpCustomer360InfoRect2_2 As rectangle:
+                    BorderStyle: =BorderStyle.Dotted
+                    BorderThickness: =0.5
+                    Height: =0.5
+                    Width: |
+                        =Parent.Width-60
+                    X: =25
+                    Y: =60
+                    ZIndex: =19
+
+            OrderLine As gallery.variableTemplateHeightGallery:
+                AccessibleLabel: ="OrderLine"
+                DelayItemLoading: =true
+                Fill: =_VarGblAppColors.LightText
+                Height: =824
+                Items: =Filter('Order Lines','Order Number'.'Order Id'=oh.'Order Id')
+                Layout: =Layout.Vertical
+                LoadingSpinner: =LoadingSpinner.Data
+                ShowScrollbar: =false
+                TabIndex: =0
+                TemplatePadding: =0
+                TemplateSize: =250
+                Y: =917
+                ZIndex: =3
+
+                htmPaymentSummary_1 As htmlViewer:
+                    Color: =RGBA(242, 242, 242, 1)
+                    Height: =212
+                    HtmlText: |-
+                        ="<div style='border-radius:15px 15px 15px 15px; background-color:#E6F7F6; width:620px; height:195px'></div>"
+                    OnSelect: =Select(Parent)
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingTop: =0
+                    Width: =630
+                    X: =10
+                    ZIndex: =1
+
+                lblPaymentSummaryTotalAmt_2 As label:
+                    Color: =_VarGblAppColors.HeaderBg
+                    Height: =30
+                    OnSelect: =Select(Parent)
+                    Size: =_VarGblAppFonts.Size.Subtitle
+                    Text: |-
+                        ="Total Amount:"
+                    X: =331
+                    Y: =113
+                    ZIndex: =2
+
+                lblPaymentSummaryTotalAmtValue_2 As label:
+                    Color: =_VarGblAppColors.BisleriBlue
+                    FontWeight: =FontWeight.Bold
+                    Height: =30
+                    OnSelect: =Select(Parent)
+                    Size: =_VarGblAppFonts.Size.Regular
+                    Text: ="₹" & ThisItem.'Total Amount'
+                    Width: =100
+                    X: =466
+                    Y: =113
+                    ZIndex: =3
+
+                lblPaymentSummaryRoute_1 As label:
+                    Color: =_VarGblAppColors.HeaderBg
+                    Height: =30
+                    OnSelect: =Select(Parent)
+                    Size: =_VarGblAppFonts.Size.Subtitle
+                    Text: |-
+                        ="Van No :"
+                    Width: =85
+                    X: =49
+                    Y: =113
+                    ZIndex: =4
+
+                lblPaymentSummaryRouteValue_1 As label:
+                    Color: =_VarGblAppColors.BisleriBlue
+                    FontWeight: =FontWeight.Bold
+                    Height: =30
+                    OnSelect: =Select(Parent)
+                    Size: =_VarGblAppFonts.Size.Regular
+                    Text: =ThisItem.'Van No'.Name
+                    Width: =200
+                    X: =137
+                    Y: =113
+                    ZIndex: =5
+
+                lblPaymentSummaryInvoice_1 As label:
+                    Color: =_VarGblAppColors.HeaderBg
+                    Height: =30
+                    OnSelect: =Select(Parent)
+                    Size: =_VarGblAppFonts.Size.Subtitle
+                    Text: ="Qty"
+                    Width: =120
+                    X: =49
+                    Y: =152
+                    ZIndex: =6
+
+                lblPaymentSummaryInvoiceValue_1 As label:
+                    Color: =_VarGblAppColors.BisleriBlue
+                    FontWeight: =FontWeight.Bold
+                    Height: =30
+                    OnSelect: =Select(Parent)
+                    Size: =_VarGblAppFonts.Size.Regular
+                    Text: =ThisItem.'Total Quantity'
+                    Width: =159
+                    X: =137
+                    Y: =152
+                    ZIndex: =7
+
+                Button16 As button:
+                    BorderStyle: =BorderStyle.None
+                    DisabledFill: =_VarGblAppColors.BisleriBlue
+                    DisplayMode: =DisplayMode.Disabled
+                    Height: =56
+                    OnSelect: =Select(Parent)
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =24
+                    Text: =""
+                    Width: =Parent.Width-20
+                    X: =10
+                    ZIndex: =8
+
+                lblPaymentSummaryTotalAmt_3 As label:
+                    Color: =_VarGblAppColors.HeaderBg
+                    Height: =30
+                    OnSelect: =Select(Parent)
+                    Size: =_VarGblAppFonts.Size.Subtitle
+                    Text: ="Rate"
+                    X: =332
+                    Y: =152
+                    ZIndex: =9
+
+                lblPaymentSummaryTotalAmtValue_3 As label:
+                    Color: =_VarGblAppColors.BisleriBlue
+                    FontWeight: =FontWeight.Bold
+                    Height: =30
+                    OnSelect: =Select(Parent)
+                    Size: =_VarGblAppFonts.Size.Regular
+                    Text: =ThisItem.'Rate (Base)'
+                    Width: =163
+                    X: =467
+                    Y: =152
+                    ZIndex: =10
+
+                lblVisitName_3 As label:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =_VarGblAppColors.LightText
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    FocusedBorderThickness: =4
+                    FontWeight: =FontWeight.Bold
+                    Height: =54
+                    OnSelect: =
+                    Size: =16
+                    TabIndex: =
+                    Text: ="Order Line No " & ThisItem.'Order Line No'
+                    Width: =350
+                    X: =41
+                    Y: =2
+                    ZIndex: =13
+
+                lblGalCustomerAddress_15 As label:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =_VarGblAppColors.PrimaryText
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    FocusedBorderThickness: =4
+                    FontWeight: =FontWeight.Semibold
+                    Height: =22
+                    Size: =12
+                    Text: |-
+                        ="Item SKU
+                        "
+                    Width: =140
+                    X: =49
+                    Y: =72
+                    ZIndex: =14
+
+                lblGalCustomerAddress_17 As label:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =_VarGblAppColors.BisleriBlue
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    FocusedBorderThickness: =4
+                    FontWeight: =FontWeight.Bold
+                    Height: =22
+                    Size: =12
+                    Text: =ThisItem.'Item SKU'.'SKU Code'
+                    Width: =250
+                    X: =137
+                    Y: =72
+                    ZIndex: =15
+
+                Button15 As button:
+                    BorderColor: =Color.White
+                    DisabledBorderColor: =RGBA(255, 255, 255, 1)
+                    DisabledColor: =_VarGblAppColors.BisleriBlue
+                    DisplayMode: =DisplayMode.Disabled
+                    Fill: =RGBA(255, 255, 255, 1)
+                    Height: =27
+                    OnSelect: =Select(Parent)
+                    Size: =14
+                    Text: =ThisItem.'Item Type'
+                    Width: =87
+                    X: =493
+                    Y: =15
+                    ZIndex: =16
+
+            htmPaymentSummary_2 As htmlViewer:
+                Color: =RGBA(242, 242, 242, 1)
+                Height: =165
+                HtmlText: |-
+                    ="<div style='border-radius:15px 15px 15px 15px; background-color:#E6F7F6; width:620px; height:155px'></div>"
+                OnSelect: =
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingTop: =0
+                Width: =630
+                X: =5
+                Y: =21
+                ZIndex: =4
+
+            lblCustomer360CustomerId_2 As label:
+                FontWeight: =FontWeight.Semibold
+                Height: =70
+                Size: =_VarGblAppFonts.Size.Huge
+                Text: |-
+                    ="Order No :"
+                Width: =240
+                X: =35
+                Y: =37
+                ZIndex: =5
+
+            lblCustomer360CustomerIdValue_2 As label:
+                FontWeight: =FontWeight.Semibold
+                Height: =35
+                Size: =_VarGblAppFonts.Size.Medium
+                Text: =oh.'Order Id'
+                Width: =155
+                X: =253
+                Y: =54
+                ZIndex: =6
+
+            lblCustomer360Beat_2 As label:
+                FontWeight: =FontWeight.Semibold
+                Height: =30
+                Size: =_VarGblAppFonts.Size.Medium
+                Text: |-
+                    ="Order Date :"
+                Width: =155
+                X: =271
+                Y: =107
+                ZIndex: =7
+
+            lblCustomer360BeatValue_2 As label:
+                FontWeight: =FontWeight.Semibold
+                Height: =30
+                Size: =_VarGblAppFonts.Size.Medium
+                Text: |-
+                    = Text(
+                                oh.'Order Date',
+                                "dd-mm-yyyy"
+                            )
+                Width: =155
+                X: =440
+                Y: =107
+                ZIndex: =8
+
+            lblCustomer360ContactPerson_2 As label:
+                FontWeight: =FontWeight.Semibold
+                Height: =30
+                Size: =_VarGblAppFonts.Size.Medium
+                Text: |-
+                    ="Route No : "
+                Width: =180
+                X: =35
+                Y: =107
+                ZIndex: =9
+
+            lblCustomer360ContactPersonValue_2 As label:
+                FontWeight: =FontWeight.Semibold
+                Height: =30
+                Size: =_VarGblAppFonts.Size.Medium
+                Text: =oh.'Route No'.'Name (zx_name)'
+                Width: =118
+                X: =172
+                Y: =107
+                ZIndex: =10
+
+            Button15_1 As button:
+                BorderColor: =Color.White
+                DisabledBorderColor: =RGBA(255, 255, 255, 1)
+                DisabledColor: =_VarGblAppColors.BisleriBlue
+                DisabledFill: =RGBA(255, 255, 255, 1)
+                DisplayMode: =DisplayMode.Disabled
+                Fill: =RGBA(255, 255, 255, 1)
+                Height: =38
+                OnSelect: =
+                Size: =18
+                Text: ="₹ " &oh.'Net Amount'
+                Width: =133
+                X: =460
+                Y: =37
+                ZIndex: =11
+
+    Header_5 As Header:
+        HeaderText: ="Order Info"
+        ZIndex: =4
+
+    BottomBar_1 As BottomBar:
+        Y: =1026
+        ZIndex: =5
+

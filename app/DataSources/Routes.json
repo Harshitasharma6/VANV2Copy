@@ -1,0 +1,101 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "zx_routes",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "zx_route",
+    "Name": "Routes",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number",
+      "zx_name": "Route Name",
+      "zx_route_AsyncOperations": "System Jobs",
+      "zx_route_BulkDeleteFailures": "Bulk Delete Failures",
+      "zx_route_DuplicateBaseRecord": "Duplicate Records (zx_route_DuplicateBaseRecord)",
+      "zx_route_DuplicateMatchingRecord": "Duplicate Records (zx_route_DuplicateMatchingRecord)",
+      "zx_route_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "zx_route_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "zx_route_ProcessSession": "Process Sessions",
+      "zx_route_SyncErrors": "Sync Errors",
+      "zx_routecategory": "Route Category\u00A0",
+      "zx_routecode": "Route Code ",
+      "zx_routeid": "Route",
+      "zx_routename": "xyz",
+      "zx_SiteBranch": "Site/Branch\u00A0",
+      "zx_zx_salespersonroutemapping_RouteCode_zx_r": "Salesperson Route Mappings"
+    },
+    "PreferredName": "Routes",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Routes (Views)",
+    "Name": "_zx_route_views",
+    "RelatedEntityName": "Routes",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "0a39fb68-6f72-4e8a-a9df-2fa8419ebf8e": "Route Advanced Find View",
+      "4a4b6703-c15d-459d-b900-8bc365b750d0": "Route Associated View",
+      "aae60483-f75a-4da7-8818-ed298c18f558": "Route Lookup View",
+      "c6db088a-3b06-4304-b274-d2a66c426f3e": "Active Routes",
+      "f443a40d-1465-4037-b707-bfb9173be42a": "Inactive Routes"
+    }
+  },
+  {
+    "DisplayName": "Status (Routes)",
+    "Name": "zx_route_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Routes"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Routes",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Routes)",
+    "Name": "zx_route_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Routes"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Routes",
+    "Type": "OptionSetInfo"
+  }
+]
