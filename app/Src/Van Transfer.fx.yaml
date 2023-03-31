@@ -761,7 +761,8 @@
                                 Date: Today(),
                                 'Transfer Order No': LookUp(
                                     'Stock Transfer Headers',
-                                    'Stock Transfer Header' = First(varGatePassHeader).'Stock Transfer Header'
+                                    'Stock Transfer Header' = //First(varGatePassHeader).'Stock Transfer Header'
+                                    Index(varGatePassHeader,1).'Stock Transfer Header'
                                 ),
                                 SKU: LookUp(
                                     'SKU Masters',
