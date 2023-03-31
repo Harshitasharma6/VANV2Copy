@@ -470,9 +470,9 @@
                     Title: If(
                         CountRows(colOfflineTodayAttendance)=0,
                         "Start",
-                        (CountRows(colOfflineTodayAttendance) = 1 && !IsBlank(First(colOfflineTodayAttendance).'Check-in Time') && IsBlank(First(colOfflineTodayAttendance).'Check-out Time') ),
+                        (CountRows(colOfflineTodayAttendance) = 1 && !IsBlank(/*First(colOfflineTodayAttendance)*/Index(colOfflineTodayAttendance,1).'Check-in Time') && IsBlank(/*First(colOfflineTodayAttendance)*/Index(colOfflineTodayAttendance,1).'Check-out Time') ),
                         "End",
-                        (CountRows(colOfflineTodayAttendance) = 1 && !IsBlank(First(colOfflineTodayAttendance).'Check-in Time') && !IsBlank(First(colOfflineTodayAttendance).'Check-out Time')),
+                        (CountRows(colOfflineTodayAttendance) = 1 && !IsBlank(/*First(colOfflineTodayAttendance)*/Index(colOfflineTodayAttendance,1).'Check-in Time') && !IsBlank(/*First(colOfflineTodayAttendance)*/Index(colOfflineTodayAttendance,1).'Check-out Time')),
                         "Ended"
                     ),
                     Icon: Icon.CalendarBlank,
