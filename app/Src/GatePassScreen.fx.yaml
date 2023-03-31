@@ -431,11 +431,12 @@ GatePassScreen As screen:
                 );
                 Set(
                     Routecodedata,
-                    First(
+                    //First
+                    Index(
                         Filter(
                             'Location VAN Mappings',
                             Van.Warehouse = StockTransferWarehouse
-                        )
+                        ),1
                     ).Area.'Name (zx_name)'
                 );
                 Set(
@@ -487,11 +488,12 @@ GatePassScreen As screen:
                 );
                 Set(
                     Routecodedata,
-                    First(
+                   // First
+                   Index(
                         Filter(
                             'Location VAN Mappings',
                             Van.Warehouse = GUID("69d5acd0-5cb4-ed11-83fe-002248d5da52")
-                        )
+                        ),1
                     ).Area.'Name (zx_name)'
                 );
                 Set(

@@ -529,7 +529,8 @@ App As appinfo:
         );
         ClearCollect(
             colOfflineOrderSequenceNo,
-            First(
+            //First
+            Index(
                 Sort(
                     Filter(
                         'Order Headers',
@@ -537,7 +538,7 @@ App As appinfo:
                     ),
                     'Order Id',
                     SortOrder.Descending
-                )
+                ),1
             ).'Offline Order Number'
         );
         Set(

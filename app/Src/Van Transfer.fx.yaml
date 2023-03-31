@@ -1460,7 +1460,8 @@
                     /////////////////////////////////////////////////////////__________________________________STOCK UPDATION FOR CASES
                     ClearCollect(
                         CurrentQtyCases,
-                        First(transferOutProductLines).qtyCases
+                        //First(transferOutProductLines).qtyCases
+                        Index(transferOutProductLines,1).qtyCases
                     );
                     Clear(StockLinesForFIFO);
                     ForAll(
@@ -1481,7 +1482,8 @@
                         );
                         Patch(
                             CurrentQtyCases,
-                            First(CurrentQtyCases),
+                            //First(CurrentQtyCases)
+                            Index(CurrentQtyCases,1),
                             {Value: OneProductItem.qtyCases}
                         );
                         ForAll(
