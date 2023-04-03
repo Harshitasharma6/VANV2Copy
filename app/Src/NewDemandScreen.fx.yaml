@@ -723,7 +723,8 @@ NewDemandScreen As screen:
         OnSelect: |-
             =Set(
                 VarFirstTodayDemandsHeader,
-                First(colOfflineTodayDemandsHeader).'Check-in Demand Header'
+                //First(colOfflineTodayDemandsHeader).'Check-in Demand Header'
+                Index(colOfflineTodayDemandsHeader,1).'Check-in Demand Header'
             );
             If(
                 CountRows(colOfflineTodayDemandsHeader) = 0,
@@ -786,7 +787,7 @@ NewDemandScreen As screen:
                             Cases: OneProduct.Cases,
                             PCs: OneProduct.PCs,
                             Date: dteCheckInDemand.SelectedDate,
-                            'Check-in Demand Header': First(colOfflineTodayDemandsHeader)/*LookUp(
+                            'Check-in Demand Header': Index(colOfflineTodayDemandsHeader,1)/*First(colOfflineTodayDemandsHeader)LookUp(
                                 'Check-in Demand Headers',
                                 'Check-in Demand Header' = First(colOfflineTodayDemandsHeader).'Check-in Demand Header'
                             )*/,
