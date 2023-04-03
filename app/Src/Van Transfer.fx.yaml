@@ -415,7 +415,8 @@
                     colModifiedTransferLinesHeaders,
                     LookUp(
                         'Stock Transfer Headers',
-                        'To Location'.Warehouse = LookUp(
+                      'To Location'.Warehouse =
+                        LookUp(
                             'Stock Transfer Headers',
                             'Stock Transfer Header' = Itemm.'Transfer Order No'.'Stock Transfer Header'
                         ).'From Location'.Warehouse && 'Created On' >= Today()
@@ -1181,8 +1182,8 @@
                             'Stock Transfer Header' = ThisItem.'Transfer Order No'.'Stock Transfer Header'
                         ).'To Location'.Warehouse
                     ).Area.Area
-                ).Salesperson.'Full Name'*/
-                //ThisItem.ToSalesperson
+                ).Salesperson.'Full Name'
+                ThisItem.ToSalesperson*/
                 LookUp(Warehouses,Name = lblVanTransferInVehicleValue_1.Text).'Salesman Code'.'Full Name'
             Width: =220
             X: =400

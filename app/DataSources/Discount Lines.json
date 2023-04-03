@@ -142,6 +142,10 @@
       "OptionSetReferenceItem4": {
         "OptionSetReferenceColumnName": "zx_uom",
         "OptionSetReferenceEntityName": "SKU Masters"
+      },
+      "OptionSetReferenceItem5": {
+        "OptionSetReferenceColumnName": "zx_skuuom",
+        "OptionSetReferenceEntityName": "Invoice Lines"
       }
     },
     "OptionSetTypeKey": "PicklistType",

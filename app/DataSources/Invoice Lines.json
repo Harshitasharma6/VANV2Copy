@@ -81,6 +81,7 @@
       "zx_SchemeParentItemCode": "Scheme Parent Item Code",
       "zx_sgstvalue": "SGST Value",
       "zx_sgstvalue_base": "SGST Value (Base)",
+      "zx_skuuom": "SKU UOM",
       "zx_taxablevalue": "Taxable Value",
       "zx_taxablevalue_base": "Taxable Value (Base)",
       "zx_taxamount": "Tax Amount",
@@ -92,6 +93,7 @@
       "zx_totalquantity": "Total Quantity",
       "zx_totalquantity_base": "Total Quantity (Base)",
       "zx_uom": "UOM",
+      "zx_uomcodename": "UOM code Name",
       "zx_VanNo": "Van No"
     },
     "PreferredName": "Invoice Lines",
