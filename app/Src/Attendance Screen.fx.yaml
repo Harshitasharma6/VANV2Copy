@@ -306,7 +306,7 @@
                                 Height: =39
                                 OnSelect: =Select(Parent)
                                 Size: =_VarGblAppFonts.Size.Regular
-                                Text: |-
+                                Text: |
                                     =//ThisItem.Product.Name
                                     ThisItem.'SKU Master'.'Pack Title'
                                 Width: =350

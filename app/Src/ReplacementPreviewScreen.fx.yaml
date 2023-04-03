@@ -409,7 +409,7 @@
                                     'Total Quantity': ThissItem.qtyCases + ThissItem.qtyPcs,
                                     Cases: ThissItem.qtyCases,
                                     PCs: ThissItem.qtyPcs,
-                                    'Order Number': First(CreateReplacementRecord) /*LookUp(
+                                    'Order Number': Index(CreateReplacementRecord,1)/*First(CreateReplacementRecord) LookUp(
                                         'Order Headers',
                                         'Order Number' = First(CreateReplacementRecord).'Order Number'
                                     )*/,
