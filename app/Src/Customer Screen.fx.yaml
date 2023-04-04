@@ -298,22 +298,24 @@
                                     'Order Headers',
                                     Customer.Account = ThisItem.Account
                                 ),
-                                'Order Date',
+                                'Created On',
                                 SortOrder.Descending
-                            ),1
+                            ),
+                            1
                         ).'Net Amount'
                     ),
                     "0",
-                    //First
+                   // First
                     Index(
                         Sort(
                             Filter(
                                 'Order Headers',
                                 Customer.Account = ThisItem.Account
                             ),
-                            'Order Date',
+                            'Created On',
                             SortOrder.Descending
-                        ),1
+                        ),
+                        1
                     ).'Net Amount'
                 )
             Width: =127
