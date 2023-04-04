@@ -2186,11 +2186,11 @@
                                     varConfirmationIRN,
                                     "signedQRGenerated"
                                 );
-                                Notify(
+                                /*Notify(
                                     NotificationType.Success,
                                     2000
-                                );
-                                If(
+                                );*/
+                        If(
                                     !IsBlank(testButton),
                                     Patch(
                                         'Invoice Headers',
@@ -3715,7 +3715,7 @@
                                                     'Invoice Lines',
                                                     LookUp(
                                                         'Invoice Lines',
-                                                        'Invoice Number'.'Invoice Number' = CreateInvHeaderdata.'Invoice Number'
+                                                        'Invoice Number'.'Invoice Number' = CreateInvHeaderdata.'Invoice Number' && 'Item SKU'.'SKU Master' = OrdrItems.skuId
                                                     ),
                                                     {
                                                         'Invoice Number': LookUp(
@@ -4130,7 +4130,7 @@
                                                             'Invoice Lines',
                                                             LookUp(
                                                                 'Invoice Lines',
-                                                                'Invoice Number'.'Invoice Number' = CreateInvHeaderdata.'Invoice Number'
+                                                                'Invoice Number'.'Invoice Number' = CreateInvHeaderdata.'Invoice Number' && 'Item SKU'.'SKU Master' = OrdrItems.skuId
                                                             ),
                                                             {
                                                                 'Invoice Number': LookUp(
@@ -4561,7 +4561,7 @@
                                                             'Invoice Lines',
                                                             LookUp(
                                                                 'Invoice Lines',
-                                                                'Invoice Number'.'Invoice Number' = CreateInvHeaderdata.'Invoice Number'
+                                                                'Invoice Number'.'Invoice Number' = CreateInvHeaderdata.'Invoice Number' && 'Item SKU'.'SKU Master' = OrdrItems.skuId
                                                             ),
                                                             {
                                                                 'Invoice Number': LookUp(
@@ -4683,7 +4683,7 @@
                         If(
                                 !IsBlank(varConfirmationIRN),
                                 If(
-                                    IsBlank(Text(testButton.qr)),
+                                    IsBlank(Text(testButton.qr)) && Not(First(CreateInvHeader).'IRN Message' = "N"),
                                     Set(
                                         varIRN,
                                         true
@@ -4694,21 +4694,27 @@
                                         4000
                                     );
                                     ,
-                                    Set(
-                                        varIRN,
-                                        true
-                                    );
-                                    Notify(
-                                        "IRN has been generated successfully.",
-                                        NotificationType.Success,
-                                        4000
+                                    If(
+                                        Not(First(CreateInvHeader).'IRN Message' = "N"),
+                                        Set(
+                                            varIRN,
+                                            true
+                                        );
+                                        Notify(
+                                            "IRN has been generated successfully.",
+                                            NotificationType.Success,
+                                            4000
+                                        )
                                     )
                                 ),
-                                Notify(
-                                    "IRN not generated.",
-                                    NotificationType.Warning,
-                                    4000
-                                );
+                                If(
+                                    First(CreateInvHeader).'IRN Message' = "N",
+                                    Notify(
+                                        "IRN not generated.",
+                                        NotificationType.Warning,
+                                        4000
+                                    );
+                                )
                             );
                             
                         )
