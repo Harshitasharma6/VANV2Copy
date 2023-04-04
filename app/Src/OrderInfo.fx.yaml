@@ -82,7 +82,7 @@
                         },
                         {
                             col1: "Reason",
-                            col2: Text(oh.Reason)
+                            col2: Text(oh.'Reason (zx_reason)')
                         },
                         {
                             col1: "Total Quantity",

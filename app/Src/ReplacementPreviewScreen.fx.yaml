@@ -377,7 +377,7 @@
                                 'Primary Email' = User().Email
                             ),
                             'Delivery Date': Today(),
-                            Reason: 'Reason (Order Headers)'.Replacement
+                        'Reason (zx_reason)':'Reason (Order Headers)'.Replacement
                               /*  'Net Amount': (Sum(
                                     colCartItems,
                                     discountedPrice

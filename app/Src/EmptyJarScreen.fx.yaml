@@ -84,17 +84,25 @@ EmptyJarScreen As screen:
                 ),
                 galOrderDateFilter_1.Selected.Value = "Yesterday",
                 Filter(
-                    colOfflineAllOrderLines,
-                    'Order Number'.'Order Type' = 'Order Type (Choice)'.'Empty jar Order' && Salesperson.'Primary Email' = User().Email && 'Order Number'.'Order Date' = Today() - 1 && (compEmptyJarSearch.SearchText in 'Customer no.'.'Customer Name' || compEmptyJarSearch.SearchText in 'Customer no.'.'Contact Person name' || compEmptyJarSearch.SearchText in 'Customer no.'.'Address 1')
+                    'Order Lines',
+                    'Order Number'.'Order Type' = 'Order Type (Choice)'.'Empty jar Order' && 
+                    Salesperson.'Primary Email' = User().Email && 'Order Number'.'Order Date' <= Today() &&
+                    'Order Number'.'Order Date' >=
+                            Today()
+                            -1
+                        && (compEmptyJarSearch.SearchText in 'Customer no.'.'Customer Name' || compEmptyJarSearch.SearchText in 'Customer no.'.'Contact Person name' || compEmptyJarSearch.SearchText in 'Customer no.'.'Address 1')
                 ),
                 galOrderDateFilter_1.Selected.Value = "Last 7 Days",
                 Filter(
-                    colOfflineAllOrderLines,
-                    'Order Number'.'Order Type' = 'Order Type (Choice)'.'Empty jar Order' && Salesperson.'Primary Email' = User().Email && 'Order Number'.'Order Date' <= Today() && 'Order Number'.'Order Date' >= Today() - 7 && (compEmptyJarSearch.SearchText in 'Customer no.'.'Customer Name' || compEmptyJarSearch.SearchText in 'Customer no.'.'Contact Person name' || compEmptyJarSearch.SearchText in 'Customer no.'.'Address 1')
+                    'Order Lines',
+                    'Order Number'.'Order Type' = 'Order Type (Choice)'.'Empty jar Order' && Salesperson.'Primary Email' = User().Email && 'Order Number'.'Order Date' <= Today() && 'Order Number'.'Order Date' >= 
+                            Today()-7
+                           
+                        && (compEmptyJarSearch.SearchText in 'Customer no.'.'Customer Name' || compEmptyJarSearch.SearchText in 'Customer no.'.'Contact Person name' || compEmptyJarSearch.SearchText in 'Customer no.'.'Address 1')
                 ),
                 galOrderDateFilter_1.Selected.Value = "Last 30 Days",
                 Filter(
-                    colOfflineAllOrderLines,
+                    'Order Lines',
                     'Order Number'.'Order Type' = 'Order Type (Choice)'.'Empty jar Order' && Salesperson.'Primary Email' = User().Email && 'Order Number'.'Order Date' <= Today() && 'Order Number'.'Order Date' >= Today() - 30 && (compEmptyJarSearch.SearchText in 'Customer no.'.'Customer Name' || compEmptyJarSearch.SearchText in 'Customer no.'.'Contact Person name' || compEmptyJarSearch.SearchText in 'Customer no.'.'Address 1')
                 )
             )

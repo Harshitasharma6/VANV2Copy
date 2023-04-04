@@ -477,7 +477,7 @@
                 FocusedBorderThickness: =2
                 HoverColor: =_VarGblAppColors.HeaderBg
                 HoverFill: =_VarGblAppColors.BisleriBlueLight
-                Items: =Choices([@'Order Headers'].Reason)
+                Items: =Choices([@'Order Headers'].'Reason (zx_reason)')
                 PressedColor: =_VarGblAppColors.LightText
                 PressedFill: =_VarGblAppColors.BisleriBlueMediumLight
                 SelectionColor: =_VarGblAppColors.HeaderBg
@@ -968,7 +968,7 @@
                             'Order Type': 'Order Type (Choice)'.'FOC Order',
                             Latitude: Location.Latitude,
                             Longitude: Location.Longitude,
-                            Reason: drpFOCReasons.Selected.Value,
+                            'Reason (zx_reason)': drpFOCReasons.Selected.Value,
                             Salesperson: LookUp(
                                 Users,
                                 'Primary Email' = User().Email

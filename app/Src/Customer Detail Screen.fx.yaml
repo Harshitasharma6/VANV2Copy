@@ -457,8 +457,8 @@
         Color: =_VarGblAppColors.GreenColor
         Height: =40
         Icon: =Icon.Phone
-        OnSelect: |-
-            =Launch("tel://"&CustData.telephone1)
+        OnSelect: |
+            =Launch("tel://"& CustData.zx_contactpersonmobileno)
         TabIndex: =0
         Width: =40
         X: =571

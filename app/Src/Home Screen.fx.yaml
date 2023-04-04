@@ -576,7 +576,7 @@
                                         Height: =50
                                         OnSelect: =Select(Parent)
                                         Size: =_VarGblAppFonts.Size.Subtitle
-                                        Text: =ThisItem.'Order Number'.Reason
+                                        Text: =ThisItem.'Order Number'.'Reason (zx_reason)'
                                         Width: =200
                                         X: =700
                                         Y: =5
@@ -1280,7 +1280,7 @@
                                         Height: =50
                                         OnSelect: =Select(Parent)
                                         Size: =_VarGblAppFonts.Size.Subtitle
-                                        Text: =ThisItem.'Order Number'.Reason
+                                        Text: =ThisItem.'Order Number'.'Reason (zx_reason)'
                                         Width: =185
                                         X: =445
                                         Y: =5

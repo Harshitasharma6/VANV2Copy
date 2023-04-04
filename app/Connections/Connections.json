@@ -1,6 +1,5 @@
 {
   "05949ac3-3ae7-4e0a-a83b-8c204e6fad54": {
-    "connectionParameters": {},
     "connectionRef": {
       "apiTier": "Standard",
       "displayName": "Logic flows",
@@ -43,9 +42,6 @@
     "id": "05949ac3-3ae7-4e0a-a83b-8c204e6fad54"
   },
   "095fdbff-58da-49ce-8dd0-03e75073ae96": {
-    "connectionParameters": {
-      "sku": "Enterprise"
-    },
     "connectionRef": {
       "apiTier": "Standard",
       "displayName": "IRN - 1",
@@ -66,9 +62,6 @@
     "id": "095fdbff-58da-49ce-8dd0-03e75073ae96"
   },
   "0b2e8b71-cf2b-4ea4-9c96-3a21300305f8": {
-    "connectionParameters": {
-      "sku": "Enterprise"
-    },
     "connectionRef": {
       "apiTier": "Premium",
       "displayName": "Spatial Services",
@@ -132,9 +125,6 @@
     "id": "0b2e8b71-cf2b-4ea4-9c96-3a21300305f8"
   },
   "2667ee1f-80f0-4208-920d-52d2b701e153": {
-    "connectionParameters": {
-      "sku": "Enterprise"
-    },
     "connectionRef": {
       "apiTier": "Premium",
       "displayName": "Spatial Services",
@@ -152,9 +142,6 @@
     "id": "2667ee1f-80f0-4208-920d-52d2b701e153"
   },
   "27446bff-9450-4cd8-be8c-f15f3bcc6e60": {
-    "connectionParameters": {
-      "sku": "Enterprise"
-    },
     "connectionRef": {
       "apiTier": "Premium",
       "displayName": "Spatial Services",
@@ -172,9 +159,6 @@
     "id": "27446bff-9450-4cd8-be8c-f15f3bcc6e60"
   },
   "3320c2dd-af4e-4207-b19f-5cf78339a28e": {
-    "connectionParameters": {
-      "sku": "Enterprise"
-    },
     "connectionRef": {
       "apiTier": "Standard",
       "displayName": "IRN - 1",
@@ -193,9 +177,6 @@
     "id": "3320c2dd-af4e-4207-b19f-5cf78339a28e"
   },
   "368b98f0-4187-41d5-b34c-4286dcef34de": {
-    "connectionParameters": {
-      "sku": "Enterprise"
-    },
     "connectionRef": {
       "apiTier": "Standard",
       "displayName": "IRN",
@@ -214,9 +195,6 @@
     "id": "368b98f0-4187-41d5-b34c-4286dcef34de"
   },
   "4469b221-e1db-4d7c-ae7c-ce4dc8cf2efe": {
-    "connectionParameters": {
-      "sku": "Enterprise"
-    },
     "connectionRef": {
       "apiTier": "Premium",
       "displayName": "Spatial Services",
@@ -234,9 +212,6 @@
     "id": "4469b221-e1db-4d7c-ae7c-ce4dc8cf2efe"
   },
   "458bf082-0b55-41c7-9e01-c842f2587831": {
-    "connectionParameters": {
-      "sku": "Enterprise"
-    },
     "connectionRef": {
       "apiTier": "Premium",
       "displayName": "Spatial Services",
@@ -254,9 +229,6 @@
     "id": "458bf082-0b55-41c7-9e01-c842f2587831"
   },
   "4ad5d7c7-d90a-4705-97da-454fd5b45c8d": {
-    "connectionParameters": {
-      "sku": "Enterprise"
-    },
     "connectionRef": {
       "apiTier": "Premium",
       "displayName": "Spatial Services",
@@ -274,9 +246,6 @@
     "id": "4ad5d7c7-d90a-4705-97da-454fd5b45c8d"
   },
   "4cc655b1-87b6-4a25-86ce-1733df30efb3": {
-    "connectionParameters": {
-      "sku": "Enterprise"
-    },
     "connectionRef": {
       "apiTier": "Premium",
       "displayName": "Spatial Services",
@@ -294,9 +263,6 @@
     "id": "4cc655b1-87b6-4a25-86ce-1733df30efb3"
   },
   "55f72745-b50d-456c-87c4-787c319fa6eb": {
-    "connectionParameters": {
-      "sku": "Enterprise"
-    },
     "connectionRef": {
       "apiTier": "Premium",
       "bypassConsent": true,
@@ -316,9 +282,6 @@
     "id": "55f72745-b50d-456c-87c4-787c319fa6eb"
   },
   "6d003389-1ba3-44bd-b2c3-ab750db939af": {
-    "connectionParameters": {
-      "sku": "Enterprise"
-    },
     "connectionRef": {
       "apiTier": "Premium",
       "displayName": "Spatial Services",
@@ -336,9 +299,6 @@
     "id": "6d003389-1ba3-44bd-b2c3-ab750db939af"
   },
   "6f9fe8f7-792a-4b31-9ac0-2bf185234990": {
-    "connectionParameters": {
-      "sku": "Enterprise"
-    },
     "connectionRef": {
       "apiTier": "Standard",
       "displayName": "Payment",
@@ -358,9 +318,6 @@
     "id": "6f9fe8f7-792a-4b31-9ac0-2bf185234990"
   },
   "83bb3a2a-e84a-4b3e-bf81-afbdf8133213": {
-    "connectionParameters": {
-      "sku": "Enterprise"
-    },
     "connectionRef": {
       "apiTier": "Premium",
       "displayName": "Spatial Services",
@@ -379,7 +336,6 @@
     "id": "83bb3a2a-e84a-4b3e-bf81-afbdf8133213"
   },
   "88540a79-971a-4ec4-a435-4d2b17fd8f34": {
-    "connectionParameters": {},
     "connectionRef": {
       "apiTier": "Standard",
       "displayName": "Logic flows",
@@ -415,9 +371,6 @@
     "id": "88540a79-971a-4ec4-a435-4d2b17fd8f34"
   },
   "cdd0cfec-d272-4928-abc7-3479f9b77706": {
-    "connectionParameters": {
-      "sku": "Enterprise"
-    },
     "connectionRef": {
       "apiTier": "Premium",
       "displayName": "Spatial Services",
@@ -471,9 +424,6 @@
     "id": "cdd0cfec-d272-4928-abc7-3479f9b77706"
   },
   "ddad03d4-9bde-4e09-b5f2-b67de44e89f1": {
-    "connectionParameters": {
-      "sku": "Enterprise"
-    },
     "connectionRef": {
       "apiTier": "Premium",
       "displayName": "Spatial Services",
@@ -491,9 +441,6 @@
     "id": "ddad03d4-9bde-4e09-b5f2-b67de44e89f1"
   },
   "dfbf20ae-d93a-4b38-b148-5e8e31f8755d": {
-    "connectionParameters": {
-      "sku": "Enterprise"
-    },
     "connectionRef": {
       "apiTier": "Premium",
       "displayName": "Spatial Services",
@@ -511,9 +458,6 @@
     "id": "dfbf20ae-d93a-4b38-b148-5e8e31f8755d"
   },
   "eac358ef-8b2b-44d8-8393-c3e00c4416fc": {
-    "connectionParameters": {
-      "sku": "Enterprise"
-    },
     "connectionRef": {
       "apiTier": "Standard",
       "displayName": "Statuscheckpayment",

@@ -60,6 +60,7 @@
       "zx_netamountwithoutejar_base": "Net Amount (Without E Jar) (Base)",
       "zx_OrderNumber": "Order Number",
       "zx_ordertype": "Order Type",
+      "zx_reason3": "Reason3",
       "zx_RouteNo": "Route No",
       "zx_Salesperson": "Salesperson",
       "zx_salespersonemployeecode": "Sales Person Employee Code",
@@ -247,6 +248,10 @@
       "OptionSetReferenceItem1": {
         "OptionSetReferenceColumnName": "zx_ordertype",
         "OptionSetReferenceEntityName": "Order Headers"
+      },
+      "OptionSetReferenceItem2": {
+        "OptionSetReferenceColumnName": "zx_ordertype",
+        "OptionSetReferenceEntityName": "Invoice Lines"
       }
     },
     "OptionSetTypeKey": "PicklistType",

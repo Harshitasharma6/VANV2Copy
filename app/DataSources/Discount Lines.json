@@ -128,24 +128,24 @@
         "OptionSetReferenceEntityName": "Discount Lines"
       },
       "OptionSetReferenceItem1": {
+        "OptionSetReferenceColumnName": "zx_skuuom",
+        "OptionSetReferenceEntityName": "Invoice Lines"
+      },
+      "OptionSetReferenceItem2": {
         "OptionSetReferenceColumnName": "zx_uom",
         "OptionSetReferenceEntityName": "Item UOMS"
       },
-      "OptionSetReferenceItem2": {
+      "OptionSetReferenceItem3": {
         "OptionSetReferenceColumnName": "zx_offeruom",
         "OptionSetReferenceEntityName": "Scheme Offers"
       },
-      "OptionSetReferenceItem3": {
+      "OptionSetReferenceItem4": {
         "OptionSetReferenceColumnName": "zx_ordereduom",
         "OptionSetReferenceEntityName": "Scheme Orders"
       },
-      "OptionSetReferenceItem4": {
+      "OptionSetReferenceItem5": {
         "OptionSetReferenceColumnName": "zx_uom",
         "OptionSetReferenceEntityName": "SKU Masters"
-      },
-      "OptionSetReferenceItem5": {
-        "OptionSetReferenceColumnName": "zx_skuuom",
-        "OptionSetReferenceEntityName": "Invoice Lines"
       }
     },
     "OptionSetTypeKey": "PicklistType",

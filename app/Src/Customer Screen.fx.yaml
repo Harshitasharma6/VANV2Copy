@@ -60,9 +60,10 @@
             DisabledBorderColor: =RGBA(0, 0, 0, 0)
             FocusedBorderThickness: =4
             FontWeight: =FontWeight.Semibold
-            OnSelect: |-
+            OnSelect: |
                 =//Navigate('customer info',ScreenTransition.Fade, {detailsssssss69: ThisItem.Account});
                 //Reset(customerinfo)
+                
                 Navigate('Customer Detail Screen', ScreenTransition.Cover, {CustData:ThisItem})
             Size: =17
             TabIndex: =0

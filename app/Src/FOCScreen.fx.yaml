@@ -136,7 +136,7 @@
             Height: =37
             OnSelect: =Select(Parent)
             Size: =_VarGblAppFonts.Size.Medium
-            Text: =ThisItem.Reason
+            Text: =ThisItem.'Reason (zx_reason)'
             Width: =300
             X: =147
             Y: =63

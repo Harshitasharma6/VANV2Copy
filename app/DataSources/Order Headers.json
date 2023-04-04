@@ -56,7 +56,8 @@
       "zx_ordertype": "Order Type",
       "zx_paymentstatus": "Payment Status",
       "zx_paymenttype": "Payment Type",
-      "zx_reason": "Reason",
+      "zx_reason": "Reason (zx_reason)",
+      "zx_reason_t_": "Reason (zx_reason_t_)",
       "zx_RouteNo": "Route No",
       "zx_Salesperson": "Salesperson",
       "zx_salespersonemployeecode": "Sales Person Employee Code",
@@ -121,6 +122,48 @@
     },
     "OptionSetTypeKey": "BooleanType",
     "RelatedColumnInvariantName": "new_push",
+    "RelatedEntityName": "Order Headers",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "FOC Reason",
+    "Name": "zx_focreason",
+    "OptionSetInfoNameMapping": {
+      "425120000": "RTO",
+      "425120001": "Replacement",
+      "425120002": "Route Replacement",
+      "425120003": "Returnable",
+      "425120004": "Pop Scheme",
+      "425120005": "Job Work",
+      "425120006": "IDC Transfer",
+      "425120007": "Expired Goods Can/Pet",
+      "425120008": "DTH Scheme",
+      "425120009": "Display Incentive",
+      "425120010": "Display",
+      "425120011": "Deposit",
+      "425120012": "Self consumption",
+      "425120013": "Complimentary",
+      "425120014": "Complaint",
+      "425120015": "Breakage"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": true,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "zx_reason_t_",
+        "OptionSetReferenceEntityName": "Order Headers"
+      },
+      "OptionSetReferenceItem1": {
+        "OptionSetReferenceColumnName": "zx_reason3",
+        "OptionSetReferenceEntityName": "Invoice Headers"
+      },
+      "OptionSetReferenceItem2": {
+        "OptionSetReferenceColumnName": "zx_reasoncode",
+        "OptionSetReferenceEntityName": "Invoice Lines"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "zx_reason_t_",
     "RelatedEntityName": "Order Headers",
     "Type": "OptionSetInfo"
   },
