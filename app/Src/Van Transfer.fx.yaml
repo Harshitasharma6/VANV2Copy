@@ -1069,7 +1069,11 @@
             Height: =25
             OnSelect: =Select(Parent)
             Size: =12
-            Text: =LookUp('Stock Transfer Headers', 'Stock Transfer Header' =  ThisItem.'Transfer Order No'.'Stock Transfer Header').'To Location'.Name
+            Text: |-
+                =LookUp(
+                    'Stock Transfer Headers',
+                    'Stock Transfer Header' = ThisItem.'Transfer Order No'.'Stock Transfer Header'
+                ).'To Location'.Name
             Width: =170
             X: =98
             Y: =70

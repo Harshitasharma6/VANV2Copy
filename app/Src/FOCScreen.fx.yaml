@@ -175,7 +175,24 @@
             Height: =37
             OnSelect: =Select(Parent)
             Size: =_VarGblAppFonts.Size.Medium
-            Text: =If( Sum(Filter('Order Lines', 'Order Number'.'Order Number'=ThisItem.'Order Number'), PCs)>0, Sum(Filter('Order Lines', 'Order Number'.'Order Number'=ThisItem.'Order Number'), PCs), 0)
+            Text: |-
+                =If(
+                    Sum(
+                        Filter(
+                            'Order Lines',
+                            'Order Number'.'Order Number' = ThisItem.'Order Number'
+                        ),
+                        PCs
+                    ) > 0,
+                    Sum(
+                        Filter(
+                            'Order Lines',
+                            'Order Number'.'Order Number' = ThisItem.'Order Number'
+                        ),
+                        PCs
+                    ),
+                    0
+                )
             Width: =120
             X: =389
             Y: =100
