@@ -2264,50 +2264,10 @@
                   "relativeAddress": 0
                 },
                 "region": {
-                  "charLength": 2,
-                  "charOffset": 2297,
+                  "charLength": 36,
+                  "charOffset": 2225,
                   "snippet": {
-                    "text": "in"
-                  }
-                }
-              },
-              "properties": {
-                "member": "Items",
-                "module": "EmptyJarScreen",
-                "type": "EmptyJarScreen.galEmptyJarData"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "Filter"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-SuggestRemoteExecutionHint-InOpRhs",
-          "ruleIndex": 3
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "EmptyJarScreen.galEmptyJarData.Items"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "EmptyJarScreen.galEmptyJarData.Items",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 2,
-                  "charOffset": 2331,
-                  "snippet": {
-                    "text": "||"
+                    "text": "IsToday('Order Number'.'Order Date')"
                   }
                 }
               },
@@ -2345,9 +2305,9 @@
                 },
                 "region": {
                   "charLength": 2,
-                  "charOffset": 2404,
+                  "charOffset": 2222,
                   "snippet": {
-                    "text": "||"
+                    "text": "&&"
                   }
                 }
               },
@@ -2385,7 +2345,7 @@
                 },
                 "region": {
                   "charLength": 2,
-                  "charOffset": 2263,
+                  "charOffset": 2262,
                   "snippet": {
                     "text": "&&"
                   }
@@ -2425,7 +2385,7 @@
                 },
                 "region": {
                   "charLength": 1,
-                  "charOffset": 2831,
+                  "charOffset": 2830,
                   "snippet": {
                     "text": "-"
                   }
@@ -2465,7 +2425,7 @@
                 },
                 "region": {
                   "charLength": 2,
-                  "charOffset": 2786,
+                  "charOffset": 2785,
                   "snippet": {
                     "text": ">="
                   }
@@ -2505,7 +2465,7 @@
                 },
                 "region": {
                   "charLength": 2,
-                  "charOffset": 2746,
+                  "charOffset": 2745,
                   "snippet": {
                     "text": "&&"
                   }
@@ -2545,7 +2505,7 @@
                 },
                 "region": {
                   "charLength": 2,
-                  "charOffset": 2847,
+                  "charOffset": 2846,
                   "snippet": {
                     "text": "&&"
                   }
@@ -2585,7 +2545,7 @@
                 },
                 "region": {
                   "charLength": 1,
-                  "charOffset": 3381,
+                  "charOffset": 3380,
                   "snippet": {
                     "text": "-"
                   }
@@ -2625,7 +2585,7 @@
                 },
                 "region": {
                   "charLength": 2,
-                  "charOffset": 3353,
+                  "charOffset": 3352,
                   "snippet": {
                     "text": ">="
                   }
@@ -2665,7 +2625,7 @@
                 },
                 "region": {
                   "charLength": 2,
-                  "charOffset": 3322,
+                  "charOffset": 3321,
                   "snippet": {
                     "text": "&&"
                   }
@@ -2705,7 +2665,7 @@
                 },
                 "region": {
                   "charLength": 2,
-                  "charOffset": 3414,
+                  "charOffset": 3413,
                   "snippet": {
                     "text": "&&"
                   }
@@ -2745,7 +2705,7 @@
                 },
                 "region": {
                   "charLength": 1,
-                  "charOffset": 3932,
+                  "charOffset": 3931,
                   "snippet": {
                     "text": "-"
                   }
@@ -2785,7 +2745,7 @@
                 },
                 "region": {
                   "charLength": 2,
-                  "charOffset": 3921,
+                  "charOffset": 3920,
                   "snippet": {
                     "text": ">="
                   }
@@ -2825,7 +2785,7 @@
                 },
                 "region": {
                   "charLength": 2,
-                  "charOffset": 3890,
+                  "charOffset": 3889,
                   "snippet": {
                     "text": "&&"
                   }
@@ -2865,7 +2825,7 @@
                 },
                 "region": {
                   "charLength": 2,
-                  "charOffset": 3937,
+                  "charOffset": 3936,
                   "snippet": {
                     "text": "&&"
                   }
@@ -5357,7 +5317,7 @@
             "level": "Low"
           },
           "ruleId": "acc-ReadableScreenNameNeeded",
-          "ruleIndex": 4
+          "ruleIndex": 3
         },
         {
           "locations": [
@@ -5387,7 +5347,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 5
+          "ruleIndex": 4
         },
         {
           "locations": [
@@ -5416,7 +5376,7 @@
             "level": "Medium"
           },
           "ruleId": "app-DataSourceDefaultMaxRowsLimit",
-          "ruleIndex": 6
+          "ruleIndex": 5
         },
         {
           "locations": [
@@ -5445,7 +5405,7 @@
             "level": "Medium"
           },
           "ruleId": "app-ScreenHasManyControls",
-          "ruleIndex": 7
+          "ruleIndex": 6
         },
         {
           "locations": [
@@ -5474,7 +5434,7 @@
             "level": "Medium"
           },
           "ruleId": "app-ScreenHasManyControls",
-          "ruleIndex": 7
+          "ruleIndex": 6
         }
       ],
       "tool": {
@@ -5532,26 +5492,6 @@
                 "howToFix": [
                   "You might need to convert the value to be the same type, such as converting a date string (e.g., \"12/31/2018\") to a date value.",
                   "If you’re comparing records or tables, the field or column types must match exactly."
-                ],
-                "level": "Medium",
-                "primaryCategory": "formula",
-                "whyFix": ""
-              }
-            },
-            {
-              "id": "app-SuggestRemoteExecutionHint-InOpRhs",
-              "messageStrings": {
-                "issue": {
-                  "text": "Delegation warning. The highlighted part of this formula might not work correctly on large data sets."
-                }
-              },
-              "properties": {
-                "componentType": "app",
-                "howToFix": [
-                  "Change the item to the right of the \"in\" operator to be a column from the correct data source.",
-                  "If your data set exceeds the 500 record limit but contains less than 2,000 records, try resetting the limit.",
-                  "Try simplifying the formula.",
-                  "Try moving your data to a different data source."
                 ],
                 "level": "Medium",
                 "primaryCategory": "formula",

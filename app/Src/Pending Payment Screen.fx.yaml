@@ -1,13 +1,19 @@
 "'Pending Payment Screen' As screen.'phoneLayout_FluidGridWithHeaderPageLayout_ver3.0'":
     Fill: =_VarGblAppColors.LightText
     OnVisible: |-
-        =ClearCollect(
+        =/*ClearCollect(
             paymentLines,
-            Filter(
+           AddColumns( Filter(
                 'Order Lines',
                 'Order Number'.'Order Number' = paymentData.'Order Number'
-            )
-        )
+            ), "SKU Master",)
+        )*/
+        ClearCollect(
+            paymentLines,
+          Filter(
+                'Order Lines',
+                'Order Number'.'Order Number' = paymentData.'Order Number'
+            ))
 
     canPayment_1 As fluidGrid.fluidGridWithBlankCard:
         BorderThickness: =0
