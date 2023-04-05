@@ -165,7 +165,7 @@
             Size: =11
             Text: |-
                 =If(
-                    IsBlank(
+                    /*IsBlank(
                         Text(
                             //First
                             Index(
@@ -180,7 +180,11 @@
                             ).'Order Date',
                             "dd mmm yyyy"
                         )
-                    ),
+                    )*/  
+                    CountRows(Filter(
+                                    'Order Headers',
+                                    Customer.Account = ThisItem.Account
+                                ))=0,
                     Text("-"),
                     Text(
                        // First
@@ -290,7 +294,7 @@
             Size: =11
             Text: |-
                 ="₹ " & If(
-                    IsBlank(
+                    /*IsBlank(
                         //First 
                         Index(
                             Sort(
@@ -303,7 +307,11 @@
                             ),
                             1
                         ).'Net Amount'
-                    ),
+                    )*/ 
+                     CountRows(Filter(
+                                    'Order Headers',
+                                    Customer.Account = ThisItem.Account
+                                ))=0,
                     "0",
                    // First
                     Index(
