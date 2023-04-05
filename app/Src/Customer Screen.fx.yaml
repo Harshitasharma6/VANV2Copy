@@ -181,10 +181,10 @@
                             "dd mmm yyyy"
                         )
                     )*/  
-                    CountRows(Filter(
+                   IsBlank(LookUp(
                                     'Order Headers',
                                     Customer.Account = ThisItem.Account
-                                ))=0,
+                                )),
                     Text("-"),
                     Text(
                        // First
@@ -308,10 +308,10 @@
                             1
                         ).'Net Amount'
                     )*/ 
-                     CountRows(Filter(
+                    IsBlank(LookUp(
                                     'Order Headers',
                                     Customer.Account = ThisItem.Account
-                                ))=0,
+                                )),
                     "0",
                    // First
                     Index(
