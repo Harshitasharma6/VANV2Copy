@@ -36,23 +36,25 @@
         Y: =355
         ZIndex: =6
 
-    TextInput3 As text:
-        AccessibleLabel: ="TextInput3"
-        Default: ="Text input"
-        Height: =70
-        Size: =21
-        Width: =560
-        X: =80
-        Y: =550
-        ZIndex: =7
+    Gallery3 As gallery.galleryVertical:
+        DelayItemLoading: =true
+        Items: |
+            =Filter(
+                'Order Lines',
+                'Order Number'.'Order Type' = 'Order Type (Choice)'.'Empty jar Order' && Salesperson.'Primary Email' = User().Email && IsToday('Created On') && DateAdd(Today(), -1) = 'Created On')
+        Layout: =Layout.Vertical
+        LoadingSpinner: =LoadingSpinner.Data
+        TemplateSize: =If(Self.Layout = Layout.Horizontal, Min(280, Self.Width - 60), Min(280, Self.Height - 60))
+        Y: =167
+        ZIndex: =9
 
-    TextInput4 As text:
-        AccessibleLabel: ="TextInput4"
-        Default: ="Text input"
-        Height: =70
-        Size: =21
-        Width: =560
-        X: =80
-        Y: =788
-        ZIndex: =8
+        Label20 As label:
+            Height: =70
+            OnSelect: =Select(Parent)
+            Size: =21
+            Text: =ThisItem.'Order Line No'
+            Width: =560
+            X: =40
+            Y: =40
+            ZIndex: =1
 

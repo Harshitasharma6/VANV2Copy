@@ -60,6 +60,8 @@
       "zx_netamountwithoutejar_base": "Net Amount (Without E Jar) (Base)",
       "zx_OrderNumber": "Order Number",
       "zx_ordertype": "Order Type",
+      "zx_qr": "QR",
+      "zx_qrid": "zx_QRId",
       "zx_reason3": "Reason3",
       "zx_RouteNo": "Route No",
       "zx_Salesperson": "Salesperson",
