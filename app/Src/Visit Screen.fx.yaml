@@ -336,7 +336,7 @@
                         IsBlank(LookUp(
                                         'Order Headers',
                                         Customer.Account = ThisItem.Account
-                                    )),
+                                    ).'Order Date'),
                         "0",
                         //First
                         Index(
@@ -541,7 +541,7 @@
                         IsBlank(LookUp(
                                         'Order Headers',
                                         Customer.Account = ThisItem.Account
-                                    )),
+                                    ).'Order Date'),
                         Text("-"),
                         Text(
                             //First
@@ -1067,7 +1067,7 @@
                 Text: |-
                     =//Concatenate("₹", RandBetween(11000, 36000))
                     "₹" & If(
-                        IsBlank(
+                        /*IsBlank(
                             //First
                             Index(
                                 Sort(
@@ -1079,7 +1079,11 @@
                                     SortOrder.Descending
                                 ),1
                             ).'Total Amount'
-                        ),
+                        )*/
+                        IsBlank(LookUp(
+                                        'Order Headers',
+                                        Customer.Account = ThisItem.Customer.Account
+                                    ).'Order Date'),
                         "0",
                        // First
                        Index(
@@ -1262,7 +1266,7 @@
                 Size: =12
                 Text: |-
                     =If(
-                        IsBlank(
+                        /*IsBlank(
                             Text(
                                 //First
                                 Index(
@@ -1277,7 +1281,11 @@
                                 ).'Order Date',
                                 "dd mmm yyyy"
                             )
-                        ),
+                        )*/
+                        IsBlank(LookUp(
+                                            'Order Headers',
+                                            Customer.Account = ThisItem.Customer.Account
+                                        ).'Order Date'),
                         Text("-"),
                         Text(
                             //First

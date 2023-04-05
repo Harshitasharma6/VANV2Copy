@@ -184,7 +184,7 @@
                    IsBlank(LookUp(
                                     'Order Headers',
                                     Customer.Account = ThisItem.Account
-                                )),
+                                ).'Order Date'),
                     Text("-"),
                     Text(
                        // First
@@ -311,7 +311,7 @@
                     IsBlank(LookUp(
                                     'Order Headers',
                                     Customer.Account = ThisItem.Account
-                                )),
+                                ).'Order Date'),
                     "0",
                    // First
                     Index(
