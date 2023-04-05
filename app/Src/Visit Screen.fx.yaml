@@ -328,7 +328,7 @@
                                         'Order Headers',
                                         Customer.Account = ThisItem.Account
                                     ),
-                                    'Order Date',
+                                    'Created On',
                                     SortOrder.Descending
                                 ),1
                             ).'Total Amount'
@@ -341,7 +341,7 @@
                                     'Order Headers',
                                     Customer.Account = ThisItem.Account
                                 ),
-                                'Order Date',
+                                 'Created On',
                                 SortOrder.Descending
                             ),1
                         ).'Total Amount'
