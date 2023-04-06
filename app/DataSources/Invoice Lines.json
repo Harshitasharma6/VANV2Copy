@@ -58,6 +58,7 @@
       "zx_InvoiceNumber": "Invoice Number",
       "zx_invoicetype": "Invoice Type",
       "zx_itemdescription": "Item Description",
+      "zx_itemhsncode": "Item HSN Code",
       "zx_itemtype": "Item Type",
       "zx_lotno": "Lot No",
       "zx_name": "Invoice Line No",

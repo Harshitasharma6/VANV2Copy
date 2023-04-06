@@ -39,6 +39,7 @@
       "zx_ItemCode": "Item Code",
       "zx_itemcode_configurationcode": "Item code_ConfigurationCode ",
       "zx_itemdescription": "Item Description\u00A0",
+      "zx_itemhsncodename": "Item HSN Code Name",
       "zx_jarapplicable": "Jar Applicable",
       "zx_lotno": "Lot no. NA",
       "zx_lotnumber": "Lot number",
