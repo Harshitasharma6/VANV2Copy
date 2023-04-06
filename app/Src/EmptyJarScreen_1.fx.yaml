@@ -66,10 +66,9 @@ EmptyJarScreen_1 As screen:
                         galOrderDateFilter_3.Selected.Value = "Yesterday",
                         Filter(
                             'Order Lines',
-                            'Order Number'.'Order Type' = 'Order Type (Choice)'.'Empty jar Order' && Salesperson.'Primary Email' = User().Email && 'Order Number'.'Order Date' > DateAdd(
-                                Today(),
-                                -1
-                            )
+                            'Order Number'.'Order Type' = 'Order Type (Choice)'.'Empty jar Order' && Salesperson.'Primary Email' = User().Email && 'Order Number'.'Order Date'> DateValue(DateAdd(Today(),-1))
+                        
+                        && 'Order Number'.'Order Date'< Today()
                         ),
                         galOrderDateFilter_3.Selected.Value = "Last 7 Days",
                         Filter(
@@ -77,7 +76,7 @@ EmptyJarScreen_1 As screen:
                             'Order Number'.'Order Type' = 'Order Type (Choice)'.'Empty jar Order' && Salesperson.'Primary Email' = User().Email && 'Order Number'.'Order Date' > DateAdd(
                                 Today(),
                                 -7
-                            )
+                            ) && 'Order Number'.'Order Date'< Today()
                         ),
                         galOrderDateFilter_3.Selected.Value = "Last 30 Days",
                         Filter(
@@ -85,7 +84,7 @@ EmptyJarScreen_1 As screen:
                             'Order Number'.'Order Type' = 'Order Type (Choice)'.'Empty jar Order' && Salesperson.'Primary Email' = User().Email && 'Order Number'.'Order Date' > DateAdd(
                                 Today(),
                                 -30
-                            )
+                            ) && 'Order Number'.'Order Date'< Today()
                         )
                     ),
                     'Created On',
@@ -106,7 +105,7 @@ EmptyJarScreen_1 As screen:
                                 'Order Number'.'Order Type' = 'Order Type (Choice)'.'Empty jar Order' && Salesperson.'Primary Email' = User().Email && 'Order Number'.'Order Date' > DateAdd(
                                     Today(),
                                     -1
-                                )
+                                ) && 'Order Number'.'Order Date'< Today()
                             ),
                             galOrderDateFilter_3.Selected.Value = "Last 7 Days",
                             Filter(
@@ -114,7 +113,7 @@ EmptyJarScreen_1 As screen:
                                 'Order Number'.'Order Type' = 'Order Type (Choice)'.'Empty jar Order' && Salesperson.'Primary Email' = User().Email && 'Order Number'.'Order Date' > DateAdd(
                                     Today(),
                                     -7
-                                )
+                                ) && 'Order Number'.'Order Date'< Today()
                             ),
                             galOrderDateFilter_3.Selected.Value = "Last 30 Days",
                             Filter(
@@ -122,7 +121,7 @@ EmptyJarScreen_1 As screen:
                                 'Order Number'.'Order Type' = 'Order Type (Choice)'.'Empty jar Order' && Salesperson.'Primary Email' = User().Email && 'Order Number'.'Order Date' > DateAdd(
                                     Today(),
                                     -30
-                                )
+                                ) && 'Order Number'.'Order Date'< Today()
                             )
                         ),
                         'Created On',
