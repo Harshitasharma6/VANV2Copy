@@ -54,7 +54,8 @@
                     Title:"Empty Jars",
                     Id:8,
                     Image:'Visit Image White',
-                    NavScreen:EmptyJarScreen
+                    NavScreen:EmptyJarScreen_1
+                    //EmptyJarScreen
                 },
                 {
                     Title:"Payments",
