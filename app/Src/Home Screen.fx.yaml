@@ -2,6 +2,14 @@
     Fill: |-
         =//_VarGblAppColors.BackgroundColor
         Color.White
+    OnVisible: |-
+        = ClearCollect(
+                colOfflinePayments,
+                Filter(
+                    Payments,
+                    Salesperson.'Primary Email' = User().Email && 'Created On' >= Today()
+                )
+            );
     Width: =640
 
     canHomeScreen As fluidGrid.fluidGridWithBlankCard:
