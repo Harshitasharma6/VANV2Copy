@@ -2063,7 +2063,7 @@
                     FocusedBorderThickness: =2
                     Height: =50
                     HoverFill: =ColorFade(_VarGblAppColors.BisleriBlue, -20%)
-                    OnSelect: |-
+                    OnSelect: |
                         =If(
                             IsBlank(txtPaymentAmountValue_9.Text) && rdbModeOfPayment_2.Selected.Value = 'Payment Mode (Choice)'.KOTAK,
                             Notify(
@@ -2153,19 +2153,20 @@
                                         AllCustomerss,
                                         Account = OrderData.Account
                                     ).GSTIN
-                                ) && ((!(LookUp(
+                                ) && (((LookUp(
                                     AllCustomerss,
                                     Account = OrderData.Account
-                                ).'Customer Group'.Code = "KEY-RT") && LookUp(
+                                ).'Customer Group'.Name <> "KEY-RT") && LookUp(
                                     AllCustomerss,
                                     Account = OrderData.Account
-                                ).Branch.Name = "PUNE") || (!(LookUp(
+                                ).Branch.Name = "PUNE") || ((LookUp(
                                     AllCustomerss,
                                     Account = OrderData.Account
-                                ).'Customer Group'.Code = "COR-RT") && LookUp(
+                                ).'Customer Group'.Name <> "COR-RT") && LookUp(
                                     AllCustomerss,
                                     Account = OrderData.Account
-                                ).Branch.Name = "Mumbai")),
+                                ).Branch.Name = "Mumbai")
+                                ),
                                 Set(
                                     testButton,
                                     'PowerApp->RespondtoaPowerApporflow'.Run(CreateInvHeaderdata.'Invoice Header');
@@ -2206,6 +2207,12 @@
                                     )
                                 );
                                 ,
+                                IsBlank(
+                                    LookUp(
+                                        AllCustomerss,
+                                        Account = OrderData.Account
+                                    ).GSTIN
+                                ),
                                 Patch(
                                     'Invoice Headers',
                                     LookUp(
@@ -2357,6 +2364,29 @@
                                     "QR has been generated sucessfully",
                                     NotificationType.Success,
                                     2000
+                                );
+                                ,
+                                !IsBlank(
+                                    LookUp(
+                                        AllCustomerss,
+                                        Account = OrderData.Account
+                                    ).GSTIN
+                                ) && ((LookUp(
+                                    AllCustomerss,
+                                    Account = OrderData.Account
+                                ).'Customer Group'.Name = "KEY-RT" && LookUp(
+                                    AllCustomerss,
+                                    Account = OrderData.Account
+                                ).Branch.Name = "PUNE") || (LookUp(
+                                    AllCustomerss,
+                                    Account = OrderData.Account
+                                ).'Customer Group'.Name = "COR-RT" && LookUp(
+                                    AllCustomerss,
+                                    Account = OrderData.Account
+                                ).Branch.Name = "Mumbai")),
+                                Set(
+                                    varIRN,
+                                    true
                                 );
                             );
                           /*  If(
@@ -2607,7 +2637,7 @@
                                                 {Value: 0}
                                             );
                                             ,
-                                        //Checking Second condition if the (qty is greater then remainining cases) 
+                                        //Checking Second condition if the (qty is greater then remainining cases)
                                             ((First(CurrentQtyCases).Value > OneFifoItem.'Remaining Qty Cases')),
                                          //////______________CART MANIPULATION
                                             If(
@@ -2679,7 +2709,7 @@
                                     )
                                 )
                             );
-                            
+                           
                         /////////////////////////////////////////////////////////_______________STOCK UPDATION FOR PCS       ____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
                         ClearCollect(
                                 CurrentQty,
@@ -2839,7 +2869,7 @@
                                                     }
                                                 );
                                             );
-                                            
+                                           
                         //Testingggggg__________________________________________________________________________________________________
                         Patch(
                                                 SequenceTestingVariable,
@@ -3002,7 +3032,7 @@
                                     )
                                 )
                             );
-                            
+                           
                         /////////////////////////////////////////////_______________///////SCHEME CART MANIPULATION AND FIFO IMPLEMENTATION
                         /////////////////////////////////////////////////////////_______________STOCK UPDATION FOR CASES __________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
                         ClearCollect(
@@ -3099,7 +3129,7 @@
                                                 {Value: 0}
                                             );
                                             ,
-                                        //Checking Second condition if the (qty is greater then remainining cases) 
+                                        //Checking Second condition if the (qty is greater then remainining cases)
                                             ((First(CurrentQtyCasesScheme).Value > OneFifoItem.'Remaining Qty Cases')),
                                          //////______________CART MANIPULATION
                                             If(
@@ -3162,7 +3192,7 @@
                                     )
                                 )
                             );
-                            
+                           
                         /////////////////////////////////////////////////////////_______________STOCK UPDATION FOR PCS__________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
                         ClearCollect(
                                 CurrentQtyScheme,
@@ -3446,7 +3476,7 @@
                                     )
                                 )
                             );
-                            
+                           
                         /////////////////////////////////////////////////////////_______________ORDER PLACEMENT
                         If(
                                 OrderData.'Mode Of Payment' = 'Payment Type (choice)'.CASH || OrderData.'Mode Of Payment' = 'Payment Type (choice)'.COUPON,
@@ -3586,7 +3616,7 @@
                                             )
                                         )
                                     );
-                                    
+                                   
                         /////////// Patch Invoice Header////////////////////
                         ClearCollect(
                                         CreateInvHeader,
@@ -3654,7 +3684,7 @@
                                             ).'Sequence No' + 1
                                         }
                                     );
-                                    
+                                   
                         //////////////Patch Invoice Line ///////////////////
                         ClearCollect(
                                         CreateInvLine,
@@ -3757,7 +3787,7 @@
                                             )
                                         )
                                     );
-                                    
+                                   
                         ////////// Print Invoice ///////////////  
                         /*Launch(
                                     Invoice.Run(
@@ -3768,7 +3798,7 @@
                                     ).bisleriinvoice
                                 );*/
                                 );
-                                
+                               
                         //Stock substraction from location ____________________________________________________________________________________
                         ForAll(
                                     colManipulatedCartItems As oneLine,
@@ -3782,8 +3812,8 @@
                                             Cases: Sum(
                                                 Filter(
                                                     'Stock Transfer Lines',
-                                                    'Transfer Order No'.'Stock Transfer Header' in varGatePassHeaderAll.headerGUID && SKU.'SKU Master' = oneLine.skuId 
-                                                   //  && 'Created On'>=Today() 
+                                                    'Transfer Order No'.'Stock Transfer Header' in varGatePassHeaderAll.headerGUID && SKU.'SKU Master' = oneLine.skuId
+                                                   //  && 'Created On'>=Today()
                         && 'Transfer accepted' = 'Transfer accepted (Stock Transfer Lines)'.Yes
                                                 ),
                                                 'Remaining Qty Cases'
@@ -3791,8 +3821,8 @@
                                             PCs: Sum(
                                                 Filter(
                                                     'Stock Transfer Lines',
-                                                    'Transfer Order No'.'Stock Transfer Header' in varGatePassHeaderAll.headerGUID && SKU.'SKU Master' = oneLine.skuId 
-                                                     // && 'Created On'>=Today() 
+                                                    'Transfer Order No'.'Stock Transfer Header' in varGatePassHeaderAll.headerGUID && SKU.'SKU Master' = oneLine.skuId
+                                                     // && 'Created On'>=Today()
                         && 'Transfer accepted' = 'Transfer accepted (Stock Transfer Lines)'.Yes
                                                 ),
                                                 'Remaining Qty Pcs'
@@ -4005,7 +4035,7 @@
                                                     )
                                                 )
                                             );
-                                            
+                                           
                         /////////// Patch Invoice Header////////////////////
                         ClearCollect(
                                                 CreateInvHeader,
@@ -4073,7 +4103,7 @@
                                                     ).'Sequence No' + 1
                                                 }
                                             );
-                                            
+                                           
                         //////////////Patch Invoice Line ///////////////////
                         ClearCollect(
                                                 CreateInvLine,
@@ -4188,7 +4218,7 @@
                                             ).bisleriinvoice
                                         );*/
                                         );
-                                        
+                                       
                         //Stock substraction from location ____________________________________________________________________________________
                         ForAll(
                                             colManipulatedCartItems As oneLine,
@@ -4217,7 +4247,7 @@
                                             )
                                         );
                                         Refresh('Current Stocks');
-                                        
+                                       
                         ///////////////////////////////////////////////////////////////////////////Credit Updation in Temporary Credit customer
                         /*Patch(
                                         'Temporary Credit Limits',
@@ -4436,7 +4466,7 @@
                                                     )
                                                 )
                                             );
-                                            
+                                           
                         /////////// Patch Invoice Header////////////////////
                         ClearCollect(
                                                 CreateInvHeader,
@@ -4504,7 +4534,7 @@
                                                     ).'Sequence No' + 1
                                                 }
                                             );
-                                            
+                                           
                         //////////////Patch Invoice Line ///////////////////
                         ClearCollect(
                                                 CreateInvLine,
@@ -4612,7 +4642,7 @@
                                             ).bisleriinvoice
                                         );*/
                                         );
-                                        
+                                       
                         //Stock substraction from location ____________________________________________________________________________________
                         ForAll(
                                             colManipulatedCartItems As oneLine,
@@ -4641,7 +4671,7 @@
                                             )
                                         );
                                         Refresh('Current Stocks');
-                                        
+                                       
                         ///////////////////////////////////////////////////////////////////////////Credit Updation in customer
                         /*Patch(
                                         Customers_1,
@@ -4716,7 +4746,7 @@
                                     );
                                 )
                             );
-                            
+                           
                         )
                     Size: =_VarGblAppFonts.Size.UpperMedium
                     Text: ="Confirm"
@@ -9395,11 +9425,66 @@
             Height: =102
             Size: =_VarGblAppFonts.Size.Title
             Text: |-
-                =If(
-                    IsBlank(Text(testButton.qr)),
-                    "QR Code Generated Successfully!",
-                    "IRN Generated Successfully!"
+                =/*If(
+                    IsBlank(Text(testButton.qr)) && Not(CreateInvHeaderdata.'IRN Message' = "N"),
+                    "QR Code Generated Successfully!",
+                    "IRN Generated Successfully!"
+                )*/
+                If(
+                    !IsBlank(
+                        LookUp(
+                            AllCustomerss,
+                            Account = OrderData.Account
+                        ).GSTIN
+                    ) && ((LookUp(
+                        AllCustomerss,
+                        Account = OrderData.Account
+                    ).'Customer Group'.Name = "KEY-RT" && LookUp(
+                        AllCustomerss,
+                        Account = OrderData.Account
+                    ).Branch.Name = "PUNE") || (LookUp(
+                        AllCustomerss,
+                        Account = OrderData.Account
+                    ).'Customer Group'.Name = "COR-RT" && LookUp(
+                        AllCustomerss,
+                        Account = OrderData.Account
+                    ).Branch.Name = "Mumbai")),
+                    "Your order has been placed",
+                    IsBlank(
+                        LookUp(
+                            AllCustomerss,
+                            Account = OrderData.Account
+                        ).GSTIN
+                    ),
+                    "QR Code Generated Successfully!",
+                    !IsBlank(
+                        LookUp(
+                            AllCustomerss,
+                            Account = OrderData.Account
+                        ).GSTIN
+                    ) && (((LookUp(
+                        AllCustomerss,
+                        Account = OrderData.Account
+                    ).'Customer Group'.Name <> "KEY-RT") && LookUp(
+                        AllCustomerss,
+                        Account = OrderData.Account
+                    ).Branch.Name = "PUNE") || ((LookUp(
+                        AllCustomerss,
+                        Account = OrderData.Account
+                    ).'Customer Group'.Name <> "COR-RT") && LookUp(
+                        AllCustomerss,
+                        Account = OrderData.Account
+                    ).Branch.Name = "Mumbai")),
+                    "IRN Generated Successfully!"
                 )
+                /*If(
+                
+                    !IsBlank(Text(CreateInvHeader.'Local QR ')) && IsBlank(Text(CreateInvHeader.'IRN Number')),
+                    "QR Code Generated Successfully!",
+                    !IsBlank(Text(CreateInvHeader.'IRN Number')) && IsBlank(Text(CreateInvHeader.'Local QR ')),
+                    "IRN Generated Successfully!",
+                    "Your order has been placed"
+                )*/
             Width: =379
             X: =61
             Y: =37
