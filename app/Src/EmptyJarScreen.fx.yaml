@@ -20,16 +20,16 @@ EmptyJarScreen As screen:
             )
         );
 
-    compEmptyJarHeader As Header:
+    compEmptyJarHeader_1 As Header:
         HeaderText: ="Empty Jar"
 
-    compEmptyJarSearch As SearchComp:
+    compEmptyJarSearch_1 As SearchComp:
         SearchHintText: ="Search by Customer"
         X: =20
         Y: =72
         ZIndex: =2
 
-    btnEmptyJarNew As button:
+    btnEmptyJarNew_1 As button:
         Color: =_VarGblAppColors.BisleriBlue
         Fill: =RGBA(255, 255, 255, 1)
         FocusedBorderThickness: =2
@@ -46,66 +46,88 @@ EmptyJarScreen As screen:
         Y: =22
         ZIndex: =3
 
-    galEmptyJarData As gallery.galleryVertical:
+    galEmptyJarData_1 As gallery.galleryVertical:
         AccessibleLabel: ="galEmptyJarData"
         BorderColor: =RGBA(109, 109, 109, 1)
         FocusedBorderColor: =Color.Transparent
         FocusedBorderThickness: =0.5
         Height: =763
         Items: |-
-            =/*If(
-                galOrderDateFilter_1.Selected.Value = "Today's",
-                Filter(
-                    'Order Lines',
-                    'Order Number'.'Order Type' = 'Order Type (Choice)'.'Empty jar Order' && Salesperson.'Primary Email' = User().Email && IsToday('Order Number'.'Order Date') && (compEmptyJarSearch.SearchText in 'Customer no.'.'Customer Name' || compEmptyJarSearch.SearchText in 'Customer no.'.'Contact Person name' || compEmptyJarSearch.SearchText in 'Customer no.'.'Address 1')
+            =If(
+                IsBlank(compEmptyJarSearch_1.SearchText),
+             //Without Search Bar----------------------------------------------------------------------
+                Sort(
+                    If(
+                        galOrderDateFilter_3.Selected.Value = "Today's",
+                        Filter(
+                            'Order Lines',
+                            'Order Number'.'Order Type' = 'Order Type (Choice)'.'Empty jar Order' && Salesperson.'Primary Email' = User().Email && 'Created On' >= Today()
+                        ),
+                        galOrderDateFilter_3.Selected.Value = "Yesterday",
+                        Filter(
+                            'Order Lines',
+                            'Order Number'.'Order Type' = 'Order Type (Choice)'.'Empty jar Order' && Salesperson.'Primary Email' = User().Email && 'Order Number'.'Order Date'> DateValue(DateAdd(Today(),-1))
+                        
+                        && 'Order Number'.'Order Date'< Today()
+                        ),
+                        galOrderDateFilter_3.Selected.Value = "Last 7 Days",
+                        Filter(
+                            'Order Lines',
+                            'Order Number'.'Order Type' = 'Order Type (Choice)'.'Empty jar Order' && Salesperson.'Primary Email' = User().Email && 'Order Number'.'Order Date' > DateAdd(
+                                Today(),
+                                -7
+                            ) && 'Order Number'.'Order Date'< Today()
+                        ),
+                        galOrderDateFilter_3.Selected.Value = "Last 30 Days",
+                        Filter(
+                            'Order Lines',
+                            'Order Number'.'Order Type' = 'Order Type (Choice)'.'Empty jar Order' && Salesperson.'Primary Email' = User().Email && 'Order Number'.'Order Date' > DateAdd(
+                                Today(),
+                                -30
+                            ) && 'Order Number'.'Order Date'< Today()
+                        )
+                    ),
+                    'Created On',
+                    SortOrder.Descending
                 ),
-                galOrderDateFilter_1.Selected.Value = "Yesterday",
+              //With Search Bar----------------------------------------------------
                 Filter(
-                    'Order Lines',
-                    'Order Number'.'Order Type' = 'Order Type (Choice)'.'Empty jar Order' && Salesperson.'Primary Email' = User().Email && 'Order Number'.'Order Date' = Today() - 1 && (compEmptyJarSearch.SearchText in 'Customer no.'.'Customer Name' || compEmptyJarSearch.SearchText in 'Customer no.'.'Contact Person name' || compEmptyJarSearch.SearchText in 'Customer no.'.'Address 1')
-                ),
-                galOrderDateFilter_1.Selected.Value = "Last 7 Days",
-                Filter(
-                    'Order Lines',
-                    'Order Number'.'Order Type' = 'Order Type (Choice)'.'Empty jar Order' && Salesperson.'Primary Email' = User().Email && 'Order Number'.'Order Date' <= Today() && 'Order Number'.'Order Date' >= Today() - 7 && (compEmptyJarSearch.SearchText in 'Customer no.'.'Customer Name' || compEmptyJarSearch.SearchText in 'Customer no.'.'Contact Person name' || compEmptyJarSearch.SearchText in 'Customer no.'.'Address 1')
-                ),
-                galOrderDateFilter_1.Selected.Value = "Last 30 Days",
-                Filter(
-                    'Order Lines',
-                    'Order Number'.'Order Type' = 'Order Type (Choice)'.'Empty jar Order' && Salesperson.'Primary Email' = User().Email && 'Order Number'.'Order Date' <= Today() && 'Order Number'.'Order Date' >= Today() - 30 && (compEmptyJarSearch.SearchText in 'Customer no.'.'Customer Name' || compEmptyJarSearch.SearchText in 'Customer no.'.'Contact Person name' || compEmptyJarSearch.SearchText in 'Customer no.'.'Address 1')
-                )
-            )*/
-            
-            If(
-                galOrderDateFilter_1.Selected.Value = "Today's",
-                Filter(
-                    'Order Lines',
-                    'Order Number'.'Order Type' = 'Order Type (Choice)'.'Empty jar Order' && Salesperson.'Primary Email' = User().Email && 'Created On'>= Today() && (compEmptyJarSearch.SearchText in 'Customer no.'.'Customer Name' || compEmptyJarSearch.SearchText in 'Customer no.'.'Contact Person name' || compEmptyJarSearch.SearchText in 'Customer no.'.'Address 1')
-                ),
-                galOrderDateFilter_1.Selected.Value = "Yesterday",
-                Filter(
-                    'Order Lines',
-                    'Order Number'.'Order Type' = 'Order Type (Choice)'.'Empty jar Order' && 
-                    Salesperson.'Primary Email' = User().Email && 'Order Number'.'Order Date' > DateAdd(
-                            Today(),
-                            -1
-                        ) && (compEmptyJarSearch.SearchText in 'Customer no.'.'Customer Name' || compEmptyJarSearch.SearchText in 'Customer no.'.'Contact Person name' || compEmptyJarSearch.SearchText in 'Customer no.'.'Address 1')
-                ),
-                galOrderDateFilter_1.Selected.Value = "Last 7 Days",
-                Filter(
-                    'Order Lines',
-                    'Order Number'.'Order Type' = 'Order Type (Choice)'.'Empty jar Order' && Salesperson.'Primary Email' = User().Email && /*'Order Number'.'Order Date' <= Today() && 'Order Number'.'Order Date' >=  Today()-7 */'Order Number'.'Order Date' > DateAdd(
-                            Today(),
-                            -7
-                        ) && (compEmptyJarSearch.SearchText in 'Customer no.'.'Customer Name' || compEmptyJarSearch.SearchText in 'Customer no.'.'Contact Person name' || compEmptyJarSearch.SearchText in 'Customer no.'.'Address 1')
-                ),
-                galOrderDateFilter_1.Selected.Value = "Last 30 Days",
-                Filter(
-                    'Order Lines',
-                    'Order Number'.'Order Type' = 'Order Type (Choice)'.'Empty jar Order' && Salesperson.'Primary Email' = User().Email &&'Order Number'.'Order Date' > DateAdd(
-                            Today(),
-                            -30
-                        ) && (compEmptyJarSearch.SearchText in 'Customer no.'.'Customer Name' || compEmptyJarSearch.SearchText in 'Customer no.'.'Contact Person name' || compEmptyJarSearch.SearchText in 'Customer no.'.'Address 1')
+                    Sort(
+                        If(
+                            galOrderDateFilter_3.Selected.Value = "Today's",
+                            Filter(
+                                'Order Lines',
+                                'Order Number'.'Order Type' = 'Order Type (Choice)'.'Empty jar Order' && Salesperson.'Primary Email' = User().Email && 'Created On' >= Today()
+                            ),
+                            galOrderDateFilter_3.Selected.Value = "Yesterday",
+                            Filter(
+                                'Order Lines',
+                                'Order Number'.'Order Type' = 'Order Type (Choice)'.'Empty jar Order' && Salesperson.'Primary Email' = User().Email && 'Order Number'.'Order Date' > DateAdd(
+                                    Today(),
+                                    -1
+                                ) && 'Order Number'.'Order Date'< Today()
+                            ),
+                            galOrderDateFilter_3.Selected.Value = "Last 7 Days",
+                            Filter(
+                                'Order Lines',
+                                'Order Number'.'Order Type' = 'Order Type (Choice)'.'Empty jar Order' && Salesperson.'Primary Email' = User().Email && 'Order Number'.'Order Date' > DateAdd(
+                                    Today(),
+                                    -7
+                                ) && 'Order Number'.'Order Date'< Today()
+                            ),
+                            galOrderDateFilter_3.Selected.Value = "Last 30 Days",
+                            Filter(
+                                'Order Lines',
+                                'Order Number'.'Order Type' = 'Order Type (Choice)'.'Empty jar Order' && Salesperson.'Primary Email' = User().Email && 'Order Number'.'Order Date' > DateAdd(
+                                    Today(),
+                                    -30
+                                ) && 'Order Number'.'Order Date'< Today()
+                            )
+                        ),
+                        'Created On',
+                        SortOrder.Descending
+                    ),
+                    compEmptyJarSearch_1.SearchText in 'Customer no.'.'Customer Name' || compEmptyJarSearch_1.SearchText in 'Customer no.'.'Contact Person name' || compEmptyJarSearch_1.SearchText in 'Customer no.'.'Address 1'
                 )
             )
         Layout: =Layout.Vertical
@@ -116,7 +138,7 @@ EmptyJarScreen As screen:
         Y: =290
         ZIndex: =4
 
-        htmEmptyJarBackground As htmlViewer:
+        htmEmptyJarBackground_1 As htmlViewer:
             Color: =RGBA(242, 242, 242, 1)
             Height: =198
             HtmlText: |-
@@ -126,7 +148,7 @@ EmptyJarScreen As screen:
             X: =15
             ZIndex: =1
 
-        lblEmptyJarName As label:
+        lblEmptyJarName_1 As label:
             BorderColor: =RGBA(0, 0, 0, 0)
             BorderStyle: =BorderStyle.None
             BorderThickness: =2
@@ -144,7 +166,7 @@ EmptyJarScreen As screen:
             Y: =12
             ZIndex: =2
 
-        lblEmptyJarAddress As label:
+        lblEmptyJarAddress_1 As label:
             BorderColor: =RGBA(0, 0, 0, 0)
             BorderStyle: =BorderStyle.None
             BorderThickness: =2
@@ -161,14 +183,14 @@ EmptyJarScreen As screen:
             Y: =69
             ZIndex: =21
 
-        grpEmptyJarFirstName As group:
+        grpEmptyJarFirstName_1 As group:
             Height: =5
             Width: =5
             X: =24
             Y: =30
             ZIndex: =29
 
-            shpEmptyJarFirstNameCircle As circle:
+            shpEmptyJarFirstNameCircle_1 As circle:
                 BorderColor: =RGBA(109, 109, 109, 1)
                 BorderStyle: =BorderStyle.None
                 BorderThickness: =2
@@ -183,7 +205,7 @@ EmptyJarScreen As screen:
                 Y: =30
                 ZIndex: =27
 
-            lblEmptyJarFirstName As label:
+            lblEmptyJarFirstName_1 As label:
                 Align: =Align.Center
                 BorderColor: =RGBA(0, 0, 0, 0)
                 BorderStyle: =BorderStyle.None
@@ -204,7 +226,7 @@ EmptyJarScreen As screen:
                 Y: =40
                 ZIndex: =28
 
-        lblEmptyJarProductNameValue As label:
+        lblEmptyJarProductNameValue_1 As label:
             BorderColor: =RGBA(0, 0, 0, 0)
             BorderStyle: =BorderStyle.None
             BorderThickness: =2
@@ -219,7 +241,7 @@ EmptyJarScreen As screen:
             Y: =127
             ZIndex: =30
 
-        lblEmptyJarProductName As label:
+        lblEmptyJarProductName_1 As label:
             BorderColor: =RGBA(0, 0, 0, 0)
             BorderStyle: =BorderStyle.None
             BorderThickness: =2
@@ -237,7 +259,7 @@ EmptyJarScreen As screen:
             Y: =130
             ZIndex: =37
 
-        lblEmptyJarQty As label:
+        lblEmptyJarQty_1 As label:
             BorderColor: =RGBA(0, 0, 0, 0)
             BorderStyle: =BorderStyle.None
             BorderThickness: =2
@@ -254,7 +276,7 @@ EmptyJarScreen As screen:
             Y: =159
             ZIndex: =38
 
-        lblEmptyJarQtyValue As label:
+        lblEmptyJarQtyValue_1 As label:
             BorderColor: =RGBA(0, 0, 0, 0)
             BorderStyle: =BorderStyle.None
             BorderThickness: =2
@@ -271,7 +293,7 @@ EmptyJarScreen As screen:
             Y: =159
             ZIndex: =39
 
-        Button13 As button:
+        Button13_1 As button:
             DisabledBorderColor: =_VarGblAppColors.BisleriBlue
             DisabledColor: =_VarGblAppColors.BisleriBlue
             DisabledFill: =_VarGblAppColors.LightText
@@ -285,7 +307,7 @@ EmptyJarScreen As screen:
             Y: =26
             ZIndex: =40
 
-    galOrderDateFilter_1 As gallery.galleryHorizontal:
+    galOrderDateFilter_3 As gallery.galleryHorizontal:
         AccessibleLabel: ="galOrderDateFilter"
         BorderColor: =RGBA(109, 109, 109, 1)
         Height: =64
@@ -304,7 +326,7 @@ EmptyJarScreen As screen:
         Y: =140
         ZIndex: =5
 
-        btnGalOrderDateFilter_1 As button:
+        btnGalOrderDateFilter_3 As button:
             BorderColor: =RGBA(184, 0, 0, 1)
             BorderThickness: =0
             Color: =If(ThisItem.IsSelected, _VarGblAppColors.BisleriBlueLight,_VarGblAppColors.BisleriBlue)
@@ -328,18 +350,18 @@ EmptyJarScreen As screen:
             Y: =2
             ZIndex: =1
 
-    compEmptyJarBottomBar As BottomBar:
+    compEmptyJarBottomBar_1 As BottomBar:
         Y: =1026
         ZIndex: =14
 
-    Group1_23 As group:
+    Group1_24 As group:
         Height: =5
         Width: =5
         X: =40
         Y: =40
         ZIndex: =14
 
-        Button5_48 As button:
+        Button5_58 As button:
             DisabledBorderColor: =_VarGblAppColors.BisleriBlue
             DisabledFill: =_VarGblAppColors.BisleriBlue
             DisplayMode: =DisplayMode.Disabled
@@ -351,7 +373,7 @@ EmptyJarScreen As screen:
             Y: =204
             ZIndex: =6
 
-        Button5_47 As button:
+        Button5_59 As button:
             DisabledBorderColor: =_VarGblAppColors.BisleriBlue
             DisabledFill: =Color.White
             DisplayMode: =DisplayMode.Disabled
@@ -363,7 +385,7 @@ EmptyJarScreen As screen:
             Y: =204
             ZIndex: =7
 
-        Label6_46 As label:
+        Label6_64 As label:
             Align: =Align.Center
             Color: =_VarGblAppColors.PrimaryText
             FontWeight: =FontWeight.Semibold
@@ -375,26 +397,26 @@ EmptyJarScreen As screen:
             Y: =204
             ZIndex: =8
 
-        Label6_47 As label:
+        Label6_66 As label:
             Align: =Align.Center
             Color: =_VarGblAppColors.BisleriBlue
             FontWeight: =FontWeight.Bold
             Height: =39
             Size: =_VarGblAppFonts.Size.Title
-            Text: =If( Sum(galEmptyJarData.AllItems, lblEmptyJarQtyValue)>0, Sum(galEmptyJarData.AllItems, lblEmptyJarQtyValue), 0)
+            Text: =If( Sum(galEmptyJarData_1.AllItems, lblEmptyJarQtyValue_1)>0, Sum(galEmptyJarData_1.AllItems, lblEmptyJarQtyValue_1), 0)
             Width: =214
             X: =72
             Y: =240
             ZIndex: =9
 
-    Group1_26 As group:
+    Group1_27 As group:
         Height: =5
         Width: =5
         X: =20
         Y: =20
         ZIndex: =18
 
-        Button5_53 As button:
+        Button5_60 As button:
             DisabledBorderColor: =_VarGblAppColors.BisleriBlue
             DisabledFill: =_VarGblAppColors.BisleriBlue
             DisplayMode: =DisplayMode.Disabled
@@ -406,7 +428,7 @@ EmptyJarScreen As screen:
             Y: =204
             ZIndex: =10
 
-        Button5_52 As button:
+        Button5_61 As button:
             DisabledBorderColor: =_VarGblAppColors.BisleriBlue
             DisabledFill: =Color.White
             DisplayMode: =DisplayMode.Disabled
@@ -418,7 +440,7 @@ EmptyJarScreen As screen:
             Y: =204
             ZIndex: =11
 
-        Label6_52 As label:
+        Label6_65 As label:
             Align: =Align.Center
             Color: =_VarGblAppColors.PrimaryText
             FontWeight: =FontWeight.Semibold
@@ -430,14 +452,14 @@ EmptyJarScreen As screen:
             Y: =204
             ZIndex: =12
 
-        Label6_53 As label:
+        Label6_67 As label:
             Align: =Align.Center
             Color: =_VarGblAppColors.BisleriBlue
             FontWeight: =FontWeight.Bold
             Height: =39
             Size: =_VarGblAppFonts.Size.Title
             Text: |-
-                =CountRows(ForAll(Distinct(galEmptyJarData.AllItems,'Customer no.'.'Customer Name'), {Result: ThisRecord.Value}))
+                =CountRows(ForAll(Distinct(galEmptyJarData_1.AllItems,'Customer no.'.'Customer Name'), {Result: ThisRecord.Value}))
             Width: =214
             X: =362
             Y: =240

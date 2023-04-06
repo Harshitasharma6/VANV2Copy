@@ -4,19 +4,19 @@
         Color.White
     OnVisible: |-
         =//Set(VarPlanVisitDate, Today());
-        Reset(txtSearchInput_2)
+        Reset(txtSearchInput_3)
 
-    compVisitHeader As Header:
+    compVisitHeader_1 As Header:
         HeaderText: ="Visits"
 
-    SearchComp_1 As SearchComp:
+    SearchComp_3 As SearchComp:
         SearchHintText: ="Search Customer"
         Visible: =false
         X: =27
         Y: =80
         ZIndex: =2
 
-    galVisitFilter As gallery.galleryHorizontal:
+    galVisitFilter_1 As gallery.galleryHorizontal:
         AccessibleLabel: ="galVisitFilter"
         BorderColor: =RGBA(109, 109, 109, 1)
         FocusedBorderColor: =Color.Transparent
@@ -38,7 +38,7 @@
         Y: =150
         ZIndex: =3
 
-        btnGalVisitFilter As button:
+        btnGalVisitFilter_1 As button:
             BorderColor: =RGBA(0, 0, 0, 0)
             Color: =If(ThisItem.IsSelected,_VarGblAppColors.BisleriBlueLight, _VarGblAppColors.BisleriBlue)
             DisabledBorderColor: =RGBA(0, 0, 0, 0)
@@ -50,7 +50,7 @@
             HoverBorderColor: =RGBA(0, 0, 0, 0)
             HoverColor: =RGBA(31, 31, 31, 1)
             HoverFill: =ColorFade(Self.Color, 10%)
-            OnSelect: =Reset(txtSearchInput_2)
+            OnSelect: =Reset(txtSearchInput_3)
             PressedBorderColor: =ColorFade(RGBA(255, 200, 61, 1), 50%)
             PressedColor: =RGBA(31, 31, 31, 1)
             PressedFill: =ColorFade(Self.Color, 30%)
@@ -65,14 +65,14 @@
             Y: =3
             ZIndex: =1
 
-    conVisitAllCustomer As groupContainer.manualLayoutContainer:
+    conVisitAllCustomer_1 As groupContainer.manualLayoutContainer:
         Height: =App.Height-300
-        Visible: =If(galVisitFilter.Selected.id=2, true, false)
+        Visible: =If(galVisitFilter_1.Selected.id=2, true, false)
         Width: =App.Width
         Y: =214
         ZIndex: =4
 
-        galVisitTodayData_1 As gallery.galleryVertical:
+        galVisitTodayData_2 As gallery.galleryVertical:
             AccessibleLabel: ="galVisitData"
             BorderColor: =RGBA(109, 109, 109, 1)
             FocusedBorderColor: =Color.Transparent
@@ -90,10 +90,10 @@
                     )
                 )*/
                 If(
-                    !IsBlank(txtSearchInput_2.Text),
+                    !IsBlank(txtSearchInput_3.Text),
                     Filter(
                         Customers_1,
-                        (txtSearchInput_2.Text in 'Customer Name' || txtSearchInput_2.Text in 'Contact Person name' || txtSearchInput_2.Text in 'Address 1') && Salesperson.'Primary Email' = User().Email && 'Customer status' = 'Customer status (Choice)'.Customer
+                        (txtSearchInput_3.Text in 'Customer Name' || txtSearchInput_3.Text in 'Contact Person name' || txtSearchInput_3.Text in 'Address 1') && Salesperson.'Primary Email' = User().Email && 'Customer status' = 'Customer status (Choice)'.Customer
                     ),
                     Filter(
                         Customers_1,
@@ -108,7 +108,7 @@
             Width: =App.Width
             ZIndex: =1
 
-            shpVisitBackgroundRect_2 As rectangle:
+            shpVisitBackgroundRect_3 As rectangle:
                 BorderColor: |-
                     =/*If(ThisItem.'Status (cr431_status)'= 'status (Visits_1)'.Started && IsToday(ThisItem.'Visit Date'), ColorValue("#A00002"), RGBA(230, 230, 230, 0.3))*/
                 BorderThickness: =//If(ThisItem.'Status (cr431_status)'= 'status (Visits_1)'.Started && IsToday(ThisItem.'Visit Date'), 3, 1)
@@ -123,7 +123,7 @@
                 X: =8
                 ZIndex: =1
 
-            lblVisitName_2 As label:
+            lblVisitName_4 As label:
                 BorderColor: =RGBA(0, 0, 0, 0)
                 BorderStyle: =BorderStyle.None
                 BorderThickness: =2
@@ -184,7 +184,7 @@
                 Y: =2
                 ZIndex: =2
 
-            lblVisitAddress_2 As label:
+            lblVisitAddress_3 As label:
                 BorderColor: =RGBA(0, 0, 0, 0)
                 BorderStyle: =BorderStyle.None
                 BorderThickness: =2
@@ -204,7 +204,7 @@
                 Y: =60
                 ZIndex: =3
 
-            lblVisitType_2 As label:
+            lblVisitType_3 As label:
                 BorderColor: =RGBA(0, 0, 0, 0)
                 BorderStyle: =BorderStyle.None
                 BorderThickness: =2
@@ -220,7 +220,7 @@
                 Y: =130
                 ZIndex: =5
 
-            lblVisitTypeValue_2 As label:
+            lblVisitTypeValue_3 As label:
                 BorderColor: =RGBA(0, 0, 0, 0)
                 BorderStyle: =BorderStyle.None
                 BorderThickness: =2
@@ -237,7 +237,7 @@
                 Y: =125
                 ZIndex: =6
 
-            lblVisitId_2 As label:
+            lblVisitId_3 As label:
                 BorderColor: =RGBA(0, 0, 0, 0)
                 BorderStyle: =BorderStyle.None
                 BorderThickness: =2
@@ -254,7 +254,7 @@
                 Y: =161
                 ZIndex: =7
 
-            lblVisitIdValue_2 As label:
+            lblVisitIdValue_3 As label:
                 BorderColor: =RGBA(0, 0, 0, 0)
                 BorderStyle: =BorderStyle.None
                 BorderThickness: =2
@@ -272,7 +272,7 @@
                 Y: =161
                 ZIndex: =8
 
-            lblVisitLastOrderDate_2 As label:
+            lblVisitLastOrderDate_3 As label:
                 BorderColor: =RGBA(0, 0, 0, 0)
                 BorderStyle: =BorderStyle.None
                 BorderThickness: =2
@@ -289,7 +289,7 @@
                 Y: =130
                 ZIndex: =9
 
-            lblVisitLastOrder_4 As label:
+            lblVisitLastOrder_6 As label:
                 BorderColor: =RGBA(0, 0, 0, 0)
                 BorderStyle: =BorderStyle.None
                 BorderThickness: =2
@@ -306,7 +306,7 @@
                 Y: =163
                 ZIndex: =10
 
-            lblVisitLastOrderValue_4 As label:
+            lblVisitLastOrderValue_6 As label:
                 BorderColor: =RGBA(0, 0, 0, 0)
                 BorderStyle: =BorderStyle.None
                 BorderThickness: =2
@@ -355,7 +355,7 @@
                 Y: =163
                 ZIndex: =11
 
-            lblVisitAccType_2 As label:
+            lblVisitAccType_3 As label:
                 BorderColor: =RGBA(0, 0, 0, 0)
                 BorderStyle: =BorderStyle.None
                 BorderThickness: =2
@@ -372,7 +372,7 @@
                 Y: =192
                 ZIndex: =15
 
-            lblVisitAccTypeValue_2 As label:
+            lblVisitAccTypeValue_3 As label:
                 Align: =Align.Justify
                 BorderColor: =RGBA(0, 0, 0, 0)
                 BorderStyle: =BorderStyle.None
@@ -390,7 +390,7 @@
                 Y: =192
                 ZIndex: =16
 
-            btnVisitStart_2 As button:
+            btnVisitStart_4 As button:
                 BorderColor: =RGBA(0, 0, 0, 0)
                 DisabledBorderColor: =RGBA(0, 0, 0, 0)
                 DisplayMode: |-
@@ -484,7 +484,7 @@
                 Y: =265
                 ZIndex: =17
 
-            icoVisitPhone_2 As icon.Edit:
+            icoVisitPhone_3 As icon.Edit:
                 AccessibleLabel: ="icoVisitPhone"
                 BorderColor: =RGBA(109, 109, 109, 1)
                 Color: =_VarGblAppColors.GreenColor
@@ -508,7 +508,7 @@
                 Y: =17
                 ZIndex: =21
 
-            lblVisitLastOrderDateValue_2 As label:
+            lblVisitLastOrderDateValue_3 As label:
                 BorderColor: =RGBA(0, 0, 0, 0)
                 BorderStyle: =BorderStyle.None
                 BorderThickness: =2
@@ -563,7 +563,7 @@
                 Y: =130
                 ZIndex: =22
 
-            lblVisitLastOrder_5 As label:
+            lblVisitLastOrder_7 As label:
                 BorderColor: =RGBA(0, 0, 0, 0)
                 BorderStyle: =BorderStyle.None
                 BorderThickness: =2
@@ -580,7 +580,7 @@
                 Y: =192
                 ZIndex: =23
 
-            lblVisitLastOrderValue_5 As label:
+            lblVisitLastOrderValue_7 As label:
                 BorderColor: =RGBA(0, 0, 0, 0)
                 BorderStyle: =BorderStyle.None
                 BorderThickness: =2
@@ -598,14 +598,14 @@
                 Y: =192
                 ZIndex: =24
 
-            grpVisitFirstName_2 As group:
+            grpVisitFirstName_3 As group:
                 Height: =5
                 Width: =5
                 X: =40
                 Y: =40
                 ZIndex: =24
 
-                shpVisitFirstNameCircle_2 As circle:
+                shpVisitFirstNameCircle_3 As circle:
                     BorderColor: =RGBA(109, 109, 109, 1)
                     BorderStyle: =BorderStyle.None
                     BorderThickness: =2
@@ -620,7 +620,7 @@
                     Y: =10
                     ZIndex: =13
 
-                lblVisitFirstName_2 As label:
+                lblVisitFirstName_3 As label:
                     Align: =Align.Center
                     BorderColor: =RGBA(0, 0, 0, 0)
                     BorderStyle: =BorderStyle.None
@@ -639,7 +639,7 @@
                     Y: =20
                     ZIndex: =14
 
-            Rectangle4 As rectangle:
+            Rectangle4_1 As rectangle:
                 BorderColor: =_VarGblAppColors.BisleriBlue
                 BorderStyle: =BorderStyle.Dotted
                 BorderThickness: =0.5
@@ -650,7 +650,7 @@
                 Y: =247
                 ZIndex: =25
 
-            btnVisitStart_3 As button:
+            btnVisitStart_5 As button:
                 BorderColor: =RGBA(0, 0, 0, 0)
                 DisabledBorderColor: =RGBA(0, 0, 0, 0)
                 DisplayMode: |-
@@ -710,14 +710,14 @@
                 Y: =265
                 ZIndex: =26
 
-    conVisitToday As groupContainer.manualLayoutContainer:
+    conVisitToday_1 As groupContainer.manualLayoutContainer:
         Height: =App.Height-300
-        Visible: =If(galVisitFilter.Selected.id=1, true, false)
+        Visible: =If(galVisitFilter_1.Selected.id=1, true, false)
         Width: =App.Width
         Y: =214
         ZIndex: =5
 
-        galVisitTodayData As gallery.galleryVertical:
+        galVisitTodayData_3 As gallery.galleryVertical:
             AccessibleLabel: ="galVisitData"
             BorderColor: =RGBA(109, 109, 109, 1)
             FocusedBorderColor: =Color.Transparent
@@ -739,21 +739,27 @@
                     'Check-in Time',
                     SortOrder.Descending
                 )*/
-                Sort(
-                    If(
-                        !IsBlank(txtSearchInput_2.Text),
-                        Filter(
-                            colOfflineCustomerVisits,
-                            (txtSearchInput_2.Text in Customer.'Customer Name' || txtSearchInput_2.Text in Customer.'Contact Person name' || txtSearchInput_2.Text in Customer.'Address 1') && 'Visit Date' = Today() && 'Owning User'.'Primary Email'= User().Email
-                        ),
-                        
+                If(
+                    !IsBlank(txtSearchInput_3.Text),
+                    Filter(
+                        Sort(
                             Filter(
-                            Visits,
-                            'Visit Date' = Today() && 'Owning User'.'Primary Email'= User().Email
-                            )
+                                colOfflineCustomerVisits,
+                                'Visit Date' = Today() && 'Owning User'.'Primary Email' = User().Email
+                            ),
+                            'Check-in Time',
+                            SortOrder.Descending
+                        ),
+                        txtSearchInput_3.Text in Customer.'Customer Name' || txtSearchInput_3.Text in Customer.'Contact Person name' || txtSearchInput_3.Text in Customer.'Address 1'
                     ),
-                    'Check-in Time',
-                    SortOrder.Descending
+                    Sort(
+                        Filter(
+                            Visits,
+                            'Visit Date' = Today() && 'Owning User'.'Primary Email' = User().Email
+                        ),
+                        'Check-in Time',
+                        SortOrder.Descending
+                    )
                 )
             Layout: =Layout.Vertical
             OnSelect: =
@@ -763,7 +769,7 @@
             Width: =App.Width
             ZIndex: =1
 
-            shpVisitBackgroundRect_1 As rectangle:
+            shpVisitBackgroundRect_4 As rectangle:
                 BorderColor: |-
                     =/*If(ThisItem.'Status (cr431_status)'= 'status (Visits_1)'.Started && IsToday(ThisItem.'Visit Date'), ColorValue("#A00002"), RGBA(230, 230, 230, 0.3))*/
                     _VarGblAppColors.BisleriBlue
@@ -779,7 +785,7 @@
                 X: =8
                 ZIndex: =1
 
-            lblVisitName_1 As label:
+            lblVisitName_5 As label:
                 BorderColor: =RGBA(0, 0, 0, 0)
                 BorderStyle: =BorderStyle.None
                 BorderThickness: =2
@@ -848,7 +854,7 @@
                 X: =67
                 ZIndex: =2
 
-            lblVisitAddress_1 As label:
+            lblVisitAddress_4 As label:
                 BorderColor: =RGBA(0, 0, 0, 0)
                 BorderStyle: =BorderStyle.None
                 BorderThickness: =2
@@ -915,7 +921,7 @@
                 Y: =55
                 ZIndex: =3
 
-            btnVisitStatus_1 As button:
+            btnVisitStatus_2 As button:
                 BorderColor: =RGBA(227, 100, 41, 1)
                 BorderThickness: =1
                 Color: =RGBA(227, 100, 41, 1)
@@ -942,13 +948,13 @@
                 Size: =_VarGblAppFonts.Size.Tiny
                 Text: |-
                     =Text(DateTimeValue(ThisItem.'Check-in Time'), "dd mmm yy hh:mm")
-                Visible: =If(galVisitFilter.Selected.id=1, true, false)
+                Visible: =If(galVisitFilter_1.Selected.id=1, true, false)
                 Width: =120
                 X: =430
                 Y: =12
                 ZIndex: =4
 
-            lblVisitType_1 As label:
+            lblVisitType_4 As label:
                 BorderColor: =RGBA(0, 0, 0, 0)
                 BorderStyle: =BorderStyle.None
                 BorderThickness: =2
@@ -965,7 +971,7 @@
                 Y: =131
                 ZIndex: =5
 
-            lblVisitTypeValue_1 As label:
+            lblVisitTypeValue_4 As label:
                 BorderColor: =RGBA(0, 0, 0, 0)
                 BorderStyle: =BorderStyle.None
                 BorderThickness: =2
@@ -983,7 +989,7 @@
                 Y: =131
                 ZIndex: =6
 
-            lblVisitId_1 As label:
+            lblVisitId_4 As label:
                 BorderColor: =RGBA(0, 0, 0, 0)
                 BorderStyle: =BorderStyle.None
                 BorderThickness: =2
@@ -1000,7 +1006,7 @@
                 Y: =161
                 ZIndex: =7
 
-            lblVisitIdValue_1 As label:
+            lblVisitIdValue_4 As label:
                 BorderColor: =RGBA(0, 0, 0, 0)
                 BorderStyle: =BorderStyle.None
                 BorderThickness: =2
@@ -1018,7 +1024,7 @@
                 Y: =161
                 ZIndex: =8
 
-            lblVisitLastOrderDate_1 As label:
+            lblVisitLastOrderDate_4 As label:
                 BorderColor: =RGBA(0, 0, 0, 0)
                 BorderStyle: =BorderStyle.None
                 BorderThickness: =2
@@ -1035,7 +1041,7 @@
                 Y: =131
                 ZIndex: =9
 
-            lblVisitLastOrder_2 As label:
+            lblVisitLastOrder_8 As label:
                 BorderColor: =RGBA(0, 0, 0, 0)
                 BorderStyle: =BorderStyle.None
                 BorderThickness: =2
@@ -1052,7 +1058,7 @@
                 Y: =163
                 ZIndex: =10
 
-            lblVisitLastOrderValue_2 As label:
+            lblVisitLastOrderValue_8 As label:
                 BorderColor: =RGBA(0, 0, 0, 0)
                 BorderStyle: =BorderStyle.None
                 BorderThickness: =2
@@ -1102,7 +1108,7 @@
                 Y: =163
                 ZIndex: =11
 
-            lblVisitAccType_1 As label:
+            lblVisitAccType_4 As label:
                 BorderColor: =RGBA(0, 0, 0, 0)
                 BorderStyle: =BorderStyle.None
                 BorderThickness: =2
@@ -1119,7 +1125,7 @@
                 Y: =192
                 ZIndex: =14
 
-            lblVisitAccTypeValue_1 As label:
+            lblVisitAccTypeValue_4 As label:
                 Align: =Align.Justify
                 BorderColor: =RGBA(0, 0, 0, 0)
                 BorderStyle: =BorderStyle.None
@@ -1137,7 +1143,7 @@
                 Y: =192
                 ZIndex: =15
 
-            btnVisitStart_1 As button:
+            btnVisitStart_6 As button:
                 BorderColor: =RGBA(0, 0, 0, 0)
                 DisabledBorderColor: =RGBA(0, 0, 0, 0)
                 DisplayMode: |-
@@ -1186,13 +1192,13 @@
                 Text: |-
                     =//If(ThisItem.'Status (cr431_status)'= 'status (Visits_1)'.Started , "RESUME" , "START")
                     "START"
-                Visible: =If(galVisitFilter.Selected.id=2, true, false)
+                Visible: =If(galVisitFilter_1.Selected.id=2, true, false)
                 Width: =131
                 X: =153
-                Y: =208
+                Y: =194
                 ZIndex: =16
 
-            btnVisitEnd_1 As button:
+            btnVisitEnd_2 As button:
                 BorderColor: =RGBA(0, 0, 0, 0)
                 DisabledBorderColor: =RGBA(0, 0, 0, 0)
                 DisplayMode: |-
@@ -1246,13 +1252,13 @@
                 RadiusTopRight: =5
                 Size: =16
                 Text: ="END"
-                Visible: =If(galVisitFilter.Selected.id=2, true, false)
+                Visible: =If(galVisitFilter_1.Selected.id=2, true, false)
                 Width: =131
                 X: =316
-                Y: =208
+                Y: =194
                 ZIndex: =17
 
-            lblVisitLastOrderDateValue_1 As label:
+            lblVisitLastOrderDateValue_4 As label:
                 BorderColor: =RGBA(0, 0, 0, 0)
                 BorderStyle: =BorderStyle.None
                 BorderThickness: =2
@@ -1307,7 +1313,7 @@
                 Y: =131
                 ZIndex: =18
 
-            lblVisitLastOrder_3 As label:
+            lblVisitLastOrder_9 As label:
                 BorderColor: =RGBA(0, 0, 0, 0)
                 BorderStyle: =BorderStyle.None
                 BorderThickness: =2
@@ -1324,7 +1330,7 @@
                 Y: =192
                 ZIndex: =19
 
-            lblVisitLastOrderValue_3 As label:
+            lblVisitLastOrderValue_9 As label:
                 BorderColor: =RGBA(0, 0, 0, 0)
                 BorderStyle: =BorderStyle.None
                 BorderThickness: =2
@@ -1345,7 +1351,7 @@
                 Y: =192
                 ZIndex: =20
 
-            icoVisitPhone_1 As icon.Edit:
+            icoVisitPhone_4 As icon.Edit:
                 AccessibleLabel: ="icoVisitPhone"
                 BorderColor: =RGBA(109, 109, 109, 1)
                 Color: =_VarGblAppColors.GreenColor
@@ -1369,14 +1375,14 @@
                 Y: =17
                 ZIndex: =21
 
-            grpVisitFirstName_1 As group:
+            grpVisitFirstName_4 As group:
                 Height: =5
                 Width: =5
                 X: =40
                 Y: =40
                 ZIndex: =24
 
-                shpVisitFirstNameCircle_1 As circle:
+                shpVisitFirstNameCircle_4 As circle:
                     BorderColor: =RGBA(109, 109, 109, 1)
                     BorderStyle: =BorderStyle.None
                     BorderThickness: =2
@@ -1391,7 +1397,7 @@
                     Y: =10
                     ZIndex: =12
 
-                lblVisitFirstName_1 As label:
+                lblVisitFirstName_4 As label:
                     Align: =Align.Center
                     BorderColor: =RGBA(0, 0, 0, 0)
                     BorderStyle: =BorderStyle.None
@@ -1410,7 +1416,7 @@
                     Y: =20
                     ZIndex: =13
 
-    compVisitBottomBar As BottomBar:
+    compVisitBottomBar_1 As BottomBar:
         NavItem: |-
             =Table(
                 {
@@ -1454,7 +1460,7 @@
         Y: =1026
         ZIndex: =6
 
-    Rectangle3 As rectangle:
+    Rectangle3_1 As rectangle:
         DisplayMode: =DisplayMode.Disabled
         Fill: =RGBA(0, 0, 0, 0.49)
         Height: =App.Height
@@ -1462,7 +1468,7 @@
         Width: =App.Width
         ZIndex: =10
 
-    Container1 As groupContainer.manualLayoutContainer:
+    Container1_1 As groupContainer.manualLayoutContainer:
         Fill: =Color.White
         Height: =240
         Visible: =If(varVisitPopup, true, false)
@@ -1470,7 +1476,7 @@
         Y: =383
         ZIndex: =11
 
-        Button2 As button:
+        Button2_1 As button:
             Fill: =_VarGblAppColors.BisleriBlue
             HoverFill: =ColorFade(_VarGblAppColors.BisleriBlue, -20%)
             OnSelect: |-
@@ -1527,7 +1533,7 @@
             Y: =159
             ZIndex: =1
 
-        Label7 As label:
+        Label7_1 As label:
             Align: =Align.Center
             Color: =_VarGblAppColors.BisleriBlue
             FontWeight: =FontWeight.Bold
@@ -1538,7 +1544,7 @@
             Y: =40
             ZIndex: =2
 
-        Icon2 As icon.CancelBadge:
+        Icon2_1 As icon.CancelBadge:
             AccessibleLabel: ="icnCancel"
             Color: =_VarGblAppColors.BisleriBlue
             Height: =40
@@ -1550,14 +1556,14 @@
             Y: =10
             ZIndex: =3
 
-    grpSearch_1 As group:
+    grpSearch_2 As group:
         Height: =5
         Width: =5
         X: =40
         Y: =40
         ZIndex: =12
 
-        btnSearchBackground_2 As button:
+        btnSearchBackground_3 As button:
             DisabledBorderColor: |-
                 =//RGBA(166, 166, 166, 1)
                 _VarGblAppColors.BisleriBlue
@@ -1574,7 +1580,7 @@
             Y: =94
             ZIndex: =7
 
-        txtSearchInput_2 As text:
+        txtSearchInput_3 As text:
             AccessibleLabel: ="txtSearchInput"
             BorderThickness: =0
             Default: =""
@@ -1589,7 +1595,7 @@
             Y: =96
             ZIndex: =8
 
-        icoSearch_2 As icon.Search:
+        icoSearch_3 As icon.Search:
             Color: =_VarGblAppColors.BisleriBlue
             Fill: |-
                 =//RGBA(0, 0, 0, 0)
