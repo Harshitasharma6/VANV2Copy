@@ -53,40 +53,83 @@ EmptyJarScreen_1 As screen:
         FocusedBorderThickness: =0.5
         Height: =763
         Items: |-
-            =Sort(
-                If(
-                    galOrderDateFilter_3.Selected.Value = "Today's",
-                    Filter(
-                        'Order Lines',
-                        'Order Number'.'Order Type' = 'Order Type (Choice)'.'Empty jar Order' && Salesperson.'Primary Email' = User().Email && 'Created On' >= Today()
-                    ),
-                    galOrderDateFilter_3.Selected.Value = "Yesterday",
-                    Filter(
-                        'Order Lines',
-                        'Order Number'.'Order Type' = 'Order Type (Choice)'.'Empty jar Order' && Salesperson.'Primary Email' = User().Email && 'Order Number'.'Order Date' > DateAdd(
-                            Today(),
-                            -1
+            =If(
+                IsBlank(compEmptyJarSearch_1.SearchText),
+             //Without Search Bar----------------------------------------------------------------------
+                Sort(
+                    If(
+                        galOrderDateFilter_3.Selected.Value = "Today's",
+                        Filter(
+                            'Order Lines',
+                            'Order Number'.'Order Type' = 'Order Type (Choice)'.'Empty jar Order' && Salesperson.'Primary Email' = User().Email && 'Created On' >= Today()
+                        ),
+                        galOrderDateFilter_3.Selected.Value = "Yesterday",
+                        Filter(
+                            'Order Lines',
+                            'Order Number'.'Order Type' = 'Order Type (Choice)'.'Empty jar Order' && Salesperson.'Primary Email' = User().Email && 'Order Number'.'Order Date' > DateAdd(
+                                Today(),
+                                -1
+                            )
+                        ),
+                        galOrderDateFilter_3.Selected.Value = "Last 7 Days",
+                        Filter(
+                            'Order Lines',
+                            'Order Number'.'Order Type' = 'Order Type (Choice)'.'Empty jar Order' && Salesperson.'Primary Email' = User().Email && 'Order Number'.'Order Date' > DateAdd(
+                                Today(),
+                                -7
+                            )
+                        ),
+                        galOrderDateFilter_3.Selected.Value = "Last 30 Days",
+                        Filter(
+                            'Order Lines',
+                            'Order Number'.'Order Type' = 'Order Type (Choice)'.'Empty jar Order' && Salesperson.'Primary Email' = User().Email && 'Order Number'.'Order Date' > DateAdd(
+                                Today(),
+                                -30
+                            )
                         )
                     ),
-                    galOrderDateFilter_3.Selected.Value = "Last 7 Days",
-                    Filter(
-                        'Order Lines',
-                        'Order Number'.'Order Type' = 'Order Type (Choice)'.'Empty jar Order' && Salesperson.'Primary Email' = User().Email && 'Order Number'.'Order Date' > DateAdd(
-                            Today(),
-                            -7
-                        )
-                    ),
-                    galOrderDateFilter_3.Selected.Value = "Last 30 Days",
-                    Filter(
-                        'Order Lines',
-                        'Order Number'.'Order Type' = 'Order Type (Choice)'.'Empty jar Order' && Salesperson.'Primary Email' = User().Email && 'Order Number'.'Order Date' > DateAdd(
-                            Today(),
-                            -30
-                        )
-                    )
+                    'Created On',
+                    SortOrder.Descending
                 ),
-                'Created On',
-                SortOrder.Descending
+              //With Search Bar----------------------------------------------------
+                Filter(
+                    Sort(
+                        If(
+                            galOrderDateFilter_3.Selected.Value = "Today's",
+                            Filter(
+                                'Order Lines',
+                                'Order Number'.'Order Type' = 'Order Type (Choice)'.'Empty jar Order' && Salesperson.'Primary Email' = User().Email && 'Created On' >= Today()
+                            ),
+                            galOrderDateFilter_3.Selected.Value = "Yesterday",
+                            Filter(
+                                'Order Lines',
+                                'Order Number'.'Order Type' = 'Order Type (Choice)'.'Empty jar Order' && Salesperson.'Primary Email' = User().Email && 'Order Number'.'Order Date' > DateAdd(
+                                    Today(),
+                                    -1
+                                )
+                            ),
+                            galOrderDateFilter_3.Selected.Value = "Last 7 Days",
+                            Filter(
+                                'Order Lines',
+                                'Order Number'.'Order Type' = 'Order Type (Choice)'.'Empty jar Order' && Salesperson.'Primary Email' = User().Email && 'Order Number'.'Order Date' > DateAdd(
+                                    Today(),
+                                    -7
+                                )
+                            ),
+                            galOrderDateFilter_3.Selected.Value = "Last 30 Days",
+                            Filter(
+                                'Order Lines',
+                                'Order Number'.'Order Type' = 'Order Type (Choice)'.'Empty jar Order' && Salesperson.'Primary Email' = User().Email && 'Order Number'.'Order Date' > DateAdd(
+                                    Today(),
+                                    -30
+                                )
+                            )
+                        ),
+                        'Created On',
+                        SortOrder.Descending
+                    ),
+                    compEmptyJarSearch_1.SearchText in 'Customer no.'.'Customer Name' || compEmptyJarSearch_1.SearchText in 'Customer no.'.'Contact Person name' || compEmptyJarSearch_1.SearchText in 'Customer no.'.'Address 1'
+                )
             )
         Layout: =Layout.Vertical
         OnSelect: =
@@ -361,7 +404,7 @@ EmptyJarScreen_1 As screen:
             FontWeight: =FontWeight.Bold
             Height: =39
             Size: =_VarGblAppFonts.Size.Title
-            Text: =If( Sum(galEmptyJarData_1.AllItems, lblEmptyJarQtyValue)>0, Sum(galEmptyJarData_1.AllItems, lblEmptyJarQtyValue), 0)
+            Text: =If( Sum(galEmptyJarData_1.AllItems, lblEmptyJarQtyValue_1)>0, Sum(galEmptyJarData_1.AllItems, lblEmptyJarQtyValue_1), 0)
             Width: =214
             X: =72
             Y: =240

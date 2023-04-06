@@ -38,14 +38,29 @@
 
     Gallery3 As gallery.galleryVertical:
         DelayItemLoading: =true
-        Items: |
-            =Filter(
-                'Order Lines',
-                'Order Number'.'Order Type' = 'Order Type (Choice)'.'Empty jar Order' && Salesperson.'Primary Email' = User().Email && IsToday('Created On') && DateAdd(Today(), -1) = 'Created On')
+        Height: =744
+        Items: |+
+            =If(IsBlank(SearchComp_2.SearchText),
+            Sort(
+             Filter(
+                    'Order Lines',
+                    'Order Number'.'Order Type' = 'Order Type (Choice)'.'Empty jar Order' && Salesperson.'Primary Email' = User().Email && 'Created On'>= Today() )
+            
+            ,'Created On',SortOrder.Descending),
+            Filter(Sort(
+             Filter(
+                    'Order Lines',
+                    'Order Number'.'Order Type' = 'Order Type (Choice)'.'Empty jar Order' && Salesperson.'Primary Email' = User().Email && 'Created On'>= Today() )
+            
+            ,'Created On',SortOrder.Descending),SearchComp_2.SearchText in  'Customer no.'.'Customer Name'
+            
+            ||SearchComp_2.SearchText in  'Customer no.'.'Contact Person name'|| SearchComp_2.SearchText in  'Customer no.'.'Address 1' ))
+            
+            
         Layout: =Layout.Vertical
         LoadingSpinner: =LoadingSpinner.Data
-        TemplateSize: =If(Self.Layout = Layout.Horizontal, Min(280, Self.Width - 60), Min(280, Self.Height - 60))
-        Y: =167
+        TemplateSize: =237
+        Y: =282
         ZIndex: =9
 
         Label20 As label:
@@ -57,4 +72,37 @@
             X: =40
             Y: =40
             ZIndex: =1
+
+        Label20_1 As label:
+            Height: =70
+            OnSelect: =Select(Parent)
+            Size: =21
+            Text: =ThisItem.'Customer no.'.'Customer Name'
+            Width: =560
+            X: =40
+            Y: =90
+            ZIndex: =2
+
+        Label20_2 As label:
+            Height: =70
+            OnSelect: =Select(Parent)
+            Size: =21
+            Text: =ThisItem.Salesperson.'Full Name'
+            Width: =290
+            X: =340
+            ZIndex: =3
+
+    SearchComp_2 As SearchComp:
+        SearchHintText: ="Search Customer Name"
+        Y: =128
+        ZIndex: =10
+
+    Label21 As label:
+        Height: =70
+        Size: =21
+        Text: =SearchComp_2.SearchText
+        Width: =560
+        X: =80
+        Y: =58
+        ZIndex: =11
 

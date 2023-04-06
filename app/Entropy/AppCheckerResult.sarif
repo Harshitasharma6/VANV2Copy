@@ -2264,10 +2264,50 @@
                   "relativeAddress": 0
                 },
                 "region": {
-                  "charLength": 21,
-                  "charOffset": 152,
+                  "charLength": 2,
+                  "charOffset": 535,
                   "snippet": {
-                    "text": "IsToday('Created On')"
+                    "text": "in"
+                  }
+                }
+              },
+              "properties": {
+                "member": "Items",
+                "module": "Base Screen",
+                "type": "'Base Screen'.Gallery3"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "Filter"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint-InOpRhs",
+          "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Base Screen'.Gallery3.Items"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Base Screen'.Gallery3.Items",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 2,
+                  "charOffset": 573,
+                  "snippet": {
+                    "text": "||"
                   }
                 }
               },
@@ -2305,49 +2345,9 @@
                 },
                 "region": {
                   "charLength": 2,
-                  "charOffset": 149,
+                  "charOffset": 639,
                   "snippet": {
-                    "text": "&&"
-                  }
-                }
-              },
-              "properties": {
-                "member": "Items",
-                "module": "Base Screen",
-                "type": "'Base Screen'.Gallery3"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "Filter"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-SuggestRemoteExecutionHint",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Base Screen'.Gallery3.Items"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Base Screen'.Gallery3.Items",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 2,
-                  "charOffset": 174,
-                  "snippet": {
-                    "text": "&&"
+                    "text": "||"
                   }
                 }
               },
@@ -5655,36 +5655,6 @@
           },
           "ruleId": "app-ScreenHasManyControls",
           "ruleIndex": 9
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "EmptyJarScreen_1.Label6_66.Text"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "EmptyJarScreen_1.Label6_66.Text",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "Text",
-                "module": "EmptyJarScreen_1",
-                "type": "EmptyJarScreen_1.Label6_66"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 10
         }
       ],
       "tool": {
@@ -5872,23 +5842,6 @@
                 "level": "Medium",
                 "primaryCategory": "performance",
                 "whyFix": "Each control consumes resources, and an app may become slow or unresponsive if a screen has too many controls. The estimated complexity of \"VisitExecution\" is 476, which exceeds the maximum threshold recommended (300)."
-              }
-            },
-            {
-              "id": "app-InefficientDelayLoading",
-              "messageStrings": {
-                "issue": {
-                  "text": "Inefficient delay loading"
-                }
-              },
-              "properties": {
-                "componentType": "app",
-                "howToFix": [
-                  "Use variables, collections, and navigation context to share state across screens instead."
-                ],
-                "level": "Medium",
-                "primaryCategory": "performance",
-                "whyFix": "Controls that reference controls on other screens can slow down app loading and navigation. Doing this may force the app to load the other screens immediately, rather than waiting until the user navigates to that screen."
               }
             }
           ],
