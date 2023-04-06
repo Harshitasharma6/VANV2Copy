@@ -37,8 +37,7 @@
       "zx_customersubcategory_SyncErrors": "Sync Errors",
       "zx_customersubcategoryid": "Customer sub-category",
       "zx_description": "Description",
-      "zx_name": "Name",
-      "zx_zx_customer_Customersubcategory_zx_custom": "Customer (NA)S"
+      "zx_name": "Name"
     },
     "PreferredName": "Customer sub-categories",
     "Type": "NativeCDSDataSourceInfo"

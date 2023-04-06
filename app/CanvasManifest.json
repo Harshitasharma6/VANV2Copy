@@ -156,7 +156,6 @@
     "RecurringBeatPlan",
     "MyBeatPlanScreen",
     "PaymentQR",
-    "OrderInfo",
-    "Screen1"
+    "OrderInfo"
   ]
 }

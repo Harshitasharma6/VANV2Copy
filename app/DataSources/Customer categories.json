@@ -37,8 +37,7 @@
       "zx_customercategory_ProcessSession": "Process Sessions",
       "zx_customercategory_SyncErrors": "Sync Errors",
       "zx_customercategoryid": "Customer category",
-      "zx_name": "Name",
-      "zx_zx_customer_Customercategory_zx_customerc": "Customer (NA)S"
+      "zx_name": "Name"
     },
     "PreferredName": "Customer categories",
     "Type": "NativeCDSDataSourceInfo"
