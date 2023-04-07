@@ -1702,7 +1702,7 @@
                                         Filter(
                                             Filter(
                                                 'Stock Transfer Lines',
-                                                ('Transfer Order No'.'Stock Transfer Header' exactin varGatePassHeader.headerGUID) && (SKU.'SKU Master' = OneProductItem.productId)
+                                                ('Transfer Order No'.'Stock Transfer Header' in varGatePassHeader.headerGUID) && (SKU.'SKU Master' = OneProductItem.productId)
                                             ),
                                             'Created On' >= Today()
                                         ),
@@ -1878,7 +1878,7 @@
                                         Filter(
                                             Filter(
                                                 'Stock Transfer Lines',
-                                                ('Transfer Order No'.'Stock Transfer Header' exactin varGatePassHeader.headerGUID) && (SKU.'SKU Master' = OneProductItem.productId)
+                                                ('Transfer Order No'.'Stock Transfer Header' in varGatePassHeader.headerGUID) && (SKU.'SKU Master' = OneProductItem.productId)
                                             ),
                                             'Created On' >= Today()
                                         ),
@@ -2178,7 +2178,7 @@
                                         Filter(
                                             Filter(
                                                 'Stock Transfer Lines',
-                                                ('Transfer Order No'.'Stock Transfer Header' exactin varGatePassHeader.headerGUID) && (SKU.'SKU Master' = OneProductItem.productId)
+                                                ('Transfer Order No'.'Stock Transfer Header' in varGatePassHeader.headerGUID) && (SKU.'SKU Master' = OneProductItem.productId)
                                             ),
                                             'Created On' >= Today()
                                         ),
@@ -2336,7 +2336,7 @@
                                         Filter(
                                             Filter(
                                                 'Stock Transfer Lines',
-                                                ('Transfer Order No'.'Stock Transfer Header' exactin varGatePassHeader.headerGUID) && (SKU.'SKU Master' = OneProductItem.productId)
+                                                ('Transfer Order No'.'Stock Transfer Header' in varGatePassHeader.headerGUID) && (SKU.'SKU Master' = OneProductItem.productId)
                                             ),
                                             'Created On' >= Today()
                                         ),
@@ -2628,10 +2628,11 @@
                                                 Customers_1,
                                                 Account = paymentData.Customer.Account
                                             ),
-                                            Salesperson: LookUp(
+                                            Salesperson: varUser
+                                            /*LookUp(
                                                 Users,
                                                 'Primary Email' = User().Email
-                                            ),
+                                            )*/,
                                             'Delivery Date': Today(),
                                             'Total Amount': (Sum(
                                                 colManipulatedCartItems,
@@ -2668,10 +2669,11 @@
                                                         'Order Headers',
                                                         'Order Number' = First(CreateOrderRecord).'Order Number'
                                                     ),
-                                                    Salesperson: LookUp(
+                                                    Salesperson: varUser
+                                                    /* LookUp(
                                                         Users,
                                                         'Primary Email' = User().Email
-                                                    ),
+                                                    )*/,
                                                     'Van No': LookUp(
                                                         Warehouses,
                                                         Warehouse = varUserVanNo.Van.Warehouse
@@ -2756,19 +2758,19 @@
                                                     ).'Sequence No' + 1,
                                                     6
                                                 ),
-                                                Salesperson: LookUp(
+                                                Salesperson: varUser /*LookUp(
                                                     Users,
                                                     'Primary Email' = User().Email
-                                                ),
+                                                )*/,
                                                 Customer: LookUp(
                                                     Customers_1,
                                                     Account = paymentData.Customer.Account
                                                 ),
                                                 'Route No': Areavalueid,
-                                                'Van No': LookUp(
+                                                'Van No': StockTransferWarehouse /*LookUp(
                                                     Warehouses,
                                                     Warehouse = varUserVanNo.Van.Warehouse
-                                                ),
+                                                )*/,
                                                 'Invoice Date': Now(),
                                                 'Order Type': 'Order Type (Choice)'.'Sales Order',
                                                 'Order Number': LookUp(
@@ -2861,14 +2863,14 @@
                                                         Account = paymentData.Customer.Account
                                                     ),
                                                     'Route No': Areavalueid,
-                                                    Salesperson: LookUp(
+                                                    Salesperson: varUser /*LookUp(
                                                         Users,
                                                         'Primary Email' = User().Email
-                                                    ),
-                                                    'Van No': LookUp(
+                                                    )*/,
+                                                    'Van No': StockTransferWarehouse /*LookUp(
                                                         Warehouses,
                                                         Warehouse = varUserVanNo.Van.Warehouse
-                                                    )
+                                                    )*/
                                                 }
                                             )
                                         )
@@ -2888,14 +2890,14 @@
                                                 Cases: Sum(
                                                     Filter(
                                                         'Stock Transfer Lines',
-                                                        'Transfer Order No'.'Stock Transfer Header' exactin varGatePassHeader.headerGUID && SKU.'SKU Master' = oneLine.skuId && 'Created On' >= Today()
+                                                        'Transfer Order No'.'Stock Transfer Header' in varGatePassHeader.headerGUID && SKU.'SKU Master' = oneLine.skuId && 'Created On' >= Today()
                                                     ),
                                                     'Remaining Qty Cases'
                                                 ),
                                                 PCs: Sum(
                                                     Filter(
                                                         'Stock Transfer Lines',
-                                                        'Transfer Order No'.'Stock Transfer Header' exactin varGatePassHeader.headerGUID && SKU.'SKU Master' = oneLine.skuId && 'Created On' >= Today()
+                                                        'Transfer Order No'.'Stock Transfer Header' in varGatePassHeader.headerGUID && SKU.'SKU Master' = oneLine.skuId && 'Created On' >= Today()
                                                     ),
                                                     'Remaining Qty Pcs'
                                                 )
@@ -3032,14 +3034,15 @@
                                                                     'Order Headers',
                                                                     'Order Number' = First(CreateOrderRecord).'Order Number'
                                                                 ),
-                                                                Salesperson: LookUp(
+                                                                Salesperson: varUser
+                                                                /*LookUp(
                                                                     Users,
                                                                     'Primary Email' = User().Email
-                                                                ),
-                                                                'Van No': LookUp(
+                                                                )*/,
+                                                                'Van No':StockTransferWarehouse /*LookUp(
                                                                     Warehouses,
                                                                     Warehouse = varUserVanNo.Van.Warehouse
-                                                                ),
+                                                                )*/,
                                                                 'Item Type': If(
                                                                     ThissItem.cartItem.schemeOrder = true,
                                                                     'Item Type (Choice)'.Free,
@@ -3113,19 +3116,20 @@
                                                                 ).'Sequence No' + 1,
                                                                 6
                                                             ),
-                                                            Salesperson: LookUp(
+                                                            Salesperson: varUser
+                                                             /*LookUp(
                                                                 Users,
                                                                 'Primary Email' = User().Email
-                                                            ),
+                                                            )*/,
                                                             Customer: LookUp(
                                                                 Customers_1,
                                                                 Account = paymentData.Customer.Account
                                                             ),
                                                             'Route No': Areavalueid,
-                                                            'Van No': LookUp(
+                                                            'Van No': StockTransferWarehouse/*LookUp(
                                                                 Warehouses,
                                                                 Warehouse = varUserVanNo.Van.Warehouse
-                                                            ),
+                                                            )*/,
                                                             'Invoice Date': Today(),
                                                             'Order Type': 'Order Type (Choice)'.'Sales Order',
                                                             'Order Number': LookUp(
@@ -3245,14 +3249,14 @@
                                                         Cases: Sum(
                                                             Filter(
                                                                 'Stock Transfer Lines',
-                                                                'Transfer Order No'.'Stock Transfer Header' exactin varGatePassHeader.headerGUID && SKU.'SKU Master' = oneLine.skuId && 'Created On' >= Today()
+                                                                'Transfer Order No'.'Stock Transfer Header' in varGatePassHeader.headerGUID && SKU.'SKU Master' = oneLine.skuId && 'Created On' >= Today()
                                                             ),
                                                             'Remaining Qty Cases'
                                                         ),
                                                         PCs: Sum(
                                                             Filter(
                                                                 'Stock Transfer Lines',
-                                                                'Transfer Order No'.'Stock Transfer Header' exactin varGatePassHeader.headerGUID && SKU.'SKU Master' = oneLine.skuId && 'Created On' >= Today()
+                                                                'Transfer Order No'.'Stock Transfer Header' in varGatePassHeader.headerGUID && SKU.'SKU Master' = oneLine.skuId && 'Created On' >= Today()
                                                             ),
                                                             'Remaining Qty Pcs'
                                                         )
@@ -3617,14 +3621,14 @@
                                                         Cases: Sum(
                                                             Filter(
                                                                 'Stock Transfer Lines',
-                                                                'Transfer Order No'.'Stock Transfer Header' exactin varGatePassHeader.headerGUID && SKU.'SKU Master' = oneLine.skuId && 'Created On' >= Today()
+                                                                'Transfer Order No'.'Stock Transfer Header' in varGatePassHeader.headerGUID && SKU.'SKU Master' = oneLine.skuId && 'Created On' >= Today()
                                                             ),
                                                             'Remaining Qty Cases'
                                                         ),
                                                         PCs: Sum(
                                                             Filter(
                                                                 'Stock Transfer Lines',
-                                                                'Transfer Order No'.'Stock Transfer Header' exactin varGatePassHeader.headerGUID && SKU.'SKU Master' = oneLine.skuId && 'Created On' >= Today()
+                                                                'Transfer Order No'.'Stock Transfer Header' in varGatePassHeader.headerGUID && SKU.'SKU Master' = oneLine.skuId && 'Created On' >= Today()
                                                             ),
                                                             'Remaining Qty Pcs'
                                                         )

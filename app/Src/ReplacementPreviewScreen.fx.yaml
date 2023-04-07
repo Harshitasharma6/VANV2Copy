@@ -334,7 +334,11 @@
             FocusedBorderThickness: =2
             HoverFill: =ColorFade(_VarGblAppColors.BisleriBlue, -20%)
             OnSelect: |-
-                =ClearCollect(
+                =UpdateContext({varArea:LookUp(
+                                Areas,
+                                Area = varUserArea.Area.Area
+                            )});
+                ClearCollect(
                     CreateReplacementRecord,
                     Patch(
                         'Order Headers',
@@ -360,14 +364,16 @@
                                     colCartItems,
                                     emptyJarValue
                                 )), */
-                            'Van No': StockTransferWarehouse/*LookUp(
+                            'Van No': StockTransferWarehouse
+                            /*LookUp(
                                 Warehouses,
                                 Warehouse = varUserVanNo.Van.Warehouse
                             )*/,
-                            'Route No': LookUp(
+                            'Route No': varArea
+                            /*LookUp(
                                 Areas,
                                 Area = varUserArea.Area.Area
-                            ),
+                            )*/,
                             Customer: LookUp(
                                 Customers_1,
                                 Account = cmbNewReplacementSelectCustomer.Selected.Account
@@ -437,10 +443,11 @@
                                         Customers_1,
                                         Account = cmbNewReplacementSelectCustomer.Selected.Account
                                     ),
-                                    'Route No': LookUp(
+                                    'Route No': varArea
+                                    /*LookUp(
                                         Areas,
                                         Area = varUserArea.Area.Area
-                                    )
+                                    )*/
                                 }
                             )
                         )
@@ -453,6 +460,7 @@
                 
                 Navigate(ReplacementScreen);
                 Clear(colReasonsVisits);
+                UpdateContext({varArea:Blank()});
             Size: =_VarGblAppFonts.Size.Title
             Text: ="Confirm"
             Width: =150

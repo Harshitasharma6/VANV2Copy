@@ -23,328 +23,8 @@
                   "relativeAddress": 0
                 },
                 "region": {
-                  "charLength": 7,
-                  "charOffset": 513,
-                  "snippet": {
-                    "text": "exactin"
-                  }
-                }
-              },
-              "properties": {
-                "member": "OnSelect",
-                "module": "Pending Payment Screen",
-                "type": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "Filter"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-SuggestRemoteExecutionHint",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7.OnSelect"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7.OnSelect",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 2,
-                  "charOffset": 551,
-                  "snippet": {
-                    "text": "&&"
-                  }
-                }
-              },
-              "properties": {
-                "member": "OnSelect",
-                "module": "Pending Payment Screen",
-                "type": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "Filter"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-SuggestRemoteExecutionHint",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7.OnSelect"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7.OnSelect",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 7,
-                  "charOffset": 10086,
-                  "snippet": {
-                    "text": "exactin"
-                  }
-                }
-              },
-              "properties": {
-                "member": "OnSelect",
-                "module": "Pending Payment Screen",
-                "type": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "Filter"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-SuggestRemoteExecutionHint",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7.OnSelect"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7.OnSelect",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 2,
-                  "charOffset": 10124,
-                  "snippet": {
-                    "text": "&&"
-                  }
-                }
-              },
-              "properties": {
-                "member": "OnSelect",
-                "module": "Pending Payment Screen",
-                "type": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "Filter"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-SuggestRemoteExecutionHint",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7.OnSelect"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7.OnSelect",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 7,
-                  "charOffset": 28125,
-                  "snippet": {
-                    "text": "exactin"
-                  }
-                }
-              },
-              "properties": {
-                "member": "OnSelect",
-                "module": "Pending Payment Screen",
-                "type": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "Filter"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-SuggestRemoteExecutionHint",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7.OnSelect"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7.OnSelect",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 2,
-                  "charOffset": 28163,
-                  "snippet": {
-                    "text": "&&"
-                  }
-                }
-              },
-              "properties": {
-                "member": "OnSelect",
-                "module": "Pending Payment Screen",
-                "type": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "Filter"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-SuggestRemoteExecutionHint",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7.OnSelect"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7.OnSelect",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 7,
-                  "charOffset": 36433,
-                  "snippet": {
-                    "text": "exactin"
-                  }
-                }
-              },
-              "properties": {
-                "member": "OnSelect",
-                "module": "Pending Payment Screen",
-                "type": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "Filter"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-SuggestRemoteExecutionHint",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7.OnSelect"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7.OnSelect",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 2,
-                  "charOffset": 36471,
-                  "snippet": {
-                    "text": "&&"
-                  }
-                }
-              },
-              "properties": {
-                "member": "OnSelect",
-                "module": "Pending Payment Screen",
-                "type": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "Filter"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-SuggestRemoteExecutionHint",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7.OnSelect"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7.OnSelect",
-                  "relativeAddress": 0
-                },
-                "region": {
                   "charLength": 15,
-                  "charOffset": 54041,
+                  "charOffset": 54050,
                   "snippet": {
                     "text": ".'Order Number'"
                   }
@@ -384,7 +64,7 @@
                 },
                 "region": {
                   "charLength": 1,
-                  "charOffset": 54015,
+                  "charOffset": 54024,
                   "snippet": {
                     "text": "="
                   }
@@ -424,7 +104,7 @@
                 },
                 "region": {
                   "charLength": 15,
-                  "charOffset": 56163,
+                  "charOffset": 56210,
                   "snippet": {
                     "text": ".'Order Number'"
                   }
@@ -464,7 +144,7 @@
                 },
                 "region": {
                   "charLength": 1,
-                  "charOffset": 56137,
+                  "charOffset": 56184,
                   "snippet": {
                     "text": "="
                   }
@@ -504,7 +184,7 @@
                 },
                 "region": {
                   "charLength": 2,
-                  "charOffset": 56179,
+                  "charOffset": 56226,
                   "snippet": {
                     "text": "&&"
                   }
@@ -544,7 +224,7 @@
                 },
                 "region": {
                   "charLength": 15,
-                  "charOffset": 59092,
+                  "charOffset": 59178,
                   "snippet": {
                     "text": ".'Order Number'"
                   }
@@ -584,7 +264,7 @@
                 },
                 "region": {
                   "charLength": 1,
-                  "charOffset": 59066,
+                  "charOffset": 59152,
                   "snippet": {
                     "text": "="
                   }
@@ -624,7 +304,7 @@
                 },
                 "region": {
                   "charLength": 17,
-                  "charOffset": 61516,
+                  "charOffset": 61602,
                   "snippet": {
                     "text": ".'Invoice Header'"
                   }
@@ -664,7 +344,7 @@
                 },
                 "region": {
                   "charLength": 1,
-                  "charOffset": 61492,
+                  "charOffset": 61578,
                   "snippet": {
                     "text": "="
                   }
@@ -704,7 +384,7 @@
                 },
                 "region": {
                   "charLength": 15,
-                  "charOffset": 61727,
+                  "charOffset": 61813,
                   "snippet": {
                     "text": ".'Order Number'"
                   }
@@ -744,7 +424,7 @@
                 },
                 "region": {
                   "charLength": 1,
-                  "charOffset": 61701,
+                  "charOffset": 61787,
                   "snippet": {
                     "text": "="
                   }
@@ -783,248 +463,8 @@
                   "relativeAddress": 0
                 },
                 "region": {
-                  "charLength": 7,
-                  "charOffset": 64098,
-                  "snippet": {
-                    "text": "exactin"
-                  }
-                }
-              },
-              "properties": {
-                "member": "OnSelect",
-                "module": "Pending Payment Screen",
-                "type": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "Filter"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-SuggestRemoteExecutionHint",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7.OnSelect"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7.OnSelect",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 2,
-                  "charOffset": 64135,
-                  "snippet": {
-                    "text": "&&"
-                  }
-                }
-              },
-              "properties": {
-                "member": "OnSelect",
-                "module": "Pending Payment Screen",
-                "type": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "Filter"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-SuggestRemoteExecutionHint",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7.OnSelect"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7.OnSelect",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 2,
-                  "charOffset": 64171,
-                  "snippet": {
-                    "text": "&&"
-                  }
-                }
-              },
-              "properties": {
-                "member": "OnSelect",
-                "module": "Pending Payment Screen",
-                "type": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "Filter"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-SuggestRemoteExecutionHint",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7.OnSelect"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7.OnSelect",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 7,
-                  "charOffset": 64487,
-                  "snippet": {
-                    "text": "exactin"
-                  }
-                }
-              },
-              "properties": {
-                "member": "OnSelect",
-                "module": "Pending Payment Screen",
-                "type": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "Filter"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-SuggestRemoteExecutionHint",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7.OnSelect"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7.OnSelect",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 2,
-                  "charOffset": 64524,
-                  "snippet": {
-                    "text": "&&"
-                  }
-                }
-              },
-              "properties": {
-                "member": "OnSelect",
-                "module": "Pending Payment Screen",
-                "type": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "Filter"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-SuggestRemoteExecutionHint",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7.OnSelect"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7.OnSelect",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 2,
-                  "charOffset": 64560,
-                  "snippet": {
-                    "text": "&&"
-                  }
-                }
-              },
-              "properties": {
-                "member": "OnSelect",
-                "module": "Pending Payment Screen",
-                "type": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "Filter"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-SuggestRemoteExecutionHint",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7.OnSelect"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7.OnSelect",
-                  "relativeAddress": 0
-                },
-                "region": {
                   "charLength": 252,
-                  "charOffset": 65977,
+                  "charOffset": 66092,
                   "snippet": {
                     "text": "Sum(\r\n                    Filter(\r\n                        'Order Headers',\r\n                        Customer.Account = paymentData.Customer.Account && 'Created On' >= Today()\r\n                    ),\r\n                    'Net Amount'\r\n                )"
                   }
@@ -1064,7 +504,7 @@
                 },
                 "region": {
                   "charLength": 15,
-                  "charOffset": 70719,
+                  "charOffset": 70834,
                   "snippet": {
                     "text": ".'Order Number'"
                   }
@@ -1104,7 +544,7 @@
                 },
                 "region": {
                   "charLength": 1,
-                  "charOffset": 70693,
+                  "charOffset": 70808,
                   "snippet": {
                     "text": "="
                   }
@@ -1144,7 +584,7 @@
                 },
                 "region": {
                   "charLength": 15,
-                  "charOffset": 73127,
+                  "charOffset": 73317,
                   "snippet": {
                     "text": ".'Order Number'"
                   }
@@ -1184,7 +624,7 @@
                 },
                 "region": {
                   "charLength": 1,
-                  "charOffset": 73101,
+                  "charOffset": 73291,
                   "snippet": {
                     "text": "="
                   }
@@ -1224,7 +664,7 @@
                 },
                 "region": {
                   "charLength": 2,
-                  "charOffset": 73143,
+                  "charOffset": 73333,
                   "snippet": {
                     "text": "&&"
                   }
@@ -1264,7 +704,7 @@
                 },
                 "region": {
                   "charLength": 15,
-                  "charOffset": 76424,
+                  "charOffset": 76686,
                   "snippet": {
                     "text": ".'Order Number'"
                   }
@@ -1304,7 +744,7 @@
                 },
                 "region": {
                   "charLength": 1,
-                  "charOffset": 76398,
+                  "charOffset": 76660,
                   "snippet": {
                     "text": "="
                   }
@@ -1344,7 +784,7 @@
                 },
                 "region": {
                   "charLength": 17,
-                  "charOffset": 79544,
+                  "charOffset": 79806,
                   "snippet": {
                     "text": ".'Invoice Header'"
                   }
@@ -1384,7 +824,7 @@
                 },
                 "region": {
                   "charLength": 1,
-                  "charOffset": 79520,
+                  "charOffset": 79782,
                   "snippet": {
                     "text": "="
                   }
@@ -1424,7 +864,7 @@
                 },
                 "region": {
                   "charLength": 15,
-                  "charOffset": 79803,
+                  "charOffset": 80065,
                   "snippet": {
                     "text": ".'Order Number'"
                   }
@@ -1464,7 +904,7 @@
                 },
                 "region": {
                   "charLength": 1,
-                  "charOffset": 79777,
+                  "charOffset": 80039,
                   "snippet": {
                     "text": "="
                   }
@@ -1503,248 +943,8 @@
                   "relativeAddress": 0
                 },
                 "region": {
-                  "charLength": 7,
-                  "charOffset": 82628,
-                  "snippet": {
-                    "text": "exactin"
-                  }
-                }
-              },
-              "properties": {
-                "member": "OnSelect",
-                "module": "Pending Payment Screen",
-                "type": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "Filter"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-SuggestRemoteExecutionHint",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7.OnSelect"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7.OnSelect",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 2,
-                  "charOffset": 82665,
-                  "snippet": {
-                    "text": "&&"
-                  }
-                }
-              },
-              "properties": {
-                "member": "OnSelect",
-                "module": "Pending Payment Screen",
-                "type": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "Filter"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-SuggestRemoteExecutionHint",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7.OnSelect"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7.OnSelect",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 2,
-                  "charOffset": 82701,
-                  "snippet": {
-                    "text": "&&"
-                  }
-                }
-              },
-              "properties": {
-                "member": "OnSelect",
-                "module": "Pending Payment Screen",
-                "type": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "Filter"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-SuggestRemoteExecutionHint",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7.OnSelect"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7.OnSelect",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 7,
-                  "charOffset": 83073,
-                  "snippet": {
-                    "text": "exactin"
-                  }
-                }
-              },
-              "properties": {
-                "member": "OnSelect",
-                "module": "Pending Payment Screen",
-                "type": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "Filter"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-SuggestRemoteExecutionHint",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7.OnSelect"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7.OnSelect",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 2,
-                  "charOffset": 83110,
-                  "snippet": {
-                    "text": "&&"
-                  }
-                }
-              },
-              "properties": {
-                "member": "OnSelect",
-                "module": "Pending Payment Screen",
-                "type": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "Filter"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-SuggestRemoteExecutionHint",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7.OnSelect"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7.OnSelect",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 2,
-                  "charOffset": 83146,
-                  "snippet": {
-                    "text": "&&"
-                  }
-                }
-              },
-              "properties": {
-                "member": "OnSelect",
-                "module": "Pending Payment Screen",
-                "type": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "Filter"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-SuggestRemoteExecutionHint",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7.OnSelect"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7.OnSelect",
-                  "relativeAddress": 0
-                },
-                "region": {
                   "charLength": 252,
-                  "charOffset": 85217,
+                  "charOffset": 85469,
                   "snippet": {
                     "text": "Sum(\r\n                    Filter(\r\n                        'Order Headers',\r\n                        Customer.Account = paymentData.Customer.Account && 'Created On' >= Today()\r\n                    ),\r\n                    'Net Amount'\r\n                )"
                   }
@@ -1784,7 +984,7 @@
                 },
                 "region": {
                   "charLength": 15,
-                  "charOffset": 89960,
+                  "charOffset": 90212,
                   "snippet": {
                     "text": ".'Order Number'"
                   }
@@ -1824,7 +1024,7 @@
                 },
                 "region": {
                   "charLength": 1,
-                  "charOffset": 89934,
+                  "charOffset": 90186,
                   "snippet": {
                     "text": "="
                   }
@@ -1864,7 +1064,7 @@
                 },
                 "region": {
                   "charLength": 15,
-                  "charOffset": 92368,
+                  "charOffset": 92620,
                   "snippet": {
                     "text": ".'Order Number'"
                   }
@@ -1904,7 +1104,7 @@
                 },
                 "region": {
                   "charLength": 1,
-                  "charOffset": 92342,
+                  "charOffset": 92594,
                   "snippet": {
                     "text": "="
                   }
@@ -1944,7 +1144,7 @@
                 },
                 "region": {
                   "charLength": 2,
-                  "charOffset": 92384,
+                  "charOffset": 92636,
                   "snippet": {
                     "text": "&&"
                   }
@@ -1984,7 +1184,7 @@
                 },
                 "region": {
                   "charLength": 15,
-                  "charOffset": 95665,
+                  "charOffset": 95917,
                   "snippet": {
                     "text": ".'Order Number'"
                   }
@@ -2024,7 +1224,7 @@
                 },
                 "region": {
                   "charLength": 1,
-                  "charOffset": 95639,
+                  "charOffset": 95891,
                   "snippet": {
                     "text": "="
                   }
@@ -2064,7 +1264,7 @@
                 },
                 "region": {
                   "charLength": 17,
-                  "charOffset": 98625,
+                  "charOffset": 98877,
                   "snippet": {
                     "text": ".'Invoice Header'"
                   }
@@ -2104,7 +1304,7 @@
                 },
                 "region": {
                   "charLength": 1,
-                  "charOffset": 98601,
+                  "charOffset": 98853,
                   "snippet": {
                     "text": "="
                   }
@@ -2144,7 +1344,7 @@
                 },
                 "region": {
                   "charLength": 15,
-                  "charOffset": 98884,
+                  "charOffset": 99136,
                   "snippet": {
                     "text": ".'Order Number'"
                   }
@@ -2184,7 +1384,7 @@
                 },
                 "region": {
                   "charLength": 1,
-                  "charOffset": 98858,
+                  "charOffset": 99110,
                   "snippet": {
                     "text": "="
                   }
@@ -2200,246 +1400,6 @@
           "message": {
             "arguments": [
               "LookUp"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-SuggestRemoteExecutionHint",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7.OnSelect"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7.OnSelect",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 7,
-                  "charOffset": 101709,
-                  "snippet": {
-                    "text": "exactin"
-                  }
-                }
-              },
-              "properties": {
-                "member": "OnSelect",
-                "module": "Pending Payment Screen",
-                "type": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "Filter"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-SuggestRemoteExecutionHint",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7.OnSelect"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7.OnSelect",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 2,
-                  "charOffset": 101746,
-                  "snippet": {
-                    "text": "&&"
-                  }
-                }
-              },
-              "properties": {
-                "member": "OnSelect",
-                "module": "Pending Payment Screen",
-                "type": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "Filter"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-SuggestRemoteExecutionHint",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7.OnSelect"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7.OnSelect",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 2,
-                  "charOffset": 101782,
-                  "snippet": {
-                    "text": "&&"
-                  }
-                }
-              },
-              "properties": {
-                "member": "OnSelect",
-                "module": "Pending Payment Screen",
-                "type": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "Filter"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-SuggestRemoteExecutionHint",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7.OnSelect"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7.OnSelect",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 7,
-                  "charOffset": 102154,
-                  "snippet": {
-                    "text": "exactin"
-                  }
-                }
-              },
-              "properties": {
-                "member": "OnSelect",
-                "module": "Pending Payment Screen",
-                "type": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "Filter"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-SuggestRemoteExecutionHint",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7.OnSelect"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7.OnSelect",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 2,
-                  "charOffset": 102191,
-                  "snippet": {
-                    "text": "&&"
-                  }
-                }
-              },
-              "properties": {
-                "member": "OnSelect",
-                "module": "Pending Payment Screen",
-                "type": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "Filter"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-SuggestRemoteExecutionHint",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7.OnSelect"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7.OnSelect",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 2,
-                  "charOffset": 102227,
-                  "snippet": {
-                    "text": "&&"
-                  }
-                }
-              },
-              "properties": {
-                "member": "OnSelect",
-                "module": "Pending Payment Screen",
-                "type": "'Pending Payment Screen'.canPayment_1.dataCardPayment_1.Container7_1.btnPaymentConfirm_7"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "Filter"
             ],
             "id": "issue"
           },
