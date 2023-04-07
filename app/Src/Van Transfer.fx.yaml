@@ -1301,14 +1301,14 @@
                         !IsBlank('Primary Email')
                     )*/
                     Filter(
-                        Filter(
+                      //  Filter(
                             colOfflineUsers,
                             'Primary Email' in AddColumns(
                                 'User Area Mappings',
                                 "UserEmail",
                                 Salesperson.'Primary Email'
                             ).UserEmail && Not('Primary Email' = User().Email)
-                        ),
+                        &&//),
                         !IsBlank('Primary Email')
                     )
                 OnChange: |
@@ -1356,14 +1356,14 @@
                         !IsBlank('Primary Email')
                     )*/
                     Filter(
-                        Filter(
+                      //  Filter(
                             colOfflineUsers,
                             'Primary Email' in AddColumns(
                                 'User Area Mappings',
                                 "UserEmail",
                                 Salesperson.'Primary Email'
                             ).UserEmail && Not('Primary Email' = User().Email)
-                        ),
+                        &&//),
                         !IsBlank('Primary Email')
                     ),ComboBox4.SearchText,"firstname")
                 SelectionFill: =_VarGblAppColors.BisleriBlue
