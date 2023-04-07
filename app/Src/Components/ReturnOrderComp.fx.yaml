@@ -137,7 +137,11 @@ ReturnOrderComp As CanvasComponent:
                         FocusedBorderColor: =Color.Transparent
                         FocusedBorderThickness: =0.5
                         Height: =650
-                        Items: =Filter( 'SKU Masters', txtSearchInput_1.Text in 'SKU Code' || txtSearchInput_1.Text in 'Item Description ' || txtSearchInput_1.Text in 'Pack Title')
+                        Items: |-
+                            =Filter(
+                                'SKU Masters',
+                                txtSearchInput_1.Text in 'SKU Code' || txtSearchInput_1.Text in 'Item Description ' || txtSearchInput_1.Text in 'Pack Title'
+                            )
                         Layout: =Layout.Vertical
                         LayoutMinHeight: =80
                         LayoutMinWidth: =1300

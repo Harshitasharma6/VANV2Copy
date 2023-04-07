@@ -196,6 +196,10 @@ App As appinfo:
                 Area = varUserArea.Area.Area
             ).Area
         );
+        Set(varUser, LookUp(
+                            Users,
+                            'Primary Email' = User().Email
+                        ));
         //If(
            // Connection.Connected,
         ClearCollect(

@@ -665,12 +665,21 @@
                 HoverBorderColor: =RGBA(0, 0, 0, 0)
                 HoverFill: =ColorFade(RGBA(255, 200, 61, 1), 10%)
                 OnSelect: |-
-                    =If(
-                        IsBlank(
-                            LookUp(
+                    =UpdateContext(
+                        {
+                            varVisitCustomer: LookUp(
                                 Visits,
-                                Customer.Account = ThisItem.Account && !IsBlank('Check-in Time') && IsBlank('Check-out Time') && 'Created On' >= Today()/*&& Customer.Salesperson.'Primary Email' = User().Email*/
+                                Customer.Account = ThisItem.Account && IsBlank('Check-out Time') && !IsBlank('Check-in Time') && 'Created On' >= Today()/*&& Customer.Salesperson.'Primary Email' = User().Email*/
                             )
+                        }
+                    );
+                    If(
+                        IsBlank(
+                            varVisitCustomer
+                            /*LookUp(
+                                Visits,
+                                Customer.Account = ThisItem.Account && !IsBlank('Check-in Time') && IsBlank('Check-out Time') && 'Created On' >= Today() && Customer.Salesperson.'Primary Email' = User().Email
+                            )*/
                         ),
                         Notify(
                             "Kindly start the Visit first",
@@ -679,10 +688,11 @@
                         ),
                         Patch(
                             Visits,
-                            LookUp(
+                           /* LookUp(
                                 Visits,
-                                Customer.Account = ThisItem.Account && IsBlank('Check-out Time') && 'Created On' >= Today()/*&& Customer.Salesperson.'Primary Email' = User().Email*/
-                            ),
+                                Customer.Account = ThisItem.Account && IsBlank('Check-out Time') && 'Created On' >= Today()&& Customer.Salesperson.'Primary Email' = User().Email
+                            )*/
+                            varVisitCustomer,
                             {
                                 'Check-out Latitude': Location.Latitude,
                                 'Check-out Longitude': Location.Longitude,
@@ -1499,10 +1509,11 @@
                                 'Check-in Longitude': Location.Longitude,
                                 'Location Matched ': 'Location Matched  (Visits)'.Yes,
                                 'Visit Type': 'Visit Type'.Unplanned,
-                                Salesperson: LookUp(
+                                Salesperson: varUser
+                                /*LookUp(
                                     Users,
                                     'Primary Email' = User().Email
-                                )
+                                )*/
                             }
                         )
                     );
