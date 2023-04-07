@@ -755,13 +755,19 @@
                                     Size: =_VarGblAppFonts.Size.Subtitle
                                     Text: |-
                                         =If(
-                                            Sum(
+                                            /*Sum(
                                                 Filter(
                                                     'Order Lines',
                                                     'Order Number'.'Order Type' <> Blank() && 'Order Number'.'Payment Status' = 'Payment Status Choice'.Completed && 'Item SKU'.'SKU Master' = ThisItem.SKU.'SKU Master' && 'Order Number'.'Order Type' = 'Order Type (Choice)'.'Sales Order' && 'Created On' >= Today() && Salesperson.'Primary Email' = User().Email
                                                 ),
                                                 PCs
-                                            ) > 0,
+                                            ) > 0*/
+                                            !IsBlank(
+                                                LookUp(
+                                                    'Order Lines',
+                                                    'Order Number'.'Order Type' <> Blank() && 'Order Number'.'Payment Status' = 'Payment Status Choice'.Completed && 'Item SKU'.'SKU Master' = ThisItem.SKU.'SKU Master' && 'Order Number'.'Order Type' = 'Order Type (Choice)'.'Sales Order' && 'Created On' >= Today() && Salesperson.'Primary Email' = User().Email
+                                                )
+                                            ),
                                             Sum(
                                                 Filter(
                                                     'Order Lines',
@@ -965,19 +971,17 @@
                                     OnSelect: =Select(Parent)
                                     Size: =_VarGblAppFonts.Size.Subtitle
                                     Text: |-
-                                        =If(CountRows(varToLocationStock)>0,
-                                        
-                                        Sum(
-                                            Filter(
-                                                'Stock Transfer Lines',
-                                                SKU.'SKU Master' = ThisItem.SKU.'SKU Master' && 'Manufacturing date'=ThisItem.'Manufacturing date' && 'Transfer status' = 'Transfer status (Stock Transfer Lines)'.'Transfer accepted' && 'Transfer Order No'.'Stock Transfer Header' in varToLocationStock.headerInventoryGUID
+                                        =If(
+                                            CountRows(varToLocationStock) > 0,
+                                            Sum(
+                                                Filter(
+                                                    'Stock Transfer Lines',
+                                                    SKU.'SKU Master' = ThisItem.SKU.'SKU Master' && 'Manufacturing date' = ThisItem.'Manufacturing date' && 'Transfer status' = 'Transfer status (Stock Transfer Lines)'.'Transfer accepted' && 'Transfer Order No'.'Stock Transfer Header' in varToLocationStock.headerInventoryGUID
+                                                ),
+                                                Cases
                                             ),
-                                            Cases
-                                        ),0)
-                                        
-                                        
-                                        
-                                        
+                                            0
+                                        )
                                         /*If(
                                             ThisItem.'Transfer Order No'.'Stock transfer type' = 'Stock transfer type (Stock Transfer Headers)'.'Van to van transfer' && ThisItem.'To Location'.Warehouse = LookUp(
                                                 Warehouses,
