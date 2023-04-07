@@ -541,7 +541,7 @@
             Fill: =_VarGblAppColors.BisleriBlue
             HoverColor: =_VarGblAppColors.HeaderBg
             HoverFill: =_VarGblAppColors.BisleriBlueMediumLight
-            OnSelect: |
+            OnSelect: |+
                 =/////////////////////////////////////////////////////////_______________STOCK UPDATION FOR CASES
                 
                 UpdateContext({varRoute:LookUp(
@@ -1297,6 +1297,8 @@
                 );
                 Clear(colFOCManipulatedCartItems);
                 Navigate(FOCScreen);
+                UpdateContext({varRoute:Blank()});
+                
             Size: =_VarGblAppFonts.Size.UpperMedium
             Text: ="Yes"
             Width: =120

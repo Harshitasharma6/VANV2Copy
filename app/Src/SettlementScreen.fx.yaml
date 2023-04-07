@@ -1302,6 +1302,10 @@
                     Clear(EitherCasesOrPcs);
                     Set(varDayEnd, true);
                     Navigate('Attendance Screen');*/
+                    UpdateContext({varRoute:LookUp(
+                                    Areas,
+                                    Area = varUserArea.Area.Area
+                                )});
                     
                     Patch(
                         Attendances,
@@ -1333,14 +1337,16 @@
                                     Attendances,
                                     Date = Today() && User.'Primary Email' = User().Email
                                 ).'Check-in Time',
-                                Route: LookUp(
+                                Route: varRoute
+                                /*LookUp(
                                     Areas,
                                     Area = varUserArea.Area.Area
-                                ),
-                                'Vehicle Code': LookUp(
+                                )*/,
+                                'Vehicle Code': StockTransferWarehouse
+                                /*LookUp(
                                     Warehouses,
                                     Warehouse = varUserVanNo.Van.Warehouse
-                                ),
+                                )*/,
                                 'Item Code': LookUp(
                                     'SKU Masters',
                                     'SKU Master' = StkInv.SKU.'SKU Master'
@@ -1385,6 +1391,7 @@
                     Clear(EitherCasesOrPcs);
                     Set(varDayEnd, true);
                     Navigate('Attendance Screen');
+                    UpdateContext({varRoute:Blank()});
                 Size: =_VarGblAppFonts.Size.Title
                 Text: ="End"
                 Width: =150
