@@ -543,6 +543,12 @@
             HoverFill: =_VarGblAppColors.BisleriBlueMediumLight
             OnSelect: |
                 =/////////////////////////////////////////////////////////_______________STOCK UPDATION FOR CASES
+                
+                UpdateContext({varRoute:LookUp(
+                                        Areas,
+                                        Area = varUserArea.Area.Area
+                                    )});
+                
                 ClearCollect(
                     CurrentQtyCases,
                     First(colFOCCartItem).Cases
@@ -969,18 +975,20 @@
                             Latitude: Location.Latitude,
                             Longitude: Location.Longitude,
                             'Reason (zx_reason)': drpFOCReasons.Selected.Value,
-                            Salesperson: LookUp(
+                            Salesperson: varUser
+                            /*LookUp(
                                 Users,
                                 'Primary Email' = User().Email
-                            ),
-                            'Van No': LookUp(
+                            )*/,
+                            'Van No': StockTransferWarehouse
+                            /*LookUp(
                                 Warehouses,
                                 Warehouse = varUserVanNo.Van.Warehouse
-                            ),
-                            'Route No': LookUp(
+                            )*/,
+                            'Route No': varRoute/*LookUp(
                                 Areas,
                                 Area = varUserArea.Area.Area
-                            ),
+                            )*/,
                             Customer: LookUp(
                                 AllCustomerss,
                                 Branch.'Branch Master' = LookUp(
@@ -1026,19 +1034,22 @@
                                         'Order Headers',
                                         'Order Number' = First(CreateFOCOrder).'Order Number'
                                     )*/,
-                                    Salesperson: LookUp(
+                                    Salesperson: varUser
+                                    /*LookUp(
                                         Users,
                                         'Primary Email' = User().Email
-                                    ),
+                                    )*/,
                                     'Item Type': 'Item Type (Choice)'.Free,
-                                    'Van No': LookUp(
+                                    'Van No': StockTransferWarehouse
+                                    /*LookUp(
                                         Warehouses,
                                         Warehouse = varUserVanNo.Van.Warehouse
-                                    ),
-                                    'Route No': LookUp(
+                                    )*/,
+                                    'Route No': varRoute
+                                     /*LookUp(
                                         Areas,
                                         Area = varUserArea.Area.Area
-                                    ),
+                                    )*/,
                                     'Item SKU': LookUp(
                                         'SKU Masters',
                                         'SKU Master' = FOCItem.skuId
@@ -1111,10 +1122,11 @@
                                     ).'Sequence No' + 1,
                                     6
                                 ),
-                                Salesperson: LookUp(
+                                Salesperson: varUser
+                                 /*LookUp(
                                     Users,
                                     'Primary Email' = User().Email
-                                ),
+                                )*/,
                                 Customer: LookUp(
                                     AllCustomerss,
                                     Branch.'Branch Master' = LookUp(
@@ -1122,14 +1134,16 @@
                                         'Primary Email' = User().Email
                                     ).'Branch Master'.'Branch Master'
                                 ),
-                                'Route No': LookUp(
+                                'Route No': varRoute
+                                /*LookUp(
                                     Areas,
                                     Area = varUserArea.Area.Area
-                                ),
-                                'Van No': LookUp(
+                                )*/,
+                                'Van No': StockTransferWarehouse
+                                /*LookUp(
                                     Warehouses,
                                     Warehouse = varUserVanNo.Van.Warehouse
-                                ),
+                                )*/,
                                 'Invoice Date': Now(),
                                 'Order Type': 'Order Type (Choice)'.'FOC Order',
                                 'Order Number': First(CreateFOCOrder)/*LookUp(
@@ -1217,18 +1231,21 @@
                                             'Primary Email' = User().Email
                                         ).'Branch Master'.'Branch Master'
                                     ),
-                                    'Route No': LookUp(
+                                    'Route No': varRoute
+                                    /*LookUp(
                                         Areas,
                                         Area = varUserArea.Area.Area
-                                    ),
-                                    Salesperson: LookUp(
+                                    )*/,
+                                    Salesperson: varUser
+                                    /*LookUp(
                                         Users,
                                         'Primary Email' = User().Email
-                                    ),
-                                    'Van No': LookUp(
+                                    )*/,
+                                    'Van No': StockTransferWarehouse
+                                    /*LookUp(
                                         Warehouses,
                                         Warehouse = varUserVanNo.Van.Warehouse
-                                    ),
+                                    )*/,
                                     'Batch No': LookUp(
                                         'Stock Transfer Lines',
                                         SKU.'SKU Master' = OrdrItems.skuId
