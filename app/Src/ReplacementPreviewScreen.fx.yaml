@@ -372,10 +372,11 @@
                                 Customers_1,
                                 Account = cmbNewReplacementSelectCustomer.Selected.Account
                             ),
-                            Salesperson: LookUp(
+                            Salesperson: varUser
+                            /*LookUp(
                                 Users,
                                 'Primary Email' = User().Email
-                            ),
+                            )*/,
                             'Delivery Date': Today(),
                         'Reason (zx_reason)':'Reason (Order Headers)'.Replacement
                               /*  'Net Amount': (Sum(
@@ -413,10 +414,11 @@
                                         'Order Headers',
                                         'Order Number' = First(CreateReplacementRecord).'Order Number'
                                     )*/,
-                                    Salesperson: LookUp(
+                                    Salesperson: varUser
+                                    /*LookUp(
                                         Users,
                                         'Primary Email' = User().Email
-                                    ),
+                                    )*/,
                                     'Van No': LookUp(
                                         Warehouses,
                                         Warehouse = varUserVanNo.Van.Warehouse
