@@ -44,10 +44,10 @@
                     Attendances,
                     Defaults(Attendances),
                     {
-                        User: LookUp(
+                        User: varUser /*LookUp(
                             Users,
                             'Primary Email' = User().Email
-                        ),
+                        )*/,
                         Name: User().FullName & "_" & Text(
                             DateValue(Today()),
                             "ddmmyyyy"

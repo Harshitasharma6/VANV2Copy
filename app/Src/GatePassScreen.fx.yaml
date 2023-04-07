@@ -1,7 +1,10 @@
 GatePassScreen As screen:
     Fill: =_VarGblAppColors.BackgroundColor
     OnVisible: |
-        =Set(varShowGatePassFile,false);
+        =Set(
+            varShowGatePassFile,
+            false
+        );
         Set(
             varGatePassHeader,
             AddColumns(
@@ -13,11 +16,17 @@ GatePassScreen As screen:
                 'Stock Transfer Header'
             )
         );
-        ClearCollect(
-            colOfflineStockLine,
-            Filter(
-                'Stock Transfer Lines',
-                'Transfer Order No'.'Stock Transfer Header' = Index(varGatePassHeader,1).'Stock Transfer Header'/*First(varGatePassHeader).'Stock Transfer Header'*/
+        If(
+            CountRows(varGatePassHeader) > 0,
+            ClearCollect(
+                colOfflineStockLine,
+                Filter(
+                    'Stock Transfer Lines',
+                    'Transfer Order No'.'Stock Transfer Header' = Index(
+                        varGatePassHeader,
+                        1
+                    ).'Stock Transfer Header'/*First(varGatePassHeader).'Stock Transfer Header'*/
+                )
             )
         );
 
