@@ -511,14 +511,14 @@ App As appinfo:
         );
         ClearCollect(
             colOfflineAllOrderLines,
-            Filter(
+           AddColumns( Filter(
                 'Order Lines',
                 'Order Number'.'Order Id' in AddColumns(
                     colOfflineOrderHeader,
                     "orderId",
                     'Order Id'
                 ).orderId && 'Owning User'.'Primary Email' = User().Email
-            )
+            ),"Item Sku Id",'Item SKU'.'SKU Master')
         );
         ClearCollect(
             colOfflineCurrentStock,

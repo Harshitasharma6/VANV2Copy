@@ -388,6 +388,17 @@ NewEmptyJar As screen:
                     );
                     Clear(colEJarsItem);
                     Navigate(EmptyJarScreen);
+                    ClearCollect(
+                        colOfflineAllOrderLines,
+                       AddColumns( Filter(
+                            'Order Lines',
+                            'Order Number'.'Order Id' in AddColumns(
+                                colOfflineOrderHeader,
+                                "orderId",
+                                'Order Id'
+                            ).orderId && 'Owning User'.'Primary Email' = User().Email
+                        ),"Item Sku Id",'Item SKU'.'SKU Master')
+                    );
                 Size: =_VarGblAppFonts.Size.Title
                 Text: ="Confirm"
                 Width: =150

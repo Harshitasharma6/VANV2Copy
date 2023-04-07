@@ -693,13 +693,14 @@
                                             )*/
                                             Filter(
                                                 colOfflineAllOrderLines,
-                                                'Order Number'.'Order Type' <> Blank() && 'Item SKU'.'SKU Master' = ThisItem.SKU.'SKU Master' && 'Order Number'.'Order Type' = 'Order Type (Choice)'.'Empty jar Order'
+                                                'Order Number'.'Order Type' <> Blank() && /*'Item SKU'.'SKU Master'*/ 'Item Sku Id' = ThisItem.SKU.'SKU Master' && 'Order Number'.'Order Type' = 'Order Type (Choice)'.'Empty jar Order'
                                             ),
                                             'Total Quantity'
                                         ) + Sum(
                                             Filter(
-                                                'Order Lines',
-                                                'Order Number'.'Order Type' <> Blank() && 'Item SKU'.'SKU Master' = ThisItem.SKU.'SKU Master' && 'Created On' >= Today() && Salesperson.'Primary Email' = User().Email && 'Order Number'.'Order Type' = 'Order Type (Choice)'.'Sales Order'
+                                                //'Order Lines'
+                                                colOfflineAllOrderLines,
+                                                'Order Number'.'Order Type' <> Blank() &&  /*'Item SKU'.'SKU Master'*/ 'Item Sku Id' = ThisItem.SKU.'SKU Master' && 'Created On' >= Today() && Salesperson.'Primary Email' = User().Email && 'Order Number'.'Order Type' = 'Order Type (Choice)'.'Sales Order'
                                             ),
                                             'Empty Jars'
                                         )
@@ -717,14 +718,19 @@
                                     OnSelect: =Select(Parent)
                                     Size: =_VarGblAppFonts.Size.Subtitle
                                     Text: |-
-                                        =If(
-                                            Sum(
+                                        =If(/* Sum(
                                                 Filter(
                                                     'Order Lines',
-                                                    'Order Number'.'Order Type' <> Blank() && 'Order Number'.'Payment Status' = 'Payment Status Choice'.Completed && 'Item SKU'.'SKU Master' = ThisItem.SKU.'SKU Master' && 'Created On' >= Today() && Salesperson.'Primary Email' = User().Email && 'Order Number'.'Order Type' = 'Order Type (Choice)'.'Sales Order'
+                                                    'Order Number'.'Order Type' <> Blank() && 'Item SKU'.'SKU Master' = ThisItem.SKU.'SKU Master' && 'Order Number'.'Order Type' = 'Order Type (Choice)'.'Replacement Order' && 'Created On' >= Today() && Salesperson.'Primary Email' = User().Email
                                                 ),
                                                 Cases
-                                            ) > 0,
+                                            ) > 0*/
+                                            !IsBlank(
+                                                LookUp(
+                                                    'Order Lines',
+                                                    'Order Number'.'Order Type' <> Blank() && 'Order Number'.'Payment Status' = 'Payment Status Choice'.Completed && 'Item SKU'.'SKU Master' = ThisItem.SKU.'SKU Master' && 'Created On' >= Today() && Salesperson.'Primary Email' = User().Email && 'Order Number'.'Order Type' = 'Order Type (Choice)'.'Sales Order'
+                                                )
+                                            ) ,
                                             Sum(
                                                 Filter(
                                                     'Order Lines',
@@ -780,13 +786,19 @@
                                     Size: =_VarGblAppFonts.Size.Subtitle
                                     Text: |-
                                         =If(
-                                            Sum(
+                                            /*Sum(
                                                 Filter(
                                                     'Order Lines',
                                                     'Order Number'.'Order Type' <> Blank() && 'Item SKU'.'SKU Master' = ThisItem.SKU.'SKU Master' && 'Order Number'.'Order Type' = 'Order Type (Choice)'.'Replacement Order' && 'Created On' >= Today() && Salesperson.'Primary Email' = User().Email
                                                 ),
                                                 Cases
-                                            ) > 0,
+                                            ) > 0*/
+                                             IsBlank(
+                                                LookUp(
+                                                    'Order Lines',
+                                                    'Order Number'.'Order Type' <> Blank() && 'Item SKU'.'SKU Master' = ThisItem.SKU.'SKU Master' && 'Order Number'.'Order Type' = 'Order Type (Choice)'.'Replacement Order' && 'Created On' >= Today() && Salesperson.'Primary Email' = User().Email
+                                                )
+                                            ) ,
                                             Sum(
                                                 Filter(
                                                     'Order Lines',

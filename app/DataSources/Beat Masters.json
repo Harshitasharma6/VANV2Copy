@@ -39,7 +39,6 @@
       "zx_name": "Name",
       "zx_zx_beatcustomermapping_Beatname_zx_beatma": "Beat customer mappings",
       "zx_zx_beatplan_Beatname_zx_beatmaster": "Beat Plans",
-      "zx_zx_customer_Beat_zx_beatmaster": "Customer (NA)S",
       "zx_zx_userbeatmapping_Beat_zx_beatmaster": "User beat mappings"
     },
     "PreferredName": "Beat Masters",
