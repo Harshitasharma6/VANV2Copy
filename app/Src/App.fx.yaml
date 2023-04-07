@@ -187,8 +187,9 @@ App As appinfo:
             LookUp(
                 Warehouses,
                 Warehouse = varUserVanNo.Van.Warehouse
-            ).Warehouse
+            )
         );
+        
         Set(
             UserAreaGUID,
             LookUp(
@@ -274,7 +275,7 @@ App As appinfo:
                 colOfflineStockTransferHeader,
                 Filter(
                     'Stock Transfer Headers',
-                    'Created On' >= Today() && 'From Location'.Warehouse = StockTransferWarehouse && 'To Location'.Warehouse = StockTransferWarehouse
+                    'Created On' >= Today() && 'From Location'.Warehouse = StockTransferWarehouse.Warehouse && 'To Location'.Warehouse = StockTransferWarehouse.Warehouse
                 )
             );
             ,
@@ -545,13 +546,7 @@ App As appinfo:
                 ),1
             ).'Offline Order Number'
         );
-        Set(
-            StockTransferWarehouse,
-            LookUp(
-                Warehouses,
-                Warehouse = varUserVanNo.Van.Warehouse
-            ).Warehouse
-        );
+        
         Set(
             UserAreaGUID,
             LookUp(

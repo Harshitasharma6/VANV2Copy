@@ -360,10 +360,10 @@
                                     colCartItems,
                                     emptyJarValue
                                 )), */
-                            'Van No': LookUp(
+                            'Van No': StockTransferWarehouse/*LookUp(
                                 Warehouses,
                                 Warehouse = varUserVanNo.Van.Warehouse
-                            ),
+                            )*/,
                             'Route No': LookUp(
                                 Areas,
                                 Area = varUserArea.Area.Area
@@ -419,10 +419,11 @@
                                         Users,
                                         'Primary Email' = User().Email
                                     )*/,
-                                    'Van No': LookUp(
-                                        Warehouses,
-                                        Warehouse = varUserVanNo.Van.Warehouse
-                                    ),
+                                    'Van No': StockTransferWarehouse
+                                    /*LookUp(
+                                Warehouses,
+                                Warehouse = varUserVanNo.Van.Warehouse
+                            )*/,
                                     'Item Type': 'Item Type (Choice)'.Paid,
                                     'Item SKU': LookUp(
                                         'SKU Masters',
@@ -449,6 +450,7 @@
                     varVisitReturnOrMenuReturn,
                     false
                 );
+                
                 Navigate(ReplacementScreen);
                 Clear(colReasonsVisits);
             Size: =_VarGblAppFonts.Size.Title

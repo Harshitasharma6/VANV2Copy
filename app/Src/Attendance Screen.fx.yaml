@@ -423,7 +423,7 @@
                         AddColumns(
                             Filter(
                                 'Stock Transfer Headers',
-                                'To Location'.Warehouse = StockTransferWarehouse && 'Created On' >= Today()
+                                'To Location'.Warehouse = StockTransferWarehouse.Warehouse && 'Created On' >= Today()
                             ),
                             "headerInventoryGUID",
                             'Stock Transfer Header'
@@ -434,7 +434,7 @@
                         AddColumns(
                             Filter(
                                 'Stock Transfer Headers',
-                                'From Location'.Warehouse = StockTransferWarehouse && 'Created On' >= Today() && 'Stock transfer type' = 'Stock transfer type (Stock Transfer Headers)'.'Van to van transfer'
+                                'From Location'.Warehouse = StockTransferWarehouse.Warehouse && 'Created On' >= Today() && 'Stock transfer type' = 'Stock transfer type (Stock Transfer Headers)'.'Van to van transfer'
                             ),
                             "headerInventoryGUID",
                             'Stock Transfer Header'
@@ -445,7 +445,7 @@
                         AddColumns(
                             Filter(
                                 'Stock Transfer Headers',
-                                'To Location'.Warehouse = StockTransferWarehouse && 'Created On'>=Today() && 'Stock transfer type' = 'Stock transfer type (Stock Transfer Headers)'.'Van to van transfer'
+                                'To Location'.Warehouse = StockTransferWarehouse.Warehouse && 'Created On'>=Today() && 'Stock transfer type' = 'Stock transfer type (Stock Transfer Headers)'.'Van to van transfer'
                             ),
                             "headerInventoryGUID",
                             'Stock Transfer Header'
