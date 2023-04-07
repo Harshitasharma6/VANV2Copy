@@ -786,14 +786,14 @@
                                     Size: =_VarGblAppFonts.Size.Subtitle
                                     Text: |-
                                         =If(
-                                            /*Sum(
+                                           /*Sum(
                                                 Filter(
                                                     'Order Lines',
                                                     'Order Number'.'Order Type' <> Blank() && 'Item SKU'.'SKU Master' = ThisItem.SKU.'SKU Master' && 'Order Number'.'Order Type' = 'Order Type (Choice)'.'Replacement Order' && 'Created On' >= Today() && Salesperson.'Primary Email' = User().Email
                                                 ),
                                                 Cases
                                             ) > 0*/
-                                             IsBlank(
+                                              !IsBlank(
                                                 LookUp(
                                                     'Order Lines',
                                                     'Order Number'.'Order Type' <> Blank() && 'Item SKU'.'SKU Master' = ThisItem.SKU.'SKU Master' && 'Order Number'.'Order Type' = 'Order Type (Choice)'.'Replacement Order' && 'Created On' >= Today() && Salesperson.'Primary Email' = User().Email
@@ -823,13 +823,19 @@
                                     Size: =_VarGblAppFonts.Size.Subtitle
                                     Text: |-
                                         =If(
-                                            Sum(
+                                            /*Sum(
                                                 Filter(
                                                     'Order Lines',
                                                     'Order Number'.'Order Type' <> Blank() && 'Item SKU'.'SKU Master' = ThisItem.SKU.'SKU Master' && 'Order Number'.'Order Type' = 'Order Type (Choice)'.'Replacement Order' && 'Created On' >= Today() && Salesperson.'Primary Email' = User().Email
                                                 ),
                                                 PCs
-                                            ) > 0,
+                                            ) > 0*/
+                                             !IsBlank(
+                                                LookUp(
+                                                    'Order Lines',
+                                                    'Order Number'.'Order Type' <> Blank() && 'Item SKU'.'SKU Master' = ThisItem.SKU.'SKU Master' && 'Order Number'.'Order Type' = 'Order Type (Choice)'.'Replacement Order' && 'Created On' >= Today() && Salesperson.'Primary Email' = User().Email
+                                                )
+                                            ) ,
                                             Sum(
                                                 Filter(
                                                     'Order Lines',
@@ -854,13 +860,19 @@
                                     Size: =_VarGblAppFonts.Size.Subtitle
                                     Text: |-
                                         =If(
-                                            Sum(
+                                            /*Sum(
                                                 Filter(
                                                     'Order Lines',
                                                     'Order Number'.'Order Type' <> Blank() && 'Item SKU'.'SKU Master' = ThisItem.SKU.'SKU Master' && 'Order Number'.'Order Type' = 'Order Type (Choice)'.'FOC Order' && 'Created On' >= Today() && Salesperson.'Primary Email' = User().Email
                                                 ),
                                                 Cases
-                                            ) > 0,
+                                            ) > 0*/
+                                            !IsBlank(
+                                                LookUp(
+                                                    'Order Lines',
+                                                    'Order Number'.'Order Type' <> Blank() && 'Item SKU'.'SKU Master' = ThisItem.SKU.'SKU Master' && 'Order Number'.'Order Type' = 'Order Type (Choice)'.'FOC Order' && 'Created On' >= Today() && Salesperson.'Primary Email' = User().Email
+                                                )
+                                            ),
                                             Sum(
                                                 Filter(
                                                     'Order Lines',
@@ -885,13 +897,19 @@
                                     Size: =_VarGblAppFonts.Size.Subtitle
                                     Text: |-
                                         =If(
-                                            Sum(
+                                            /*Sum(
                                                 Filter(
                                                     'Order Lines',
                                                     'Order Number'.'Order Type' <> Blank() && 'Item SKU'.'SKU Master' = ThisItem.SKU.'SKU Master' && 'Order Number'.'Order Type' = 'Order Type (Choice)'.'FOC Order' && 'Created On' >= Today() && Salesperson.'Primary Email' = User().Email
                                                 ),
                                                 PCs
-                                            ) > 0,
+                                            ) > 0*/
+                                            !IsBlank(
+                                                LookUp(
+                                                    'Order Lines',
+                                                    'Order Number'.'Order Type' <> Blank() && 'Item SKU'.'SKU Master' = ThisItem.SKU.'SKU Master' && 'Order Number'.'Order Type' = 'Order Type (Choice)'.'FOC Order' && 'Created On' >= Today() && Salesperson.'Primary Email' = User().Email
+                                                )
+                                            ) ,
                                             Sum(
                                                 Filter(
                                                     'Order Lines',
