@@ -1216,7 +1216,7 @@
                     )
                 Fill: =_VarGblAppColors.BisleriBlue
                 HoverFill: =ColorFade(_VarGblAppColors.BisleriBlue, -20%)
-                OnSelect: |-
+                OnSelect: |+
                     =/*Patch(
                         Attendances,
                         LookUp(
@@ -1299,11 +1299,14 @@
                     Clear(EitherCasesOrPcs);
                     Set(varDayEnd, true);
                     Navigate('Attendance Screen');*/
-                    UpdateContext({varRoute:LookUp(
-                                    Areas,
-                                    Area = varUserArea.Area.Area
-                                )});
-                    
+                    UpdateContext(
+                        {
+                            varRoute: LookUp(
+                                Areas,
+                                Area = varUserArea.Area.Area
+                            )
+                        }
+                    );
                     Patch(
                         Attendances,
                         LookUp(
@@ -1320,7 +1323,7 @@
                         colOfflineTodayAttendance,
                         LookUp(
                             Attendances,
-                            User.'Primary Email' = User().Email && 'Created On'>=Today() && IsBlank('Check-out Time')
+                            User.'Primary Email' = User().Email && 'Created On' >= Today() && IsBlank('Check-out Time')
                         )
                     );
                     ///////////////////////Patch Stock Inventory////////////////////////////
@@ -1363,8 +1366,8 @@
                                 'Replacement Units': Value(StkInv.lblHomeReplacementUOM_8.Text),
                                 'FOC Cases': Value(StkInv.lblHomeReplacementUOM_9.Text),
                                 'FOC Units': Value(StkInv.lblHomeReplacementUOM_10.Text),
-                                'Return Cases':0 /*Value(StkInv.lblHomeReplacementUOM_11.Text)*/,
-                                'Return Units':0 /*Value(StkInv.lblHomeReplacementUOM_12.Text)*/,
+                                'Return Cases': 0/*Value(StkInv.lblHomeReplacementUOM_11.Text)*/,
+                                'Return Units': 0/*Value(StkInv.lblHomeReplacementUOM_12.Text)*/,
                                 'Transfer in Cases': Value(StkInv.lblHomeReplacementUOM_13.Text),
                                 'Transfer in Units': Value(StkInv.lblHomeReplacementUOM_14.Text),
                                 'Transfer out Cases': Value(StkInv.lblHomeReplacementUOM_15.Text),
@@ -1377,18 +1380,21 @@
                                     'Stock Transfer Lines',
                                     SKU.'SKU Master' = StkInv.SKU.'SKU Master'
                                 ).'Lot no.',
-                                'Mfg Date':LookUp(
+                                'Mfg Date': LookUp(
                                     'Stock Transfer Lines',
                                     SKU.'SKU Master' = StkInv.SKU.'SKU Master'
                                 ).'Manufacturing date'
                             }
                         )
-                        
                     );
                     Clear(EitherCasesOrPcs);
-                    Set(varDayEnd, true);
+                    Set(
+                        varDayEnd,
+                        true
+                    );
+                    UpdateContext({varRoute: Blank()});
                     Navigate('Attendance Screen');
-                    UpdateContext({varRoute:Blank()});
+                    
                 Size: =_VarGblAppFonts.Size.Title
                 Text: ="End"
                 Width: =150
