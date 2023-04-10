@@ -1402,6 +1402,11 @@
                         true
                     );
                     UpdateContext({varRoute: Blank()});
+                    UpdateContext(
+                        {
+                            varAttedance: Blank()
+                        }
+                    );
                     Navigate('Attendance Screen');
                 Size: =_VarGblAppFonts.Size.Title
                 Text: ="End"
