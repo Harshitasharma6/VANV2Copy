@@ -977,7 +977,10 @@
                 ZIndex: =3
 
                 contHomeOrdersUpper_3 As groupContainer.manualLayoutContainer:
+                    AlignInContainer: =AlignInContainer.SetByContainer
                     Height: =contHomeOrdersLowerVertical_3.Height
+                    LayoutMinHeight: =112
+                    LayoutMinWidth: =250
                     Width: =Parent.Width
                     ZIndex: =1
 
@@ -991,7 +994,10 @@
                         ZIndex: =1
 
                         contHomeOrdersHeading_3 As groupContainer.manualLayoutContainer:
+                            AlignInContainer: =AlignInContainer.SetByContainer
                             Height: =60
+                            LayoutMinHeight: =112
+                            LayoutMinWidth: =250
                             Width: =Parent.Width
                             ZIndex: =1
 
@@ -1212,13 +1218,17 @@
                                 ZIndex: =9
 
                         contHomeOrdersData_3 As groupContainer.horizontalAutoLayoutContainer:
+                            AlignInContainer: =AlignInContainer.SetByContainer
                             Height: =galHomeOrdersData_3.Height
+                            LayoutMinHeight: =112
+                            LayoutMinWidth: =250
                             LayoutMode: =LayoutMode.Auto
                             Width: =Parent.Width
                             ZIndex: =2
 
                             galHomeOrdersData_3 As gallery.galleryVertical:
                                 AccessibleLabel: ="galHomeOrdersData"
+                                AlignInContainer: =AlignInContainer.SetByContainer
                                 Fill: |-
                                     =//RGBA(0, 0, 0, 0)
                                     _VarGblAppColors.LightText
@@ -1227,6 +1237,8 @@
                                 Height: =(galHomeOrdersData_3.TemplateHeight * CountRows(galHomeOrdersData_3.AllItems)) + 30
                                 Items: =paymentLines
                                 Layout: =Layout.Vertical
+                                LayoutMinHeight: =287
+                                LayoutMinWidth: =320
                                 ShowScrollbar: =false
                                 TabIndex: =0
                                 TemplateSize: =60
