@@ -1836,7 +1836,7 @@
   },
   "FunctionParamsInvariantScripts": {},
   "FunctionParamsInvariantScriptsOnInstances": {},
-  "HeaderLastSavedDateTimeUTC": "04/10/2023 07:42:07",
+  "HeaderLastSavedDateTimeUTC": "04/10/2023 08:29:05",
   "IsLegacyComponentAllowGlobalScopeCase": false,
   "LocalConnectionIDReferences": {
     "05949ac3-3ae7-4e0a-a83b-8c204e6fad54": "\"/providers/microsoft.powerapps/apis/shared_logicflows/connections/7cd4409d1888474d840e66b4aaaf6291\"",
@@ -2011,6 +2011,7 @@
     "colSelectedGatePassLines": 579,
     "colSelectedTransferLines": 580,
     "colSKU": 581,
+    "colSKU1": 620,
     "colTransferOutHeader": 582,
     "colVanTransferLine": 583,
     "ComboBoxSample": 474,

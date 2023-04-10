@@ -1338,6 +1338,16 @@
                     ///////////////////////Patch Stock Inventory////////////////////////////
                     ForAll(
                         galHomeReplacementData_1.AllItems As StkInv,
+                        Collect(
+                            colSKU1,
+                            {
+                                t: LookUp(
+                                    'Stock Transfer Lines',
+                                    SKU.'SKU Master' = StkInv.SKU.'SKU Master'
+                                ),
+                                ID: StkInv.'Stock Transfer Lines'
+                            }
+                        );
                         Patch(
                             'Stock Inventories',
                             Defaults('Stock Inventories'),
@@ -1381,20 +1391,28 @@
                                 'Transfer in Units': Value(StkInv.lblHomeReplacementUOM_14.Text),
                                 'Transfer out Cases': Value(StkInv.lblHomeReplacementUOM_15.Text),
                                 'Transfer out Units': Value(StkInv.lblHomeReplacementUOM_16.Text),
-                                'Batch No': LookUp(
+                                'Batch No': First(colSKU1).t.'Batch no.'
+                                /*LookUp(
                                     'Stock Transfer Lines',
                                     SKU.'SKU Master' = StkInv.SKU.'SKU Master'
-                                ).'Batch no.',
-                                'Lot No': LookUp(
+                                ).'Batch no.'*/,
+                                'Lot No': /*LookUp(
                                     'Stock Transfer Lines',
                                     SKU.'SKU Master' = StkInv.SKU.'SKU Master'
-                                ).'Lot no.',
-                                'Mfg Date': LookUp(
+                                ).'Lot no.'*/ 
+                    First(colSKU1).t.'Lot no.',
+                                'Mfg Date': /*LookUp(
                                     'Stock Transfer Lines',
                                     SKU.'SKU Master' = StkInv.SKU.'SKU Master'
-                                ).'Manufacturing date'
+                                ).'Manufacturing date'*/
+                    First(colSKU1).t.'Manufacturing date'
                             }
-                        )
+                        );
+                        RemoveIf(
+                            colSKU1,
+                            ID = StkInv.'Stock Transfer Lines'
+                        );
+                        
                     );
                     Clear(EitherCasesOrPcs);
                     Set(
@@ -1402,11 +1420,7 @@
                         true
                     );
                     UpdateContext({varRoute: Blank()});
-                    UpdateContext(
-                        {
-                            varAttedance: Blank()
-                        }
-                    );
+                    UpdateContext({varAttedance: Blank()});
                     Navigate('Attendance Screen');
                 Size: =_VarGblAppFonts.Size.Title
                 Text: ="End"
