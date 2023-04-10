@@ -17,13 +17,13 @@
             varSelectedVisitActiveTab,
             1
         );
-        Set(
+        /*Set(
             varCustomerGroup,
             LookUp(
                 'Customer groups',
                 'Customer group' = Customers_1Detail.'Customer Group'.'Customer group'
             )
-        );
+        );*/
         
         Set(
             varPricingMaster,
