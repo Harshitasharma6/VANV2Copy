@@ -1345,6 +1345,10 @@
                                     'Stock Transfer Lines',
                                     SKU.'SKU Master' = StkInv.SKU.'SKU Master'
                                 ),
+                                Sku: LookUp(
+                                    'SKU Masters',
+                                    'SKU Master' = StkInv.SKU.'SKU Master'
+                                ),
                                 ID: StkInv.'Stock Transfer Lines'
                             }
                         );
@@ -1366,14 +1370,16 @@
                                     Warehouses,
                                     Warehouse = varUserVanNo.Van.Warehouse
                                 )*/,
-                                'Item Code': LookUp(
+                                'Item Code': First(colSKU1).Sku
+                                /* LookUp(
                                     'SKU Masters',
                                     'SKU Master' = StkInv.SKU.'SKU Master'
-                                ),
-                                'Item Description': LookUp(
+                                )*/,
+                                'Item Description': First(colSKU1).Sku.'Item Description '
+                                /* LookUp(
                                     'SKU Masters',
                                     'SKU Master' = StkInv.SKU.'SKU Master'
-                                ).'Item Description ',
+                                ).'Item Description '*/,
                                 'Loaded Cases': Value(StkInv.lblHomeReplacementReason_1.Text),
                                 'Loaded Units': Value(StkInv.lblHomeReplacementUOM_1.Text),
                                 'Filled Cases': Value(StkInv.lblHomeReplacementQty_1.Text),
