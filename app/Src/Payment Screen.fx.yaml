@@ -19,23 +19,20 @@
         FocusedBorderThickness: =0.5
         Height: =764
         Items: |-
-            =/*Filter(
-                Payments,
-                Salesperson.'Primary Email' = User().Email
-            )*/
+            =
             Sort(
                 Switch(
                     galPaymentDateFilter.Selected.Value,
                     "Last 30 Days",
                     Filter(
-                      //  Filter(
-                         //   Filter(
+                      // 
+                         //  
                                 //colOfflinePayments,
                                 Payments,
                                 Salesperson.'Primary Email' = User().Email
-                          &&//  ),
+                          &&
                             'Payment Mode' = galPaymentTypeFilter.Selected.Value
-                       &&//  ),
+                       &&
                         'Created On' > DateAdd(
                             Today(),
                             -30
@@ -43,14 +40,13 @@
                     ),
                     "Last 7 Days",
                     Filter(
-                        Filter(
-                            Filter(
+                      
                                 //colOfflinePayments,
                                 Payments,
                                 Salesperson.'Primary Email' = User().Email
-                            ),
+                          &&
                             'Payment Mode' = galPaymentTypeFilter.Selected.Value
-                        ),
+                      &&
                         'Created On' > DateAdd(
                             Today(),
                             -7
@@ -58,13 +54,13 @@
                     ),
                     "Today's Payments",
                     Filter(
-                     //   Filter(
-                       //     Filter(
+                    
+                    
                                 Payments,
                                 Salesperson.'Primary Email' = User().Email
-                        &&//     ),
+                        &&
                             'Payment Mode' = galPaymentTypeFilter.Selected.Value
-                       &&//  ),
+                       &&
                         'Created On'>= Today()
                     )
                 ),
