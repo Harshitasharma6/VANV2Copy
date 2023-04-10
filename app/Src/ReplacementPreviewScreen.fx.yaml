@@ -358,6 +358,7 @@
                         {
                             'Order Date': Now(),
                             'Order Type': 'Order Type (Choice)'.'Replacement Order',
+                              //'Payment Type': 'Payment Type (Order Headers)'.Cash,
                             'Total Quantity': (Sum(
                                 colReasonsVisits,
                                 qtyCases
@@ -365,12 +366,53 @@
                                 colReasonsVisits,
                                 qtyPcs
                             )),
-                            'Van No': StockTransferWarehouse,
-                            'Route No': varArea,
-                            Customer: varCustomer,
-                            Salesperson: varUser,
+                            /*    'Total Amount': ((Sum(
+                                    colCartItems,
+                                    discountedPrice
+                                ) * 0.18) + Sum(
+                                    colCartItems,
+                                    discountedPrice
+                                ) + Sum(
+                                    colCartItems,
+                                    emptyJarValue
+                                )), */
+                            'Van No': StockTransferWarehouse
+                            /*LookUp(
+                                Warehouses,
+                                Warehouse = varUserVanNo.Van.Warehouse
+                            )*/,
+                            'Route No': varArea
+                            /*LookUp(
+                                Areas,
+                                Area = varUserArea.Area.Area
+                            )*/,
+                            Customer: varCustomer
+                            /*LookUp(
+                                Customers_1,
+                                Account = cmbNewReplacementSelectCustomer.Selected.Account
+                            )*/,
+                            Salesperson: varUser
+                            /*LookUp(
+                                Users,
+                                'Primary Email' = User().Email
+                            )*/,
                             'Delivery Date': Today(),
                             'Reason (zx_reason)': 'Reason (Order Headers)'.Replacement
+                            /*  'Net Amount': (Sum(
+                                    colCartItems,
+                                    discountedPrice
+                                ) + Sum(
+                                    colCartItems,
+                                    emptyJarValue
+                                )),
+                                'Total Tax Amount': (Sum(
+                                    colCartItems,
+                                    discountedPrice
+                                ) * 0.18),
+                                'Total Discount Amount': Sum(
+                                    colCartItems,
+                                    discount
+                                ) */
                         }
                     )
                 );
@@ -394,17 +436,35 @@
                                     'Order Number': Index(
                                         CreateReplacementRecord,
                                         1
-                                    ),
-                                    Salesperson: varUser,
-                                    'Van No': StockTransferWarehouse,
+                                    )/*First(CreateReplacementRecord) LookUp(
+                                        'Order Headers',
+                                        'Order Number' = First(CreateReplacementRecord).'Order Number'
+                                    )*/,
+                                    Salesperson: varUser/*LookUp(
+                                        Users,
+                                        'Primary Email' = User().Email
+                                    )*/,
+                                    'Van No': StockTransferWarehouse 
+                                    /*LookUp(
+                                Warehouses,
+                                Warehouse = varUserVanNo.Van.Warehouse
+                            )*/,
                                     'Item Type': 'Item Type (Choice)'.Paid,
                                     'Item SKU': First(colR).t
                                     /*LookUp(
                                         'SKU Masters',
                                         'SKU Master' = ThissItem.id
                                     )*/,
+                                      /*  'Base Price': ThissItem.price,
+                                        'Total Discount Amount': Value(ThissItem.discount),
+                                        'Tax Amount': ThissItem.discountedPrice * 0.18,
+                                        Rate: ThissItem.discountedPrice + (ThissItem.discountedPrice * 0.18) + ThissItem.emptyJarValue, */
                                     'Customer no.': varCustomer,
                                     'Route No': varArea
+                                     /*LookUp(
+                                        Areas,
+                                        Area = varUserArea.Area.Area
+                                    )*/
                                 }
                             );
                             RemoveIf(colR, ID=ThissItem.id);
