@@ -342,6 +342,14 @@
                         )
                     }
                 );
+                UpdateContext(
+                    {
+                        varCustomer: LookUp(
+                            Customers_1,
+                            Account = cmbNewReplacementSelectCustomer.Selected.Account
+                        )
+                    }
+                );
                 ClearCollect(
                     CreateReplacementRecord,
                     Patch(
@@ -350,7 +358,6 @@
                         {
                             'Order Date': Now(),
                             'Order Type': 'Order Type (Choice)'.'Replacement Order',
-                           
                             'Total Quantity': (Sum(
                                 colReasonsVisits,
                                 qtyCases
@@ -358,17 +365,12 @@
                                 colReasonsVisits,
                                 qtyPcs
                             )),
-                           
                             'Van No': StockTransferWarehouse,
                             'Route No': varArea,
-                            Customer: LookUp(
-                                Customers_1,
-                                Account = cmbNewReplacementSelectCustomer.Selected.Account
-                            ),
+                            Customer: varCustomer,
                             Salesperson: varUser,
                             'Delivery Date': Today(),
                             'Reason (zx_reason)': 'Reason (Order Headers)'.Replacement
-                              
                         }
                     )
                 );
@@ -389,19 +391,14 @@
                                         CreateReplacementRecord,
                                         1
                                     ),
-                                    Salesperson: varUser
-                                    ,
+                                    Salesperson: varUser,
                                     'Van No': StockTransferWarehouse,
                                     'Item Type': 'Item Type (Choice)'.Paid,
                                     'Item SKU': LookUp(
                                         'SKU Masters',
                                         'SKU Master' = ThissItem.id
                                     ),
-                                   
-                                    'Customer no.': LookUp(
-                                        Customers_1,
-                                        Account = cmbNewReplacementSelectCustomer.Selected.Account
-                                    ),
+                                    'Customer no.': varCustomer,
                                     'Route No': varArea
                                 }
                             )
@@ -413,6 +410,7 @@
                     false
                 );
                 UpdateContext({varArea: Blank()});
+                UpdateContext({varCustomer: Blank()});
                 Navigate(ReplacementScreen);
                 Clear(colReasonsVisits);
             Size: =_VarGblAppFonts.Size.Title
