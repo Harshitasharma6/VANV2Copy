@@ -333,11 +333,15 @@
             Fill: =_VarGblAppColors.BisleriBlue
             FocusedBorderThickness: =2
             HoverFill: =ColorFade(_VarGblAppColors.BisleriBlue, -20%)
-            OnSelect: |-
-                =UpdateContext({varArea:LookUp(
-                                Areas,
-                                Area = varUserArea.Area.Area
-                            )});
+            OnSelect: |
+                =UpdateContext(
+                    {
+                        varArea: LookUp(
+                            Areas,
+                            Area = varUserArea.Area.Area
+                        )
+                    }
+                );
                 ClearCollect(
                     CreateReplacementRecord,
                     Patch(
@@ -346,7 +350,7 @@
                         {
                             'Order Date': Now(),
                             'Order Type': 'Order Type (Choice)'.'Replacement Order',
-                            //'Payment Type': 'Payment Type (Order Headers)'.Cash,
+                           
                             'Total Quantity': (Sum(
                                 colReasonsVisits,
                                 qtyCases
@@ -354,52 +358,17 @@
                                 colReasonsVisits,
                                 qtyPcs
                             )),
-                            /*    'Total Amount': ((Sum(
-                                    colCartItems,
-                                    discountedPrice
-                                ) * 0.18) + Sum(
-                                    colCartItems,
-                                    discountedPrice
-                                ) + Sum(
-                                    colCartItems,
-                                    emptyJarValue
-                                )), */
-                            'Van No': StockTransferWarehouse
-                            /*LookUp(
-                                Warehouses,
-                                Warehouse = varUserVanNo.Van.Warehouse
-                            )*/,
-                            'Route No': varArea
-                            /*LookUp(
-                                Areas,
-                                Area = varUserArea.Area.Area
-                            )*/,
+                           
+                            'Van No': StockTransferWarehouse,
+                            'Route No': varArea,
                             Customer: LookUp(
                                 Customers_1,
                                 Account = cmbNewReplacementSelectCustomer.Selected.Account
                             ),
-                            Salesperson: varUser
-                            /*LookUp(
-                                Users,
-                                'Primary Email' = User().Email
-                            )*/,
+                            Salesperson: varUser,
                             'Delivery Date': Today(),
-                        'Reason (zx_reason)':'Reason (Order Headers)'.Replacement
-                              /*  'Net Amount': (Sum(
-                                    colCartItems,
-                                    discountedPrice
-                                ) + Sum(
-                                    colCartItems,
-                                    emptyJarValue
-                                )),
-                                'Total Tax Amount': (Sum(
-                                    colCartItems,
-                                    discountedPrice
-                                ) * 0.18),
-                                'Total Discount Amount': Sum(
-                                    colCartItems,
-                                    discount
-                                ) */
+                            'Reason (zx_reason)': 'Reason (Order Headers)'.Replacement
+                              
                         }
                     )
                 );
@@ -416,38 +385,24 @@
                                     'Total Quantity': ThissItem.qtyCases + ThissItem.qtyPcs,
                                     Cases: ThissItem.qtyCases,
                                     PCs: ThissItem.qtyPcs,
-                                    'Order Number': Index(CreateReplacementRecord,1)/*First(CreateReplacementRecord) LookUp(
-                                        'Order Headers',
-                                        'Order Number' = First(CreateReplacementRecord).'Order Number'
-                                    )*/,
+                                    'Order Number': Index(
+                                        CreateReplacementRecord,
+                                        1
+                                    ),
                                     Salesperson: varUser
-                                    /*LookUp(
-                                        Users,
-                                        'Primary Email' = User().Email
-                                    )*/,
-                                    'Van No': StockTransferWarehouse
-                                    /*LookUp(
-                                Warehouses,
-                                Warehouse = varUserVanNo.Van.Warehouse
-                            )*/,
+                                    ,
+                                    'Van No': StockTransferWarehouse,
                                     'Item Type': 'Item Type (Choice)'.Paid,
                                     'Item SKU': LookUp(
                                         'SKU Masters',
                                         'SKU Master' = ThissItem.id
                                     ),
-                                    /*  'Base Price': ThissItem.price,
-                                        'Total Discount Amount': Value(ThissItem.discount),
-                                        'Tax Amount': ThissItem.discountedPrice * 0.18,
-                                        Rate: ThissItem.discountedPrice + (ThissItem.discountedPrice * 0.18) + ThissItem.emptyJarValue, */
+                                   
                                     'Customer no.': LookUp(
                                         Customers_1,
                                         Account = cmbNewReplacementSelectCustomer.Selected.Account
                                     ),
                                     'Route No': varArea
-                                    /*LookUp(
-                                        Areas,
-                                        Area = varUserArea.Area.Area
-                                    )*/
                                 }
                             )
                         )
@@ -457,10 +412,9 @@
                     varVisitReturnOrMenuReturn,
                     false
                 );
-                
+                UpdateContext({varArea: Blank()});
                 Navigate(ReplacementScreen);
                 Clear(colReasonsVisits);
-                UpdateContext({varArea:Blank()});
             Size: =_VarGblAppFonts.Size.Title
             Text: ="Confirm"
             Width: =150
