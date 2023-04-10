@@ -1603,13 +1603,7 @@
                                     FillPortions: =0
                                     Height: =Parent.Height
                                     Items: |-
-                                        =/*Filter(
-                                            'Check-in Demand Lines',
-                                            'Check-in Demand Header'.'Check-in Demand Header' = LookUp(
-                                                'Check-in Demand Headers',
-                                                'Van No'.Warehouse = varUserVanNo.Van.Warehouse && Salesperson.'Primary Email' = User().Email && IsToday('Created On')
-                                            ).'Check-in Demand Header'
-                                        )*/
+                                        =
                                         colOfflineTodayDemandsLines
                                     Layout: =Layout.Vertical
                                     LayoutMinHeight: =287

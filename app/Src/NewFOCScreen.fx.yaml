@@ -559,7 +559,7 @@
                     Collect(
                         StockLinesForFIFO,
                         Sort(
-                            //Filter(
+                           
                             Filter(
                                 'Stock Transfer Lines',
                                 ('Transfer Order No'.'Stock Transfer Header' in varGatePassHeaderAll.headerGUID) && (SKU.'SKU Master' = OneProductItem.productId)
@@ -713,12 +713,11 @@
                         StockLinesForFIFO,
                         Sort(
                             Filter(
-                                //Filter(
+                                
                                 'Stock Transfer Lines',
                                 ('Transfer Order No'.'Stock Transfer Header' in varGatePassHeaderAll.headerGUID) && (SKU.'SKU Master' = OneProductItem.productId)
                             ),
-                                //IsToday('Created On')
-                            //),
+                               
                             'Manufacturing date',
                             SortOrder.Ascending
                         )

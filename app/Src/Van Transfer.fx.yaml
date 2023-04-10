@@ -1006,12 +1006,11 @@
             SortByColumns(
                 Sort(
                     Filter(
-                        //Filter(
+                    
                             'Stock Transfer Lines',
                             'Transfer Order No'.'Stock Transfer Header' in varTransferOutSTockHeader.headerGUID
                         ),
-                        //IsToday('Created On')
-                    //),
+                       
                     'Created On',
                     SortOrder.Descending
                 ),
@@ -1289,26 +1288,16 @@
                 HoverFill: =_VarGblAppColors.BisleriBlueLight
                 InputTextPlaceholder: ="Find Salesman"
                 Items: |-
-                    =/*Filter(
-                        Filter(
-                            Users,
-                            'Primary Email' in AddColumns(
-                                'User Area Mappings',
-                                "UserEmail",
-                                Salesperson.'Primary Email'
-                            ).UserEmail && Not('Primary Email' = User().Email)
-                        ),
-                        !IsBlank('Primary Email')
-                    )*/
+                    =
                     Filter(
-                      //  Filter(
+                     
                             colOfflineUsers,
                             'Primary Email' in AddColumns(
                                 'User Area Mappings',
                                 "UserEmail",
                                 Salesperson.'Primary Email'
                             ).UserEmail && Not('Primary Email' = User().Email)
-                        &&//),
+                        &&
                         !IsBlank('Primary Email')
                     )
                 OnChange: |
@@ -1475,20 +1464,19 @@
                         Collect(
                             StockLinesForFIFO,
                             Sort(
-                                //Filter(
+                               
                                     Filter(
                                         'Stock Transfer Lines',
                                         ('Transfer Order No'.'Stock Transfer Header' in varGatePassHeader.headerGUID) && (SKU.'SKU Master' = OneProductItem.productId)
                                     ),
-                                    //IsToday('Created On')
-                                //),
+                                   
                                 'Manufacturing date',
                                 SortOrder.Ascending
                             )
                         );
                         Patch(
                             CurrentQtyCases,
-                            //First(CurrentQtyCases)
+                           
                             Index(CurrentQtyCases,1),
                             {Value: OneProductItem.qtyCases}
                         );
@@ -1636,13 +1624,12 @@
                         Collect(
                             StockLinesForFIFO,
                             Sort(
-                                //Filter(
+                              
                                     Filter(
                                         'Stock Transfer Lines',
                                         ('Transfer Order No'.'Stock Transfer Header' in varGatePassHeader.headerGUID) && (SKU.'SKU Master' = OneProductItem.productId)
                                     ),
-                                    //IsToday('Created On')
-                                //),
+                                   
                                 'Manufacturing date',
                                 SortOrder.Ascending
                             )
