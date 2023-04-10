@@ -636,9 +636,13 @@ GatePassScreen As screen:
                             {
                                 id: oneLine.'Stock Transfer Lines',
                                 STH: LookUp(
-                                    'Stock Transfer Headers',
-                                    'Stock Transfer Header' = oneLine.'Transfer Order No'.'Stock Transfer Header'
-                                ).'To Location'.Warehouse,
+                                        Warehouses,
+                                        Warehouse = 
+                                         LookUp(
+                                            'Stock Transfer Headers',
+                                            'Stock Transfer Header' = oneLine.'Transfer Order No'.'Stock Transfer Header'
+                                        ).'To Location'.Warehouse
+                                    ),
                                 sku: LookUp(
                                     'SKU Masters',
                                     'SKU Master' = oneLine.SKU.'SKU Master'
@@ -656,7 +660,7 @@ GatePassScreen As screen:
                             IsBlank(First(colCurrent).cs
                                 /*LookUp(
                                     'Current Stocks',
-                                    'Item SKU'.'SKU Master' = oneLine.SKU.'SKU Master' && 'Van No'.Warehouse = First(colCurrent).STH
+                                    'Item SKU'.'SKU Master' = oneLine.SKU.'SKU Master' && 'Van No'.Warehouse =
                                     LookUp(
                                         'Stock Transfer Headers',
                                         'Stock Transfer Header' = oneLine.'Transfer Order No'.'Stock Transfer Header'
@@ -681,14 +685,15 @@ GatePassScreen As screen:
                                             'Stock Transfer Header' = oneLine.'Transfer Order No'.'Stock Transfer Header'
                                         ).'To Location'.Warehouse
                                     ).Area.Area),*/
-                                    'Van No': LookUp(
+                                    'Van No': First(colCurrent).STH
+                                    /*LookUp(
                                         Warehouses,
-                                        Warehouse = First(colCurrent).STH
-                                         /*LookUp(
+                                        Warehouse = 
+                                         LookUp(
                                             'Stock Transfer Headers',
                                             'Stock Transfer Header' = oneLine.'Transfer Order No'.'Stock Transfer Header'
-                                        ).'To Location'.Warehouse*/
-                                    ),
+                                        ).'To Location'.Warehouse
+                                    )*/,
                                     'Last Updated Date': Now()
                                 }
                             ),
@@ -696,7 +701,7 @@ GatePassScreen As screen:
                                 'Current Stocks',First(colCurrent).cs
                                 /*LookUp(
                                     'Current Stocks',
-                                    'Item SKU'.'SKU Master' = oneLine.SKU.'SKU Master' && 'Van No'.Warehouse = First(colCurrent).STH 
+                                    'Item SKU'.'SKU Master' = oneLine.SKU.'SKU Master' && 'Van No'.Warehouse = 
                                     LookUp(
                                         'Stock Transfer Headers',
                                         'Stock Transfer Header' = oneLine.'Transfer Order No'.'Stock Transfer Header'
@@ -705,7 +710,7 @@ GatePassScreen As screen:
                                 {
                                     Cases: /*LookUp(
                                         'Current Stocks',
-                                        'Item SKU'.'SKU Master' = oneLine.SKU.'SKU Master' && 'Van No'.Warehouse = First(colCurrent).STH 
+                                        'Item SKU'.'SKU Master' = oneLine.SKU.'SKU Master' && 'Van No'.Warehouse =
                                          LookUp(
                                             'Stock Transfer Headers',
                                             'Stock Transfer Header' = oneLine.'Transfer Order No'.'Stock Transfer Header'
@@ -713,12 +718,12 @@ GatePassScreen As screen:
                                     ).Cases*/ First(colCurrent).cs.Cases + oneLine.Cases,
                                     PCs: /*LookUp(
                                         'Current Stocks',
-                                        'Item SKU'.'SKU Master' = oneLine.SKU.'SKU Master' && 'Van No'.Warehouse = First(colCurrent).STH 
+                                        'Item SKU'.'SKU Master' = oneLine.SKU.'SKU Master' && 'Van No'.Warehouse =
                                         LookUp(
                                             'Stock Transfer Headers',
                                             'Stock Transfer Header' = oneLine.'Transfer Order No'.'Stock Transfer Header'
                                         ).'To Location'.Warehouse && 'Created Date' >= Today()
-                                    ).PCs*/First(colCurrent).cs.PCs + oneLine.PCs,
+                                    ).PCs*/ First(colCurrent).cs.PCs + oneLine.PCs,
                                     'Last Updated Date': Now()
                                 }
                             )
