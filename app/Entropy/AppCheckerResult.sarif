@@ -2264,10 +2264,10 @@
                   "relativeAddress": 0
                 },
                 "region": {
-                  "charLength": 10,
-                  "charOffset": 2819,
+                  "charLength": 4,
+                  "charOffset": 3079,
                   "snippet": {
-                    "text": ".Warehouse"
+                    "text": ".STH"
                   }
                 }
               },
@@ -2305,7 +2305,7 @@
                 },
                 "region": {
                   "charLength": 1,
-                  "charOffset": 2619,
+                  "charOffset": 3060,
                   "snippet": {
                     "text": "="
                   }
@@ -2345,7 +2345,7 @@
                 },
                 "region": {
                   "charLength": 2,
-                  "charOffset": 2597,
+                  "charOffset": 3038,
                   "snippet": {
                     "text": "&&"
                   }
@@ -2385,7 +2385,7 @@
                 },
                 "region": {
                   "charLength": 2,
-                  "charOffset": 2830,
+                  "charOffset": 3318,
                   "snippet": {
                     "text": "&&"
                   }
@@ -2424,10 +2424,10 @@
                   "relativeAddress": 0
                 },
                 "region": {
-                  "charLength": 10,
-                  "charOffset": 4000,
+                  "charLength": 4,
+                  "charOffset": 4342,
                   "snippet": {
-                    "text": ".Warehouse"
+                    "text": ".STH"
                   }
                 }
               },
@@ -2465,7 +2465,7 @@
                 },
                 "region": {
                   "charLength": 1,
-                  "charOffset": 3788,
+                  "charOffset": 4323,
                   "snippet": {
                     "text": "="
                   }
@@ -2504,10 +2504,10 @@
                   "relativeAddress": 0
                 },
                 "region": {
-                  "charLength": 10,
-                  "charOffset": 4531,
+                  "charLength": 4,
+                  "charOffset": 4936,
                   "snippet": {
-                    "text": ".Warehouse"
+                    "text": ".STH"
                   }
                 }
               },
@@ -2545,167 +2545,7 @@
                 },
                 "region": {
                   "charLength": 1,
-                  "charOffset": 4331,
-                  "snippet": {
-                    "text": "="
-                  }
-                }
-              },
-              "properties": {
-                "member": "OnSelect",
-                "module": "GatePassScreen",
-                "type": "GatePassScreen.Button12_3"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "LookUp"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-SuggestRemoteExecutionHint",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "GatePassScreen.Button12_3.OnSelect"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "GatePassScreen.Button12_3.OnSelect",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 2,
-                  "charOffset": 4309,
-                  "snippet": {
-                    "text": "&&"
-                  }
-                }
-              },
-              "properties": {
-                "member": "OnSelect",
-                "module": "GatePassScreen",
-                "type": "GatePassScreen.Button12_3"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "LookUp"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-SuggestRemoteExecutionHint",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "GatePassScreen.Button12_3.OnSelect"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "GatePassScreen.Button12_3.OnSelect",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 2,
-                  "charOffset": 4542,
-                  "snippet": {
-                    "text": "&&"
-                  }
-                }
-              },
-              "properties": {
-                "member": "OnSelect",
-                "module": "GatePassScreen",
-                "type": "GatePassScreen.Button12_3"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "LookUp"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-SuggestRemoteExecutionHint",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "GatePassScreen.Button12_3.OnSelect"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "GatePassScreen.Button12_3.OnSelect",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 10,
-                  "charOffset": 4999,
-                  "snippet": {
-                    "text": ".Warehouse"
-                  }
-                }
-              },
-              "properties": {
-                "member": "OnSelect",
-                "module": "GatePassScreen",
-                "type": "GatePassScreen.Button12_3"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "LookUp"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-SuggestRemoteExecutionHint",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "GatePassScreen.Button12_3.OnSelect"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "GatePassScreen.Button12_3.OnSelect",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 1,
-                  "charOffset": 4787,
+                  "charOffset": 4918,
                   "snippet": {
                     "text": "="
                   }
@@ -2745,7 +2585,7 @@
                 },
                 "region": {
                   "charLength": 2,
-                  "charOffset": 4765,
+                  "charOffset": 4896,
                   "snippet": {
                     "text": "&&"
                   }
@@ -2785,7 +2625,7 @@
                 },
                 "region": {
                   "charLength": 2,
-                  "charOffset": 5010,
+                  "charOffset": 5176,
                   "snippet": {
                     "text": "&&"
                   }
@@ -2824,10 +2664,10 @@
                   "relativeAddress": 0
                 },
                 "region": {
-                  "charLength": 10,
-                  "charOffset": 5472,
+                  "charLength": 4,
+                  "charOffset": 5461,
                   "snippet": {
-                    "text": ".Warehouse"
+                    "text": ".STH"
                   }
                 }
               },
@@ -2865,7 +2705,7 @@
                 },
                 "region": {
                   "charLength": 1,
-                  "charOffset": 5260,
+                  "charOffset": 5443,
                   "snippet": {
                     "text": "="
                   }
@@ -2905,7 +2745,7 @@
                 },
                 "region": {
                   "charLength": 2,
-                  "charOffset": 5238,
+                  "charOffset": 5421,
                   "snippet": {
                     "text": "&&"
                   }
@@ -2945,7 +2785,167 @@
                 },
                 "region": {
                   "charLength": 2,
-                  "charOffset": 5483,
+                  "charOffset": 5717,
+                  "snippet": {
+                    "text": "&&"
+                  }
+                }
+              },
+              "properties": {
+                "member": "OnSelect",
+                "module": "GatePassScreen",
+                "type": "GatePassScreen.Button12_3"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "LookUp"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "GatePassScreen.Button12_3.OnSelect"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "GatePassScreen.Button12_3.OnSelect",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 4,
+                  "charOffset": 5986,
+                  "snippet": {
+                    "text": ".STH"
+                  }
+                }
+              },
+              "properties": {
+                "member": "OnSelect",
+                "module": "GatePassScreen",
+                "type": "GatePassScreen.Button12_3"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "LookUp"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "GatePassScreen.Button12_3.OnSelect"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "GatePassScreen.Button12_3.OnSelect",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 1,
+                  "charOffset": 5967,
+                  "snippet": {
+                    "text": "="
+                  }
+                }
+              },
+              "properties": {
+                "member": "OnSelect",
+                "module": "GatePassScreen",
+                "type": "GatePassScreen.Button12_3"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "LookUp"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "GatePassScreen.Button12_3.OnSelect"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "GatePassScreen.Button12_3.OnSelect",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 2,
+                  "charOffset": 5945,
+                  "snippet": {
+                    "text": "&&"
+                  }
+                }
+              },
+              "properties": {
+                "member": "OnSelect",
+                "module": "GatePassScreen",
+                "type": "GatePassScreen.Button12_3"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "LookUp"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "GatePassScreen.Button12_3.OnSelect"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "GatePassScreen.Button12_3.OnSelect",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 2,
+                  "charOffset": 6241,
                   "snippet": {
                     "text": "&&"
                   }
