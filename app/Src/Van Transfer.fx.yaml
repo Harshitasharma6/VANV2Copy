@@ -596,10 +596,10 @@
             =//Gallery13_3.Selected.Title = "Transfer IN" && CountRows( galVanTransferInData.AllItems)>0
             Gallery13_3.Selected.Title = "Transfer IN" && CountRows(
                 Filter(
-                    Filter(
+                  //  Filter(
                         'Stock Transfer Lines',
                         'Transfer Order No'.'Stock Transfer Header' in varMyVanSTockHeader.headerGUID && 'Transfer status'='Transfer status (Stock Transfer Lines)'.'Transfer generated'
-                    ),
+                   &&// ),
                     'Created On'>=Today()
                 )
             ) > 0 && CountRows(varMyVanSTockHeader)>0
