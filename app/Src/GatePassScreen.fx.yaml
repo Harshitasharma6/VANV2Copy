@@ -567,8 +567,10 @@ GatePassScreen As screen:
             FocusedBorderThickness: =2
             Height: =49
             HoverFill: =ColorFade(_VarGblAppColors.BisleriBlue, -20%)
-            OnSelect: |
-                =//Set(_VarSignPopUp, !_VarSignPopUp)
+            OnSelect: |-
+                =
+                
+                //Set(_VarSignPopUp, !_VarSignPopUp)
                 If(
                     CountIf(
                         Attendances,
@@ -597,8 +599,7 @@ GatePassScreen As screen:
                             )
                         )
                     );
-                    
-                //Stock substraction from location ______________________________________________________________
+                   //Stock substraction from location ______________________________________________________________
                 /*ForAll(
                     colModifiedGatePassLines As oneLine,
                     Patch(
@@ -628,6 +629,7 @@ GatePassScreen As screen:
                         }
                     )
                 );*/
+                
                 // Stock addition to location_______________________________________________________________________
                 
                     ForAll(

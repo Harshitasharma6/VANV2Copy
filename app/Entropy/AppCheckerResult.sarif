@@ -2265,7 +2265,7 @@
                 },
                 "region": {
                   "charLength": 4,
-                  "charOffset": 3079,
+                  "charOffset": 3004,
                   "snippet": {
                     "text": ".STH"
                   }
@@ -2305,7 +2305,7 @@
                 },
                 "region": {
                   "charLength": 1,
-                  "charOffset": 3060,
+                  "charOffset": 2985,
                   "snippet": {
                     "text": "="
                   }
@@ -2345,7 +2345,7 @@
                 },
                 "region": {
                   "charLength": 2,
-                  "charOffset": 3038,
+                  "charOffset": 2963,
                   "snippet": {
                     "text": "&&"
                   }
@@ -2385,7 +2385,7 @@
                 },
                 "region": {
                   "charLength": 2,
-                  "charOffset": 3318,
+                  "charOffset": 3239,
                   "snippet": {
                     "text": "&&"
                   }
@@ -2425,7 +2425,7 @@
                 },
                 "region": {
                   "charLength": 4,
-                  "charOffset": 4342,
+                  "charOffset": 4240,
                   "snippet": {
                     "text": ".STH"
                   }
@@ -2465,7 +2465,7 @@
                 },
                 "region": {
                   "charLength": 1,
-                  "charOffset": 4323,
+                  "charOffset": 4221,
                   "snippet": {
                     "text": "="
                   }
@@ -2505,7 +2505,7 @@
                 },
                 "region": {
                   "charLength": 4,
-                  "charOffset": 4936,
+                  "charOffset": 4821,
                   "snippet": {
                     "text": ".STH"
                   }
@@ -2545,7 +2545,7 @@
                 },
                 "region": {
                   "charLength": 1,
-                  "charOffset": 4918,
+                  "charOffset": 4803,
                   "snippet": {
                     "text": "="
                   }
@@ -2585,7 +2585,7 @@
                 },
                 "region": {
                   "charLength": 2,
-                  "charOffset": 4896,
+                  "charOffset": 4781,
                   "snippet": {
                     "text": "&&"
                   }
@@ -2625,7 +2625,7 @@
                 },
                 "region": {
                   "charLength": 2,
-                  "charOffset": 5176,
+                  "charOffset": 5057,
                   "snippet": {
                     "text": "&&"
                   }
@@ -2665,7 +2665,7 @@
                 },
                 "region": {
                   "charLength": 4,
-                  "charOffset": 5461,
+                  "charOffset": 5336,
                   "snippet": {
                     "text": ".STH"
                   }
@@ -2705,7 +2705,7 @@
                 },
                 "region": {
                   "charLength": 1,
-                  "charOffset": 5443,
+                  "charOffset": 5318,
                   "snippet": {
                     "text": "="
                   }
@@ -2745,7 +2745,7 @@
                 },
                 "region": {
                   "charLength": 2,
-                  "charOffset": 5421,
+                  "charOffset": 5296,
                   "snippet": {
                     "text": "&&"
                   }
@@ -2785,7 +2785,7 @@
                 },
                 "region": {
                   "charLength": 2,
-                  "charOffset": 5717,
+                  "charOffset": 5588,
                   "snippet": {
                     "text": "&&"
                   }
@@ -2825,7 +2825,7 @@
                 },
                 "region": {
                   "charLength": 4,
-                  "charOffset": 5986,
+                  "charOffset": 5853,
                   "snippet": {
                     "text": ".STH"
                   }
@@ -2865,7 +2865,7 @@
                 },
                 "region": {
                   "charLength": 1,
-                  "charOffset": 5967,
+                  "charOffset": 5834,
                   "snippet": {
                     "text": "="
                   }
@@ -2905,7 +2905,7 @@
                 },
                 "region": {
                   "charLength": 2,
-                  "charOffset": 5945,
+                  "charOffset": 5812,
                   "snippet": {
                     "text": "&&"
                   }
@@ -2945,7 +2945,7 @@
                 },
                 "region": {
                   "charLength": 2,
-                  "charOffset": 6241,
+                  "charOffset": 6104,
                   "snippet": {
                     "text": "&&"
                   }
