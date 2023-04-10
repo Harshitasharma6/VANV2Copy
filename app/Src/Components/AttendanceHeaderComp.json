@@ -127,7 +127,7 @@
         "Name": "btnAttendanceBackground",
         "Parent": "AttendanceHeaderComp",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 1721,
+        "PublishOrderIndex": 1681,
         "Rules": [
           {
             "Category": "Data",
@@ -418,7 +418,7 @@
         "Name": "imgBisleriAttendance",
         "Parent": "AttendanceHeaderComp",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 1722,
+        "PublishOrderIndex": 1682,
         "Rules": [
           {
             "Category": "Data",
@@ -772,7 +772,7 @@
         "Name": "imgProfileAttendance",
         "Parent": "AttendanceHeaderComp",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 1723,
+        "PublishOrderIndex": 1683,
         "Rules": [
           {
             "Category": "Data",
@@ -1062,7 +1062,7 @@
         "Name": "icoBackAttendance",
         "Parent": "AttendanceHeaderComp",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 1724,
+        "PublishOrderIndex": 1684,
         "Rules": [
           {
             "Category": "Data",
@@ -1318,7 +1318,7 @@
         "Name": "htmAttendanceBackground",
         "Parent": "AttendanceHeaderComp",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 1725,
+        "PublishOrderIndex": 1685,
         "Rules": [
           {
             "Category": "Data",
@@ -1590,7 +1590,7 @@
         "Name": "lblWelcomeAttendance",
         "Parent": "AttendanceHeaderComp",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 1726,
+        "PublishOrderIndex": 1686,
         "Rules": [
           {
             "Category": "Data",
@@ -1949,7 +1949,7 @@
         "Name": "lblUsernameAttendance",
         "Parent": "AttendanceHeaderComp",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 1727,
+        "PublishOrderIndex": 1687,
         "Rules": [
           {
             "Category": "Data",
@@ -2319,7 +2319,7 @@
         "Name": "imgAttendanceProfile",
         "Parent": "AttendanceHeaderComp",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 1728,
+        "PublishOrderIndex": 1688,
         "Rules": [
           {
             "Category": "Data",

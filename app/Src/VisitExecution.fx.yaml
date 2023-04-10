@@ -24,6 +24,7 @@
                 'Customer group' = Customers_1Detail.'Customer Group'.'Customer group'
             )
         );
+        
         Set(
             varPricingMaster,
             LookUp(
@@ -2063,7 +2064,7 @@
                     FocusedBorderThickness: =2
                     Height: =50
                     HoverFill: =ColorFade(_VarGblAppColors.BisleriBlue, -20%)
-                    OnSelect: |
+                    OnSelect: |-
                         =If(
                             IsBlank(txtPaymentAmountValue_9.Text) && rdbModeOfPayment_2.Selected.Value = 'Payment Mode (Choice)'.KOTAK,
                             Notify(

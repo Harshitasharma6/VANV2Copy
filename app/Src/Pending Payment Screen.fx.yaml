@@ -977,11 +977,7 @@
                 ZIndex: =3
 
                 contHomeOrdersUpper_3 As groupContainer.manualLayoutContainer:
-                    AlignInContainer: =AlignInContainer.SetByContainer
-                    FillPortions: =0
                     Height: =contHomeOrdersLowerVertical_3.Height
-                    LayoutMinHeight: =112
-                    LayoutMinWidth: =250
                     Width: =Parent.Width
                     ZIndex: =1
 
@@ -995,11 +991,7 @@
                         ZIndex: =1
 
                         contHomeOrdersHeading_3 As groupContainer.manualLayoutContainer:
-                            AlignInContainer: =AlignInContainer.SetByContainer
-                            FillPortions: =0
                             Height: =60
-                            LayoutMinHeight: =70
-                            LayoutMinWidth: =750
                             Width: =Parent.Width
                             ZIndex: =1
 
@@ -1220,29 +1212,21 @@
                                 ZIndex: =9
 
                         contHomeOrdersData_3 As groupContainer.horizontalAutoLayoutContainer:
-                            AlignInContainer: =AlignInContainer.SetByContainer
-                            FillPortions: =0
                             Height: =galHomeOrdersData_3.Height
-                            LayoutMinHeight: =570
-                            LayoutMinWidth: =640
                             LayoutMode: =LayoutMode.Auto
                             Width: =Parent.Width
                             ZIndex: =2
 
                             galHomeOrdersData_3 As gallery.galleryVertical:
                                 AccessibleLabel: ="galHomeOrdersData"
-                                AlignInContainer: =AlignInContainer.SetByContainer
                                 Fill: |-
                                     =//RGBA(0, 0, 0, 0)
                                     _VarGblAppColors.LightText
-                                FillPortions: =0
                                 FocusedBorderColor: =Color.Transparent
                                 FocusedBorderThickness: =0.2
                                 Height: =(galHomeOrdersData_3.TemplateHeight * CountRows(galHomeOrdersData_3.AllItems)) + 30
                                 Items: =paymentLines
                                 Layout: =Layout.Vertical
-                                LayoutMinHeight: =413
-                                LayoutMinWidth: =1200
                                 ShowScrollbar: =false
                                 TabIndex: =0
                                 TemplateSize: =60
