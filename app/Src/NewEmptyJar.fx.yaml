@@ -505,7 +505,7 @@ NewEmptyJar As screen:
         FocusedBorderThickness: =0.5
         Height: =545
         Items: |-
-            =//Filter('SKU Masters', 'Item Code'.'Product group code'='Product group code (Item Masters)'.'2WAY')
+            =
             Filter('SKU Masters', 'Product group code'='Product group code (Choice)'.'2WAY')
         Layout: =Layout.Vertical
         ShowScrollbar: =false

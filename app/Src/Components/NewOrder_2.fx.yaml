@@ -178,7 +178,7 @@ NewOrder_2 As CanvasComponent:
                         FocusedBorderThickness: =0.2
                         Height: =450
                         Items: |-
-                            =//Filter('Current Stocks', IsToday('Created On') && 'Van No'.Warehouse= varUserVanNo.Van.Warehouse)
+                            =
                             Filter(
                                 'Current Stocks',
                                 'Created Date' >= Today() && 'Van No'.Warehouse = varUserVanNo.Van.Warehouse
@@ -421,11 +421,7 @@ NewOrder_2 As CanvasComponent:
                                                 ),
                                                 OrderLinesSum: Sum(
                                                     varline
-                                                    /*Filter(
-                                                        'Order Lines' As Item,
-                                                        (Item.'Customer no.'.Account = varOrderData.Account) && Item.'Item SKU'.'SKU Master' = ThisItem.'Item SKU'.'SKU Master' && Item.'Created On' >= varDiscountDate && Item.'Created On' <= varDiscountDate
-                                                        
-                                                    )*/
+                                                   
                                                     ,
                                                     'Total Quantity'
                                                 ),
@@ -666,10 +662,7 @@ NewOrder_2 As CanvasComponent:
                                                     'Item price header'.'Item pricing master' = varPricingMaster.'Item pricing master' && 'Variant code'.'SKU Master' = ThisItem.'Item SKU'.'SKU Master' && UOM = 'UOM (Item Pricing lines)'.CASE
                                                 ),
                                                 OrderLinesSum: Sum(
-                                                    /*Filter(
-                                                        'Order Lines' As Item,
-                                                        (Item.'Customer no.'.Account = varOrderData.Account) && Item.'Item SKU'.'SKU Master' = ThisItem.'Item SKU'.'SKU Master' && Item.'Created On' >= varDiscountDate && Item.'Created On' <= varDiscountDate
-                                                    )*/ varline,
+                                                    varline,
                                                     'Total Quantity'
                                                 )
                                             },
@@ -740,21 +733,7 @@ NewOrder_2 As CanvasComponent:
                                                     'Item price header'.'Item pricing master' = varPricingMaster.'Item pricing master' && 'Variant code'.'SKU Master' = ThisItem.'Item SKU'.'SKU Master' && UOM = 'UOM (Item Pricing lines)'.CASE
                                                 ),
                                                 OrderLinesSum: Sum(
-                                                    /*Filter(
-                                                        'Order Lines' As Item,
-                                                        (Item.'Customer no.'.Account = varOrderData.Account) && Item.'Item SKU'.'SKU Master' = ThisItem.'Item SKU'.'SKU Master' && Item.'Created On' >= varDiscountDate && Item.'Created On' <= varDiscountDate
-                                                        //DateValue(Item.'Created On') >= DateValue(
-                                                            LookUp(
-                                                                'Discount Lines',
-                                                                'Applicable for'.'Customer group' = varCustomerGroup.'Customer group' && 'Discount Date' >= Today() && Variant.'SKU Master' = ThisItem.'Item SKU'.'SKU Master'
-                                                            ).'Discount Date'
-                                                        ) && (DateValue(Item.'Created On') <= DateValue(
-                                                            LookUp(
-                                                                'Discount Lines',
-                                                                'Applicable for'.'Customer group' = varCustomerGroup.'Customer group' && 'Discount Date' >= Today() && Variant.'SKU Master' = ThisItem.'Item SKU'.'SKU Master'
-                                                            ).'Discount Date'
-                                                        ))
-                                                    )*/varline,
+                                                   varline,
                                                     'Total Quantity'
                                                 ),
                                                 taxStructure: LookUp(

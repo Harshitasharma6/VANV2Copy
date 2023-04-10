@@ -1,10 +1,7 @@
 "'Payment Screen' As screen.'phoneLayout_FluidGridWithHeaderPageLayout_ver3.0'":
     Fill: =_VarGblAppColors.LightText
     OnVisible: |
-        =/*Filter(
-                    Payments,
-                    Salesperson.'Primary Email' = User().Email && 'Created On' >= Today()
-                )*/
+        =
         ClearCollect(
             colOfflinePayments,
             Filter(

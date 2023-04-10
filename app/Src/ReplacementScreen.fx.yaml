@@ -7,7 +7,7 @@ ReplacementScreen As screen:
         FocusedBorderThickness: =0.5
         Height: =786
         Items: |-
-            =//Filter('Order Headers', 'Order Type' = 'Order Type (Choice)'.'Replacement Order' && Salesperson.'Primary Email' = User().Email)
+            =
             Sort(
                 Switch(
                     galReplacementFilter.Selected.Value,

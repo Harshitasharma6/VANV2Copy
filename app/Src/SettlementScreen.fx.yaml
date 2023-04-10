@@ -687,10 +687,7 @@
                                     Size: =_VarGblAppFonts.Size.Subtitle
                                     Text: |-
                                         =Sum(
-                                            /*Filter(
-                                                'Order Lines',
-                                                'Order Number'.'Order Type' <> Blank() && 'Item SKU'.'SKU Master' = ThisItem.SKU.'SKU Master' && 'Created On' >= Today() && Salesperson.'Primary Email' = User().Email && 'Order Number'.'Order Type' = 'Order Type (Choice)'.'Empty jar Order'
-                                            )*/
+                                          
                                             Filter(
                                                 colOfflineAllOrderLines,
                                                 'Order Number'.'Order Type' <> Blank() && /*'Item SKU'.'SKU Master'*/ 'Item Sku Id' = ThisItem.SKU.'SKU Master' && 'Order Number'.'Order Type' = 'Order Type (Choice)'.'Empty jar Order'
@@ -700,7 +697,7 @@
                                             Filter(
                                                 //'Order Lines'
                                                 colOfflineAllOrderLines,
-                                                'Order Number'.'Order Type' <> Blank() &&  /*'Item SKU'.'SKU Master'*/ 'Item Sku Id' = ThisItem.SKU.'SKU Master' && 'Created On' >= Today() && Salesperson.'Primary Email' = User().Email && 'Order Number'.'Order Type' = 'Order Type (Choice)'.'Sales Order'
+                                                'Order Number'.'Order Type' <> Blank() &&  'Item Sku Id' = ThisItem.SKU.'SKU Master' && 'Created On' >= Today() && Salesperson.'Primary Email' = User().Email && 'Order Number'.'Order Type' = 'Order Type (Choice)'.'Sales Order'
                                             ),
                                             'Empty Jars'
                                         )

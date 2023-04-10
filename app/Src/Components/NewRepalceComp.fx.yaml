@@ -11,7 +11,7 @@ NewRepalceComp As CanvasComponent:
         LayoutDirection: =LayoutDirection.Vertical
         LayoutMode: =LayoutMode.Auto
         Width: |-
-            =//Parent.Width
+            =
             640
         ZIndex: =1
 
@@ -103,10 +103,10 @@ NewRepalceComp As CanvasComponent:
                             =//RGBA(166, 166, 166, 1)
                             _VarGblAppColors.BisleriBlue
                         DisabledColor: |-
-                            =//RGBA(166, 166, 166, 1)
+                            =
                             _VarGblAppColors.LightText
                         DisabledFill: |-
-                            =//RGBA(244, 244, 244, 1)
+                            =
                             _VarGblAppColors.BisleriBlue
                         DisplayMode: =DisplayMode.Disabled
                         Height: =50

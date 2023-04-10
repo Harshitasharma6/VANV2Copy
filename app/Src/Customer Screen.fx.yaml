@@ -16,23 +16,24 @@
         FocusedBorderThickness: =0.2
         Height: =901
         Items: |-
-            =Sort(
+            =
                 If(
                     !IsBlank(txtCustomerSearch.SearchText),
-                    Filter(
-                        Filter(
+                   Sort( Filter(
+                       
                             Customers_1,
                             'Customer status' = 'Customer status (Choice)'.Customer && Salesperson.'Primary Email' = User().Email
-                        ),
+                       &&
                         txtCustomerSearch.SearchText in 'Customer Code' || txtCustomerSearch.SearchText in 'Contact Person name' || txtCustomerSearch.SearchText in 'Address 1: Street 1'
-                    ),
-                    Filter(
+                    ),'Created On',
+                SortOrder.Descending
+            ),
+                  Sort(  Filter(
                         Customers_1,
                         'Customer status' = 'Customer status (Choice)'.Customer && Salesperson.'Primary Email' = User().Email
                     )
-                ),
-                'Created On',
-                SortOrder.Descending
+                ,'Created On',
+                SortOrder.Descending)
             )
         Layout: =Layout.Vertical
         OnSelect: =
