@@ -380,6 +380,10 @@
                         CreateReplacementItemsRecord,
                         ForAll(
                             colReasonsVisits As ThissItem,
+                            Collect(colR,{t:LookUp(
+                                        'SKU Masters',
+                                        'SKU Master' = ThissItem.id
+                                    ), ID:ThissItem.id});
                             Patch(
                                 'Order Lines',
                                 Defaults('Order Lines'),
@@ -394,14 +398,16 @@
                                     Salesperson: varUser,
                                     'Van No': StockTransferWarehouse,
                                     'Item Type': 'Item Type (Choice)'.Paid,
-                                    'Item SKU': LookUp(
+                                    'Item SKU': First(colR).t
+                                    /*LookUp(
                                         'SKU Masters',
                                         'SKU Master' = ThissItem.id
-                                    ),
+                                    )*/,
                                     'Customer no.': varCustomer,
                                     'Route No': varArea
                                 }
-                            )
+                            );
+                            RemoveIf(colR, ID=ThissItem.id);
                         )
                     )
                 );

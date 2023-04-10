@@ -1216,7 +1216,7 @@
                     )
                 Fill: =_VarGblAppColors.BisleriBlue
                 HoverFill: =ColorFade(_VarGblAppColors.BisleriBlue, -20%)
-                OnSelect: |+
+                OnSelect: |
                     =/*Patch(
                         Attendances,
                         LookUp(
@@ -1307,12 +1307,21 @@
                             )
                         }
                     );
+                    UpdateContext(
+                        {
+                            varAttedance: LookUp(
+                                Attendances,
+                                Date = Today() && User.'Primary Email' = User().Email
+                            )
+                        }
+                    );
                     Patch(
                         Attendances,
-                        LookUp(
+                        varAttedance
+                        /*LookUp(
                             Attendances,
                             Date = Today() && User.'Primary Email' = User().Email
-                        ),
+                        )*/,
                         {
                             'Check-Out Latitude': Location.Latitude,
                             'Check-Out Longitude': Location.Longitude,
@@ -1333,10 +1342,10 @@
                             'Stock Inventories',
                             Defaults('Stock Inventories'),
                             {
-                                'Check-in Date': LookUp(
+                                'Check-in Date': varAttedance.'Check-in Time'/*LookUp(
                                     Attendances,
                                     Date = Today() && User.'Primary Email' = User().Email
-                                ).'Check-in Time',
+                                )'Check-in Time'*/,
                                 Route: varRoute
                                 /*LookUp(
                                     Areas,
@@ -1394,7 +1403,6 @@
                     );
                     UpdateContext({varRoute: Blank()});
                     Navigate('Attendance Screen');
-                    
                 Size: =_VarGblAppFonts.Size.Title
                 Text: ="End"
                 Width: =150

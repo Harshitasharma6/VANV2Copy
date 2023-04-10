@@ -541,14 +541,16 @@
             Fill: =_VarGblAppColors.BisleriBlue
             HoverColor: =_VarGblAppColors.HeaderBg
             HoverFill: =_VarGblAppColors.BisleriBlueMediumLight
-            OnSelect: |+
+            OnSelect: |
                 =/////////////////////////////////////////////////////////_______________STOCK UPDATION FOR CASES
-                
-                UpdateContext({varRoute:LookUp(
-                                        Areas,
-                                        Area = varUserArea.Area.Area
-                                    )});
-                
+                UpdateContext(
+                    {
+                        varRoute: LookUp(
+                            Areas,
+                            Area = varUserArea.Area.Area
+                        )
+                    }
+                );
                 ClearCollect(
                     CurrentQtyCases,
                     First(colFOCCartItem).Cases
@@ -559,7 +561,6 @@
                     Collect(
                         StockLinesForFIFO,
                         Sort(
-                           
                             Filter(
                                 'Stock Transfer Lines',
                                 ('Transfer Order No'.'Stock Transfer Header' in varGatePassHeaderAll.headerGUID) && (SKU.'SKU Master' = OneProductItem.productId)
@@ -713,11 +714,9 @@
                         StockLinesForFIFO,
                         Sort(
                             Filter(
-                                
                                 'Stock Transfer Lines',
                                 ('Transfer Order No'.'Stock Transfer Header' in varGatePassHeaderAll.headerGUID) && (SKU.'SKU Master' = OneProductItem.productId)
                             ),
-                               
                             'Manufacturing date',
                             SortOrder.Ascending
                         )
@@ -824,7 +823,7 @@
                                         }
                                     );
                                 );
-                               
+                                
                 //Testingggggg__________________________________________________________________________________________________
                 Patch(
                                     SequenceTestingVariable,
@@ -1009,7 +1008,7 @@
                             'Total Discount Amount': 0
                         }
                     );
-                   
+                    
                 );
                 /*---Create FOC Order Line----------------*/
                 If(
@@ -1083,7 +1082,7 @@
                             )*/
                         )
                     );
-                   
+                    
                 );
                       //////////////////////create invoice 18-03-2023 ///////////////////////////
                 If(
@@ -1165,7 +1164,6 @@
                         )
                     );
                     
-                   
                 );
                 If(
                     !IsBlank(CreateInvHeaderFOC),
@@ -1173,7 +1171,7 @@
                         'Invoice Series',
                         LookUp(
                             'Invoice Series',
-                            'Route No'.Area = UserAreaGUID /*LookUp(
+                            'Route No'.Area = UserAreaGUID/*LookUp(
                                 Areas,
                                 Area = varUserArea.Area.Area         
                             ).Area*/
@@ -1181,7 +1179,7 @@
                         {
                             'Sequence No': LookUp(
                                 'Invoice Series',
-                                'Route No'.Area = UserAreaGUID /*LookUp(
+                                'Route No'.Area = UserAreaGUID/*LookUp(
                                     Areas,
                                     Area = varUserArea.Area.Area
                                 ).Area*/
@@ -1295,9 +1293,8 @@
                     false
                 );
                 Clear(colFOCManipulatedCartItems);
+                UpdateContext({varRoute: Blank()});
                 Navigate(FOCScreen);
-                UpdateContext({varRoute:Blank()});
-                
             Size: =_VarGblAppFonts.Size.UpperMedium
             Text: ="Yes"
             Width: =120

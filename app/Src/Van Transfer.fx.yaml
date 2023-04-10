@@ -1333,26 +1333,16 @@
                 PressedFill: =_VarGblAppColors.BisleriBlue
                 SearchFields: =["firstname"]
                 SearchItems: |-
-                    =Search(/*Filter(
-                        Filter(
-                            Users,
-                            'Primary Email' in AddColumns(
-                                'User Area Mappings',
-                                "UserEmail",
-                                Salesperson.'Primary Email'
-                            ).UserEmail && Not('Primary Email' = User().Email)
-                        ),
-                        !IsBlank('Primary Email')
-                    )*/
+                    =Search(
                     Filter(
-                      //  Filter(
+                     
                             colOfflineUsers,
                             'Primary Email' in AddColumns(
                                 'User Area Mappings',
                                 "UserEmail",
                                 Salesperson.'Primary Email'
                             ).UserEmail && Not('Primary Email' = User().Email)
-                        &&//),
+                        &&
                         !IsBlank('Primary Email')
                     ),ComboBox4.SearchText,"firstname")
                 SelectionFill: =_VarGblAppColors.BisleriBlue
