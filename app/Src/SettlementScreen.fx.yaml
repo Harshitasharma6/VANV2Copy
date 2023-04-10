@@ -1341,7 +1341,7 @@
                         Collect(
                             colSKU1,
                             {
-                                t: LookUp(
+                                Stl: LookUp(
                                     'Stock Transfer Lines',
                                     SKU.'SKU Master' = StkInv.SKU.'SKU Master'
                                 ),
@@ -1391,7 +1391,7 @@
                                 'Transfer in Units': Value(StkInv.lblHomeReplacementUOM_14.Text),
                                 'Transfer out Cases': Value(StkInv.lblHomeReplacementUOM_15.Text),
                                 'Transfer out Units': Value(StkInv.lblHomeReplacementUOM_16.Text),
-                                'Batch No': First(colSKU1).t.'Batch no.'
+                                'Batch No': First(colSKU1).Stl.'Batch no.'
                                 /*LookUp(
                                     'Stock Transfer Lines',
                                     SKU.'SKU Master' = StkInv.SKU.'SKU Master'
@@ -1400,12 +1400,12 @@
                                     'Stock Transfer Lines',
                                     SKU.'SKU Master' = StkInv.SKU.'SKU Master'
                                 ).'Lot no.'*/ 
-                    First(colSKU1).t.'Lot no.',
+                    First(colSKU1).Stl.'Lot no.',
                                 'Mfg Date': /*LookUp(
                                     'Stock Transfer Lines',
                                     SKU.'SKU Master' = StkInv.SKU.'SKU Master'
                                 ).'Manufacturing date'*/
-                    First(colSKU1).t.'Manufacturing date'
+                    First(colSKU1).Stl.'Manufacturing date'
                             }
                         );
                         RemoveIf(
