@@ -445,7 +445,8 @@ GatePassScreen As screen:
                         Filter(
                             'Location VAN Mappings',
                             Van.Warehouse = StockTransferWarehouse.Warehouse
-                        ),1
+                        ),
+                        1
                     ).Area.'Name (zx_name)'
                 );
                 Set(
@@ -455,14 +456,23 @@ GatePassScreen As screen:
                         {ExpandContainers: true}
                     )
                 );
+                UpdateContext(
+                    {
+                        varStockTransfer: LookUp(
+                            'Stock Transfer Headers',
+                            'Stock Transfer Header' = GUID(Last(varGatePassHeader).headerGUID)
+                        )
+                    }
+                );
                 Set(
                     varrd,
                     Patch(
                         'Stock Transfer Headers',
-                        LookUp(
+                        varStockTransfer
+                        /*LookUp(
                             'Stock Transfer Headers',
                             'Stock Transfer Header' = GUID(Last(varGatePassHeader).headerGUID)
-                        ),
+                        )*/,
                         {
                             File: {
                                 FileName: "TEst.pdf",
@@ -471,8 +481,11 @@ GatePassScreen As screen:
                         }
                     ).'Stock Transfer Header'
                 );
-                
-                Set(varShowGatePassFile, true);
+                Set(
+                    varShowGatePassFile,
+                    true
+                );
+                UpdateContext({varStockTransfer: Blank()});
             PaddingLeft: =25
             Size: =_VarGblAppFonts.Size.Title
             Text: ="PRINT"
