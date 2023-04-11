@@ -819,12 +819,24 @@ NewDemandScreen As screen:
             );
             ForAll(
                 colOfflineDemandLinesTB As OneProduct,
+                Collect(
+                                    colDemand2,
+                                    {
+                                        DL: LookUp(
+                            'Check-in Demand Lines',
+                            'Check-in Demand Header'.'Check-in Demand Header' = VarFirstTodayDemandsHeader && Product.'Item Master' = OneProduct.Product
+                        ),Product1: LookUp(
+                                'Item Masters',
+                                'Item Master' = OneProduct.Product
+                            )
+                                    }
+                                );
                 If(
                     IsBlank(
-                        LookUp(
+                       /*LookUp(
                             'Check-in Demand Lines',
-                            'Check-in Demand Header'.'Check-in Demand Header' = VarFirstTodayDemandsHeader /*First(colOfflineTodayDemandsHeader).'Check-in Demand Header'*/&& Product.'Item Master' = OneProduct.Product
-                        )
+                            'Check-in Demand Header'.'Check-in Demand Header' = VarFirstTodayDemandsHeader First(colOfflineTodayDemandsHeader).'Check-in Demand Header'&& Product.'Item Master' = OneProduct.Product
+                        )*/First(colDemand2).DL
                     ),
                     Patch(
                         'Check-in Demand Lines',
@@ -837,24 +849,27 @@ NewDemandScreen As screen:
                                 'Check-in Demand Headers',
                                 'Check-in Demand Header' = First(colOfflineTodayDemandsHeader).'Check-in Demand Header'
                             )*/,
-                            Product: LookUp(
+                            Product:First(colDemand2).Product1
+                             /*LookUp(
                                 'Item Masters',
                                 'Item Master' = OneProduct.Product
-                            )
+                            )*/
+                            
                         }
                     ),
                     Patch(
                         'Check-in Demand Lines',
-                        LookUp(
+                       First(colDemand2).DL /*LookUp(
                             'Check-in Demand Lines',
-                            Product.'Item Master' = OneProduct.Product && 'Check-in Demand Header'.'Check-in Demand Header' = VarFirstTodayDemandsHeader/*First(colOfflineTodayDemandsHeader).'Check-in Demand Header'*/
-                        ),
+                            Product.'Item Master' = OneProduct.Product && 'Check-in Demand Header'.'Check-in Demand Header' = VarFirstTodayDemandsHeaderFirst(colOfflineTodayDemandsHeader).'Check-in Demand Header'
+                        )*/,
                         {
                             Cases: OneProduct.Cases,
                             PCs: OneProduct.PCs
                         }
                     )
-                )
+                );
+                //RemoveIf(colDemand2);
             );
             ClearData("colOfflineDemandLinesTBS");
             Notify(

@@ -1794,7 +1794,7 @@
   },
   "FunctionParamsInvariantScripts": {},
   "FunctionParamsInvariantScriptsOnInstances": {},
-  "HeaderLastSavedDateTimeUTC": "04/11/2023 11:35:10",
+  "HeaderLastSavedDateTimeUTC": "04/11/2023 12:01:35",
   "IsLegacyComponentAllowGlobalScopeCase": false,
   "LocalConnectionIDReferences": {
     "05949ac3-3ae7-4e0a-a83b-8c204e6fad54": "\"/providers/microsoft.powerapps/apis/shared_logicflows/connections/7cd4409d1888474d840e66b4aaaf6291\"",
@@ -1924,6 +1924,7 @@
     "colCurrent": 620,
     "colDemand": 623,
     "colDemand1": 551,
+    "colDemand2": 625,
     "colEJarsItem": 537,
     "colFinalSchemeOrder": 538,
     "colFOCCartItem": 539,
