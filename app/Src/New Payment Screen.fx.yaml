@@ -257,7 +257,11 @@
                     Height: =50
                     HoverFill: =ColorFade(_VarGblAppColors.BisleriBlue, -20%)
                     OnSelect: |-
-                        =If(
+                        =UpdateContext({varRoute:LookUp(
+                                        Areas,
+                                        Area = varUserArea.Area.Area)
+                                    });
+                        If(
                             !IsBlank(txtPaymentAmountValue_8),
                             Patch(
                                 Payments,
@@ -268,21 +272,24 @@
                                         Customers_1,
                                         Account = cmbPaymentCustomer.Selected.Account
                                     ),
-                                    Salesperson: LookUp(
+                                    Salesperson: varUser
+                                    /*LookUp(
                                         Users,
                                         'Primary Email' = User().Email
-                                    ),
+                                    )*/,
                                     Amount: Value(txtPaymentAmountValue.Text),
                                     //'Mode of Payment': rdbModeOfPayment.Selected.Value,
                                     'Payment Mode':'Payment Mode (Choice)'.KOTAK,
-                                    Route: LookUp(
+                                    Route: varRoute
+                                    /*LookUp(
                                         Areas,
                                         Area = varUserArea.Area.Area
-                                    ),
-                                    'Van No': LookUp(
+                                    )*/,
+                                    'Van No': StockTransferWarehouse
+                                    /*LookUp(
                                         Warehouses,
                                         Warehouse = varUserVanNo.Van.Warehouse
-                                    ),
+                                    )*/,
                                     'Payment Type': 'Payment Type (Payments)'.'Pending Invoice',
                                     ChequeNo: txtPaymentAmountValue_8.Text,
                                     ChequeDate: DatePicker3.SelectedDate,
@@ -316,7 +323,9 @@
                                 NotificationType.Error,
                                 5000
                             )
-                        )
+                        );
+                        UpdateContext({varRoute:Blank()
+                                    });
                     Size: =_VarGblAppFonts.Size.UpperMedium
                     Text: ="Confirm"
                     Width: =150
