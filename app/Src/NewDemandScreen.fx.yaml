@@ -650,10 +650,10 @@ NewDemandScreen As screen:
                                     ,
                                     Patch(
                                         colOfflineTodayDemandsLines,
-                                        LookUp(
+                                         First(colDemand1).DL/*LookUp(
                                             colOfflineTodayDemandsLines,
                                             'SKU Master'.'SKU Master' = OneProduct.productId && 'Check-in Demand Header'.'Check-in Demand Header' = First(colOfflineTodayDemandsHeader).'Check-in Demand Header'
-                                        ),
+                                        )*/,
                                         {
                                             Cases: OneProduct.qtyCases,
                                             PCs: OneProduct.qtyPcs
@@ -673,11 +673,11 @@ NewDemandScreen As screen:
                                                 Cases: OneProduct.qtyCases,
                                                 PCs: OneProduct.qtyPcs,
                                                 Date: dteCheckInDemand.SelectedDate,
-                                                Product: LookUp(
+                                                Product:  First(colDemand1).SKU.'SKU Master'/*LookUp(
                                                     //colOfflineVariantMaster,
                                                     'SKU Masters',
                                                     'SKU Master' = OneProduct.productId
-                                                ).'SKU Master'
+                                                ).'SKU Master'*/
                                             }
                                         ),
                                         Patch(
@@ -690,11 +690,11 @@ NewDemandScreen As screen:
                                                 Cases: OneProduct.qtyCases,
                                                 PCs: OneProduct.qtyPcs,
                                                 Date: dteCheckInDemand.SelectedDate,
-                                                Product: LookUp(
+                                                Product:  First(colDemand1).SKU.'SKU Master'/*LookUp(
                                                     //colOfflineVariantMaster,
                                                     'SKU Masters',
                                                     'SKU Master' = OneProduct.productId
-                                                ).'SKU Master'
+                                                ).'SKU Master'*/
                                         /*'SKU Master':LookUp(colOfflineVariantMaster, 'SKU Master'=OneProduct.productId).'SKU Master'*/
                                             }
                                         );
