@@ -503,17 +503,26 @@ NewDemandScreen As screen:
                             Connection.Connected,
                             ForAll(
                                 checkinDemandProduct As OneProduct,
-                                Collect(colDemand,{DL: LookUp(
+                                Collect(
+                                    colDemand,
+                                    {
+                                        DL: LookUp(
                                             colOfflineTodayDemandsLines,
                                             'SKU Master'.'SKU Master' = OneProduct.productId && 'Check-in Demand Header'.'Check-in Demand Header' = First(colOfflineTodayDemandsHeader).'Check-in Demand Header'
-                                        ),Id:OneProduct.productId});
+                                        ),
+                                        Id: OneProduct.productId,
+                                        sku: LookUp(
+                                            'SKU Masters',
+                                            'SKU Master' = OneProduct.productId
+                                        )
+                                    }
+                                );
                                 If(
                                     IsBlank(
                                         /*LookUp(
                                             colOfflineTodayDemandsLines,
                                             'SKU Master'.'SKU Master' = OneProduct.productId && 'Check-in Demand Header'.'Check-in Demand Header' = First(colOfflineTodayDemandsHeader).'Check-in Demand Header'
-                                        )*/ First(colDemand).DL
-                                    ),
+                                        )*/First(colDemand).DL),
                                     Patch(
                                         'Check-in Demand Lines',
                                         Defaults('Check-in Demand Lines'),
@@ -525,10 +534,11 @@ NewDemandScreen As screen:
                                                 'Check-in Demand Headers',
                                                 'Check-in Demand Header' = First(colOfflineTodayDemandsHeader).'Check-in Demand Header'
                                             )*/,
-                                            'SKU Master': LookUp(
+                                            'SKU Master': First(colDemand).sku
+                                            /*LookUp(
                                                 'SKU Masters',
                                                 'SKU Master' = OneProduct.productId
-                                            )
+                                            )*/
                                         }
                                     );
                                     Notify(
@@ -540,10 +550,11 @@ NewDemandScreen As screen:
                                     ,
                                     Patch(
                                         'Check-in Demand Lines',
-                                        LookUp(
+                                        /*LookUp(
                                             colOfflineTodayDemandsLines,
                                             'SKU Master'.'SKU Master' = OneProduct.productId && 'Check-in Demand Header'.'Check-in Demand Header' = First(colOfflineTodayDemandsHeader).'Check-in Demand Header'
-                                        ),
+                                        )*/
+                                        First(colDemand).DL,
                                         {
                                             Cases: OneProduct.qtyCases,
                                             PCs: OneProduct.qtyPcs,
@@ -552,10 +563,11 @@ NewDemandScreen As screen:
                                                 'Check-in Demand Headers',
                                                 'Check-in Demand Header' = First(colOfflineTodayDemandsHeader).'Check-in Demand Header'
                                             )*/,
-                                            'SKU Master': LookUp(
+                                            'SKU Master': First(colDemand).sku
+                                            /*LookUp(
                                                 'SKU Masters',
                                                 'SKU Master' = OneProduct.productId
-                                            )
+                                            )*/
                                         }
                                     );
                                     Notify(
@@ -565,7 +577,10 @@ NewDemandScreen As screen:
                                     );
                                     Navigate('Attendance Screen');
                                 );
-                                RemoveIf(colDemand,Id = OneProduct.productId);
+                                RemoveIf(
+                                    colDemand,
+                                    Id = OneProduct.productId
+                                );
                             ),
                 //_______________________________________________________________________________________________OFFLINE
                             ForAll(
