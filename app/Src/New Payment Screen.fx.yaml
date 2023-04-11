@@ -261,6 +261,10 @@
                                         Areas,
                                         Area = varUserArea.Area.Area)
                                     });
+                                    UpdateContext({varCustomer:LookUp(
+                                        Customers_1,
+                                        Account = cmbPaymentCustomer.Selected.Account
+                                    )});
                         If(
                             !IsBlank(txtPaymentAmountValue_8),
                             Patch(
@@ -268,10 +272,11 @@
                                 Defaults(Payments),
                                 {
                                     'Receipt Date': Today(),
-                                    Customer: LookUp(
+                                    Customer: varCustomer
+                                    /*LookUp(
                                         Customers_1,
                                         Account = cmbPaymentCustomer.Selected.Account
-                                    ),
+                                    )*/,
                                     Salesperson: varUser
                                     /*LookUp(
                                         Users,
