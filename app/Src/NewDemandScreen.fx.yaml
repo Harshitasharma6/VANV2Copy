@@ -395,7 +395,11 @@ NewDemandScreen As screen:
         Height: =42
         HoverFill: =ColorFade(_VarGblAppColors.BisleriBlue, -20%)
         OnSelect: |-
-            =If(
+            =UpdateContext({varRoute:LookUp(
+                                            Areas,
+                                            Area = varUserArea.Area.Area
+                                        )});
+            If(
                 CountIf(
                     Attendances,
                     User.'Primary Email' = User().Email && Date = Today() && !IsBlank('Check-in Time')
@@ -418,19 +422,22 @@ NewDemandScreen As screen:
                                     'Check-in Demand Headers',
                                     Defaults('Check-in Demand Headers'),
                                     {
-                                        Salesperson: LookUp(
+                                        Salesperson: varUser
+                                        /*LookUp(
                                             Users,
                                             'Primary Email' = User().Email
-                                        ),
+                                        )*/,
                                         Date: dteCheckInDemand.SelectedDate,
-                                        'Route No.': LookUp(
+                                        'Route No.':varRoute
+                                        /* LookUp(
                                             Areas,
                                             Area = varUserArea.Area.Area
-                                        ),
-                                        'Van No': LookUp(
+                                        )*/,
+                                        'Van No': StockTransferWarehouse
+                                         /*LookUp(
                                             Warehouses,
                                             Warehouse = varUserVanNo.Van.Warehouse
-                                        )
+                                        )*/
                                     }
                                 )
                             );
@@ -439,37 +446,44 @@ NewDemandScreen As screen:
                                 colOfflineTodayDemandsHeader,
                                 Defaults(colOfflineTodayDemandsHeader),
                                 {
-                                    Salesperson: LookUp(
+                                    Salesperson: varUser
+                                    /*LookUp(
                                         colOfflineUsers,
                                         'Primary Email' = User().Email
-                                    ),
+                                    )*/,
                                     Date: dteCheckInDemand.SelectedDate,
-                                    'Route No.': LookUp(
+                                    'Route No.':varRoute
+                                    /* LookUp(
                                         colOfflineAreas,
                                         Area = varUserArea.Area.Area
-                                    ),
-                                    'Van No': LookUp(
+                                    )*/,
+                                    'Van No': StockTransferWarehouse
+                                    /*LookUp(
                                         colOfflineWarehouse,
                                         Warehouse = varUserVanNo.Van.Warehouse
-                                    )
+                                    )*/
                                 }
                             );
                             ClearCollect(
                                 colOfflineDemandHeaderTBD,
                                 {
-                                    Salesperson: LookUp(
+                                    Salesperson:  varUser
+                                    /*LookUp(
                                         colOfflineUsers,
                                         'Primary Email' = User().Email
-                                    ),
+                                    )*/,
                                     Date: dteCheckInDemand.SelectedDate,
-                                    'Route No.': LookUp(
+                                    'Route No.': varRoute
+                                    /* LookUp(
                                         colOfflineAreas,
                                         Area = varUserArea.Area.Area
-                                    ),
-                                    'Van No': LookUp(
+                                    )*/,
+                                     
+                                    'Van No': StockTransferWarehouse
+                                    /*LookUp(
                                         colOfflineWarehouse,
                                         Warehouse = varUserVanNo.Van.Warehouse
-                                    )
+                                    )*/
                                 }
                             );
                             SaveData(
