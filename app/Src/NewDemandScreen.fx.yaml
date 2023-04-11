@@ -395,10 +395,14 @@ NewDemandScreen As screen:
         Height: =42
         HoverFill: =ColorFade(_VarGblAppColors.BisleriBlue, -20%)
         OnSelect: |-
-            =UpdateContext({varRoute:LookUp(
-                                            Areas,
-                                            Area = varUserArea.Area.Area
-                                        )});
+            =UpdateContext(
+                {
+                    varRoute: LookUp(
+                        Areas,
+                        Area = varUserArea.Area.Area
+                    )
+                }
+            );
             If(
                 CountIf(
                     Attendances,
@@ -428,7 +432,7 @@ NewDemandScreen As screen:
                                             'Primary Email' = User().Email
                                         )*/,
                                         Date: dteCheckInDemand.SelectedDate,
-                                        'Route No.':varRoute
+                                        'Route No.': varRoute
                                         /* LookUp(
                                             Areas,
                                             Area = varUserArea.Area.Area
@@ -452,7 +456,7 @@ NewDemandScreen As screen:
                                         'Primary Email' = User().Email
                                     )*/,
                                     Date: dteCheckInDemand.SelectedDate,
-                                    'Route No.':varRoute
+                                    'Route No.': varRoute
                                     /* LookUp(
                                         colOfflineAreas,
                                         Area = varUserArea.Area.Area
@@ -467,7 +471,7 @@ NewDemandScreen As screen:
                             ClearCollect(
                                 colOfflineDemandHeaderTBD,
                                 {
-                                    Salesperson:  varUser
+                                    Salesperson: varUser
                                     /*LookUp(
                                         colOfflineUsers,
                                         'Primary Email' = User().Email
@@ -478,7 +482,6 @@ NewDemandScreen As screen:
                                         colOfflineAreas,
                                         Area = varUserArea.Area.Area
                                     )*/,
-                                     
                                     'Van No': StockTransferWarehouse
                                     /*LookUp(
                                         colOfflineWarehouse,
@@ -493,19 +496,23 @@ NewDemandScreen As screen:
                         )
                     );
                     
-            //_______________________________________________________________________________________________________________________ Lines
+            //____________________________________________________________________________________ Lines
             If(
                         CountRows(colOfflineTodayDemandsHeader) = 1,
                         If(
                             Connection.Connected,
                             ForAll(
                                 checkinDemandProduct As OneProduct,
-                                If(
-                                    IsBlank(
-                                        LookUp(
+                                Collect(colDemand,{DL: LookUp(
                                             colOfflineTodayDemandsLines,
                                             'SKU Master'.'SKU Master' = OneProduct.productId && 'Check-in Demand Header'.'Check-in Demand Header' = First(colOfflineTodayDemandsHeader).'Check-in Demand Header'
-                                        )
+                                        ),Id:OneProduct.productId});
+                                If(
+                                    IsBlank(
+                                        /*LookUp(
+                                            colOfflineTodayDemandsLines,
+                                            'SKU Master'.'SKU Master' = OneProduct.productId && 'Check-in Demand Header'.'Check-in Demand Header' = First(colOfflineTodayDemandsHeader).'Check-in Demand Header'
+                                        )*/ First(colDemand).DL
                                     ),
                                     Patch(
                                         'Check-in Demand Lines',
@@ -557,7 +564,8 @@ NewDemandScreen As screen:
                                         2000
                                     );
                                     Navigate('Attendance Screen');
-                                )
+                                );
+                                RemoveIf(colDemand,Id = OneProduct.productId);
                             ),
                 //_______________________________________________________________________________________________OFFLINE
                             ForAll(
