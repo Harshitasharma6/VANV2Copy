@@ -256,12 +256,8 @@
                     FocusedBorderThickness: =2
                     Height: =50
                     HoverFill: =ColorFade(_VarGblAppColors.BisleriBlue, -20%)
-                    OnSelect: |-
-                        =UpdateContext({varRoute:LookUp(
-                                        Areas,
-                                        Area = varUserArea.Area.Area)
-                                    });
-                                    UpdateContext({varCustomer:LookUp(
+                    OnSelect: |
+                        =UpdateContext({varCustomer:LookUp(
                                         Customers_1,
                                         Account = cmbPaymentCustomer.Selected.Account
                                     )});
@@ -329,8 +325,6 @@
                                 5000
                             )
                         );
-                        UpdateContext({varRoute:Blank()
-                                    });
                     Size: =_VarGblAppFonts.Size.UpperMedium
                     Text: ="Confirm"
                     Width: =150

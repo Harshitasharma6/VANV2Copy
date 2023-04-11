@@ -543,14 +543,7 @@
             HoverFill: =_VarGblAppColors.BisleriBlueMediumLight
             OnSelect: |
                 =/////////////////////////////////////////////////////////_______________STOCK UPDATION FOR CASES
-                UpdateContext(
-                    {
-                        varRoute: LookUp(
-                            Areas,
-                            Area = varUserArea.Area.Area
-                        )
-                    }
-                );
+                
                 ClearCollect(
                     CurrentQtyCases,
                     First(colFOCCartItem).Cases
@@ -1293,7 +1286,6 @@
                     false
                 );
                 Clear(colFOCManipulatedCartItems);
-                UpdateContext({varRoute: Blank()});
                 Navigate(FOCScreen);
             Size: =_VarGblAppFonts.Size.UpperMedium
             Text: ="Yes"

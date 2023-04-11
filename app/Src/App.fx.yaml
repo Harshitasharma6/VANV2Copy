@@ -168,6 +168,10 @@ App As appinfo:
                 Salesperson.'Primary Email' = User().Email
             )
         );
+        Set(varRoute,LookUp(
+                            Areas,
+                            Area = varUserArea.Area.Area
+                        ));
         Set(
             DemandHeadersdata,
             LookUp(

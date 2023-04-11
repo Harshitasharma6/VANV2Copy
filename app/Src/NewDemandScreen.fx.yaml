@@ -395,14 +395,7 @@ NewDemandScreen As screen:
         Height: =42
         HoverFill: =ColorFade(_VarGblAppColors.BisleriBlue, -20%)
         OnSelect: |-
-            =UpdateContext(
-                {
-                    varRoute: LookUp(
-                        Areas,
-                        Area = varUserArea.Area.Area
-                    )
-                }
-            );
+            =
             If(
                 CountIf(
                     Attendances,
@@ -791,22 +784,24 @@ NewDemandScreen As screen:
                         'Check-in Demand Headers',
                         Defaults('Check-in Demand Headers'),
                         {
-                            Salesperson: LookUp(
+                            Salesperson: varUser
+                            /*LookUp(
                                 Users,
-                                'Primary Email' = User().Email/*First(colOfflineDemandHeaderTBD).Salesperson.'Primary Email'*/
-                            ),
+                                'Primary Email' = User().EmailFirst(colOfflineDemandHeaderTBD).Salesperson.'Primary Email'
+                            )*/,
                             Date: dteCheckInDemand.SelectedDate,
-                            'Route No.': LookUp(
+                            'Route No.':varRoute /*LookUp(
                                 Areas,
                                 Area = varUserArea.Area.Area
-                            )/*LookUp(
+                            )LookUp(
                                 Areas,
                                 Area = First(colOfflineDemandHeaderTBD).'Route No.'.Area
                             )*/,
-                            'Van No': LookUp(
+                            'Van No': StockTransferWarehouse
+                            /*LookUp(
                                 Warehouses,
                                 Warehouse = varUserVanNo.Van.Warehouse
-                            )/*LookUp(
+                            )LookUp(
                                 Warehouses,
                                 Warehouse = First(colOfflineDemandHeaderTBD).'Van No'.Warehouse
                             )*/

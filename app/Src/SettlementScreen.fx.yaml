@@ -1299,14 +1299,7 @@
                     Clear(EitherCasesOrPcs);
                     Set(varDayEnd, true);
                     Navigate('Attendance Screen');*/
-                    UpdateContext(
-                        {
-                            varRoute: LookUp(
-                                Areas,
-                                Area = varUserArea.Area.Area
-                            )
-                        }
-                    );
+                    
                     UpdateContext(
                         {
                             varAttedance: LookUp(
@@ -1425,7 +1418,6 @@
                         varDayEnd,
                         true
                     );
-                    UpdateContext({varRoute: Blank()});
                     UpdateContext({varAttedance: Blank()});
                     Navigate('Attendance Screen');
                 Size: =_VarGblAppFonts.Size.Title
