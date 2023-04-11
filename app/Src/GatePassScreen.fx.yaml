@@ -638,21 +638,24 @@ GatePassScreen As screen:
                                 STH: LookUp(
                                         Warehouses,
                                         Warehouse = 
-                                         LookUp(
+                                         /*LookUp(
                                             'Stock Transfer Headers',
                                             'Stock Transfer Header' = oneLine.'Transfer Order No'.'Stock Transfer Header'
-                                        ).'To Location'.Warehouse
-                                    ),
+                                        ).'To Location'.Warehouse*/ StockTransferWarehouse.Warehouse
+                                    )
+                                    
+                                    
+                                    ,
                                 sku: LookUp(
                                     'SKU Masters',
                                     'SKU Master' = oneLine.SKU.'SKU Master'
                                 ),
                                 cs: LookUp(
                                     'Current Stocks',
-                                    'Item SKU'.'SKU Master' = oneLine.SKU.'SKU Master' && 'Van No'.Warehouse = LookUp(
+                                    'Item SKU'.'SKU Master' = oneLine.SKU.'SKU Master' && 'Van No'.Warehouse =/* LookUp(
                                         'Stock Transfer Headers',
                                         'Stock Transfer Header' = oneLine.'Transfer Order No'.'Stock Transfer Header'
-                                    ).'To Location'.Warehouse && 'Created Date' >= Today()
+                                    ).'To Location'.Warehouse*/ StockTransferWarehouse.Warehouse && 'Created Date' >= Today()
                                 )
                             }
                         );
