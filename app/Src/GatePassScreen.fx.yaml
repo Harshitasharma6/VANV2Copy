@@ -581,23 +581,30 @@ GatePassScreen As screen:
                         2000
                     );
                     Navigate('Attendance Screen'),
+                    ClearCollect(colStocktransferLines, 'Stock Transfer Lines');
                     ClearCollect(
                         colModifiedGatePassLines,
+                
+                
                         ForAll(
                             colSelectedGatePassLines As oneLine,
+                           
                             Patch(
                                 'Stock Transfer Lines',
-                                LookUp(
-                                    'Stock Transfer Lines',
-                                    'Transfer Lines No' = oneLine.Result
-                                ),
+                               LookUp(
+                                    colStocktransferLines,
+                                    'Transfer Lines No' = oneLine.Result)
+                                ,
                                 {
                                     'Transfer accepted': 'Transfer accepted (Stock Transfer Lines)'.Yes,
                                     'Transfer status': 'Transfer status (Stock Transfer Lines)'.'Transfer accepted'
                                 }
-                            )
-                        )
+                            );
+                            
+                        );
+                
                     );
+                    Clear(colStocktransferLines);
                    //Stock substraction from location ______________________________________________________________
                 /*ForAll(
                     colModifiedGatePassLines As oneLine,
