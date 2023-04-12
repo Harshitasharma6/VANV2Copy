@@ -605,7 +605,7 @@ GatePassScreen As screen:
                                 }
                             );
                         );
-                        //RemoveIf(colStock,Id = oneLine.Result);
+                        Remove(colStock,First(colStock));
                     );
                    //Stock substraction from location ______________________________________________________________
                 /*ForAll(
