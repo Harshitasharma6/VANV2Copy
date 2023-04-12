@@ -585,18 +585,27 @@ GatePassScreen As screen:
                         colModifiedGatePassLines,
                         ForAll(
                             colSelectedGatePassLines As oneLine,
-                            Patch(
-                                'Stock Transfer Lines',
-                                LookUp(
+                            Collect(colStock,{STL:LookUp(
                                     'Stock Transfer Lines',
                                     'Transfer Lines No' = oneLine.Result
                                 ),
+                                Id: oneLine.Result
+                                });
+                            Patch(
+                                'Stock Transfer Lines',
+                                First(colStock).STL
+                                /*LookUp(
+                                    'Stock Transfer Lines',
+                                    'Transfer Lines No' = oneLine.Result
+                                */
+                                ,
                                 {
                                     'Transfer accepted': 'Transfer accepted (Stock Transfer Lines)'.Yes,
                                     'Transfer status': 'Transfer status (Stock Transfer Lines)'.'Transfer accepted'
                                 }
                             );
                         );
+                        //RemoveIf(colStock,Id = oneLine.Result);
                     );
                    //Stock substraction from location ______________________________________________________________
                 /*ForAll(
@@ -792,18 +801,27 @@ GatePassScreen As screen:
                         colModifiedGatePassLines,
                         ForAll(
                             colSelectedGatePassLines As oneLine,
-                            Patch(
-                                'Stock Transfer Lines',
-                                LookUp(
+                            Collect(colStock,{STL:LookUp(
                                     'Stock Transfer Lines',
                                     'Transfer Lines No' = oneLine.Result
                                 ),
+                                Id: oneLine.Result
+                                });
+                            Patch(
+                                'Stock Transfer Lines',
+                                First(colStock).STL
+                                /*LookUp(
+                                    'Stock Transfer Lines',
+                                    'Transfer Lines No' = oneLine.Result
+                                */
+                                ,
                                 {
                                     'Transfer accepted': 'Transfer accepted (Stock Transfer Lines)'.Yes,
                                     'Transfer status': 'Transfer status (Stock Transfer Lines)'.'Transfer accepted'
                                 }
                             );
                         );
+                        //RemoveIf(colStock,Id = oneLine.Result);
                     );
                    //Stock substraction from location ______________________________________________________________
                 /*ForAll(
