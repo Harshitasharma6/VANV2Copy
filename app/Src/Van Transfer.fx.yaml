@@ -1288,17 +1288,13 @@
                 HoverFill: =_VarGblAppColors.BisleriBlueLight
                 InputTextPlaceholder: ="Find Salesman"
                 Items: |-
-                    =
-                    Filter(
-                     
-                            colOfflineUsers,
-                            'Primary Email' in AddColumns(
-                                'User Area Mappings',
-                                "UserEmail",
-                                Salesperson.'Primary Email'
-                            ).UserEmail && Not('Primary Email' = User().Email)
-                        &&
-                        !IsBlank('Primary Email')
+                    =Filter(
+                        colOfflineUsers,
+                        'Primary Email' in AddColumns(
+                            'User Area Mappings',
+                            "UserEmail",
+                            Salesperson.'Primary Email'
+                        ).UserEmail && Not('Primary Email' = User().Email) && !IsBlank('Primary Email')
                     )
                 OnChange: |
                     =/*Set(
@@ -1443,6 +1439,11 @@
                     //)
                     /////////////////////////////////___________FIFO___________________________________________________________
                     /////////////////////////////////////////////////////////__________________________________STOCK UPDATION FOR CASES
+                    
+                    UpdateContext({varTo:LookUp(
+                                        Warehouses,
+                                        Warehouse = cmbVanTransferOutSelectVehicle.Selected.Warehouse
+                                    )});
                     ClearCollect(
                         CurrentQtyCases,
                         //First(transferOutProductLines).qtyCases
@@ -1472,6 +1473,10 @@
                         );
                         ForAll(
                             StockLinesForFIFO As OneFifoItem,
+                          Collect(colManipulatedTransferTemp,{ ID: LookUp(
+                                                colManipulatedTransferLines,
+                                                skuId = OneFifoItem.SKU.'SKU Master' && manDate = OneFifoItem.'Manufacturing date'
+                                            )});
                             If(
                                 First(CurrentQtyCases).Value > 0 && OneFifoItem.'Remaining Qty Cases' > 0 && OneFifoItem.SKU.'SKU Master' = OneProductItem.productId,
                                 //Checking First condition if the qty is less then remainining of old_______________________________________________
@@ -1479,22 +1484,28 @@
                                     (First(CurrentQtyCases).Value <= OneFifoItem.'Remaining Qty Cases'),
                                     If(
                                         !IsBlank(
-                                            LookUp(
+                                            /*LookUp(
                                                 colManipulatedTransferLines,
                                                 skuId = OneFifoItem.SKU.'SKU Master' && manDate = OneFifoItem.'Manufacturing date'
-                                            )
+                                            )*/
+                                            First(colManipulatedTransferTemp).ID
                                         ),
                                         Patch(
                                             colManipulatedTransferLines,
-                                            LookUp(
+                                           /* LookUp(
                                                 colManipulatedTransferLines,
                                                 skuId = OneFifoItem.SKU.'SKU Master' && manDate = OneFifoItem.'Manufacturing date'
-                                            ),
+                                            )*/
+                                            First(colManipulatedTransferTemp).ID
+                                            ,
                                             {
-                                                qtyCases: ((LookUp(
+                                                qtyCases: ((
+                                                   /* LookUp(
                                                     colManipulatedTransferLines,
                                                     skuId = OneFifoItem.SKU.'SKU Master' && manDate = OneFifoItem.'Manufacturing date'
-                                                ).qtyCases) + (First(CurrentQtyCases).Value))
+                                                ).qtyCases
+                                                */First(colManipulatedTransferTemp).ID.qtyCases
+                                                ) + (First(CurrentQtyCases).Value))
                                             }
                                         ),
                                         Collect(
@@ -1538,22 +1549,25 @@
                                        //////______________CART MANIPULATION
                                     If(
                                         !IsBlank(
-                                            LookUp(
+                                           /* LookUp(
                                                 colManipulatedTransferLines,
                                                 skuId = OneFifoItem.SKU.'SKU Master' && manDate = OneFifoItem.'Manufacturing date'
-                                            )
+                                            )*/First(colManipulatedTransferTemp).ID
                                         ),
                                         Patch(
                                             colManipulatedTransferLines,
-                                            LookUp(
+                                           /* LookUp(
                                                 colManipulatedTransferLines,
                                                 skuId = OneFifoItem.SKU.'SKU Master' && manDate = OneFifoItem.'Manufacturing date'
-                                            ),
+                                            )*/
+                                            First(colManipulatedTransferTemp).ID,
                                             {
-                                                qtyCases: ((LookUp(
+                                                qtyCases: ((/*LookUp(
                                                     colManipulatedTransferLines,
                                                     skuId = OneFifoItem.SKU.'SKU Master' && manDate = OneFifoItem.'Manufacturing date'
-                                                ).qtyCases) + (OneFifoItem.'Remaining Qty Cases'))
+                                                ).qtyCases*/
+                                                First(colManipulatedTransferTemp).ID.qtyCases
+                                                ) + (OneFifoItem.'Remaining Qty Cases'))
                                             }
                                         ),
                                         Collect(
@@ -1592,7 +1606,8 @@
                                         {Value: ((First(CurrentQtyCases).Value - OneFifoItem.'Remaining Qty Cases'))}
                                     );
                                 )
-                            )
+                            );
+                            Remove(colManipulatedTransferTemp,First(colManipulatedTransferTemp));
                         )
                     );
                     /////////////////////////////////////////////////////////_______________STOCK UPDATION FOR PCS       ____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
@@ -1631,6 +1646,10 @@
                         );
                         ForAll(
                             StockLinesForFIFO As OneFifoItem,
+                               Collect(colManipulatedTransferTemp,{ ID: LookUp(
+                                                colManipulatedTransferLines,
+                                                skuId = OneFifoItem.SKU.'SKU Master' && manDate = OneFifoItem.'Manufacturing date'
+                                            )});
                             If(
                                 First(CurrentQty).Value > 0 && OneFifoItem.'Remaining Qty Pcs' > 0 && OneFifoItem.SKU.'SKU Master' = OneProductItem.productId,
                                 //Checking First condition if the qty is less then remainining of old_______________________________________________
@@ -1638,22 +1657,25 @@
                                     (First(CurrentQty).Value <= OneFifoItem.'Remaining Qty Pcs'),
                                     If(
                                         !IsBlank(
-                                            LookUp(
+                                           /* LookUp(
                                                 colManipulatedTransferLines,
                                                 skuId = OneFifoItem.SKU.'SKU Master' && manDate = OneFifoItem.'Manufacturing date'
-                                            )
+                                            )*/First(colManipulatedTransferTemp).ID
                                         ),
                                         Patch(
                                             colManipulatedTransferLines,
-                                            LookUp(
+                                            /* LookUp(
                                                 colManipulatedTransferLines,
                                                 skuId = OneFifoItem.SKU.'SKU Master' && manDate = OneFifoItem.'Manufacturing date'
-                                            ),
+                                            )*/First(colManipulatedTransferTemp).ID
+                                            
+                                            ,
                                             {
-                                                qtyPcs: ((LookUp(
-                                                    colManipulatedTransferLines,
-                                                    skuId = OneFifoItem.SKU.'SKU Master' && manDate = OneFifoItem.'Manufacturing date'
-                                                ).qtyPcs) + (First(CurrentQty).Value))
+                                                qtyPcs: ((
+                                                     /* LookUp(
+                                                colManipulatedTransferLines,
+                                                skuId = OneFifoItem.SKU.'SKU Master' && manDate = OneFifoItem.'Manufacturing date'
+                                            )*/First(colManipulatedTransferTemp).ID.qtyPcs) + (First(CurrentQty).Value))
                                             }
                                         ),
                                         Collect(
@@ -1699,22 +1721,23 @@
                                     ).'Quantity Per UOM'))),
                                     If(
                                         !IsBlank(
-                                            LookUp(
+                                             /* LookUp(
                                                 colManipulatedTransferLines,
                                                 skuId = OneFifoItem.SKU.'SKU Master' && manDate = OneFifoItem.'Manufacturing date'
-                                            )
+                                            )*/First(colManipulatedTransferTemp).ID
                                         ),
                                         Patch(
                                             colManipulatedTransferLines,
-                                            LookUp(
+                                            /* LookUp(
                                                 colManipulatedTransferLines,
                                                 skuId = OneFifoItem.SKU.'SKU Master' && manDate = OneFifoItem.'Manufacturing date'
-                                            ),
+                                            )*/First(colManipulatedTransferTemp).ID,
                                             {
-                                                qtyPcs: ((LookUp(
-                                                    colManipulatedTransferLines,
-                                                    skuId = OneFifoItem.SKU.'SKU Master' && manDate = OneFifoItem.'Manufacturing date'
-                                                ).qtyPcs) + (First(CurrentQty).Value))
+                                                qtyPcs: ((
+                                                     /* LookUp(
+                                                colManipulatedTransferLines,
+                                                skuId = OneFifoItem.SKU.'SKU Master' && manDate = OneFifoItem.'Manufacturing date'
+                                            )*/First(colManipulatedTransferTemp).ID.qtyPcs) + (First(CurrentQty).Value))
                                             }
                                         ),
                                         Collect(
@@ -1796,17 +1819,17 @@
                                     ).'Quantity Per UOM'))),
                                     If(
                                         !IsBlank(
-                                            LookUp(
+                                             /* LookUp(
                                                 colManipulatedTransferLines,
                                                 skuId = OneFifoItem.SKU.'SKU Master' && manDate = OneFifoItem.'Manufacturing date'
-                                            )
+                                            )*/First(colManipulatedTransferTemp).ID
                                         ),
                                         Patch(
                                             colManipulatedTransferLines,
-                                            LookUp(
+                                            /* LookUp(
                                                 colManipulatedTransferLines,
                                                 skuId = OneFifoItem.SKU.'SKU Master' && manDate = OneFifoItem.'Manufacturing date'
-                                            ),
+                                            )*/First(colManipulatedTransferTemp).ID,
                                             {
                                                 qtyPcs: (( LookUp(
                                                     colManipulatedTransferLines,
@@ -1873,6 +1896,9 @@
                                     );
                                 )
                             )
+                    
+                            //Remove temp collection 
+                    
                         )
                     );
                     ClearCollect(
@@ -1882,14 +1908,16 @@
                             Defaults('Stock Transfer Headers'),
                             {
                                 Date: Today(),
-                                'From Location': LookUp(
+                                'From Location': StockTransferWarehouse
+                                /*LookUp(
                                     Warehouses,
                                     Warehouse = varUserVanNo.Van.Warehouse
-                                ),
-                                'To Location': LookUp(
+                                )*/,
+                                'To Location': varTo
+                                /*LookUp(
                                     Warehouses,
                                     Warehouse = cmbVanTransferOutSelectVehicle.Selected.Warehouse
-                                ),
+                                )*/,
                                 'Stock transfer type': 'Stock transfer type (Stock Transfer Headers)'.'Van to van transfer'
                             }
                         )
@@ -1904,6 +1932,7 @@
                         Set(varStockHeader,First(colTransferOutHeader).'Stock Transfer Header');
                     ForAll(
                         colManipulatedTransferLines As OneProduct,
+                          
                         Collect(
                             colVanTransferLine,
                             Patch(
@@ -1923,14 +1952,16 @@
                                     ),
                                     'Remaining Qty Cases': OneProduct.qtyCases,
                                     'Remaining Qty Pcs': OneProduct.qtyPcs,
-                                    'From Location': LookUp(
+                                    'From Location': StockTransferWarehouse
+                                    /*LookUp(
                                         Warehouses,
                                         Warehouse = varUserVanNo.Van.Warehouse
-                                    ),
-                                    'To Location': LookUp(
+                                    )*/,
+                                    'To Location': varTo
+                                    /*LookUp(
                                         Warehouses,
                                         Warehouse = cmbVanTransferOutSelectVehicle.Selected.Warehouse
-                                    ),
+                                    )*/,
                                     'Manufacturing date': OneProduct.manDate,
                                     ToSalesperson:ComboBox4.Selected.'Full Name'}
                             );
