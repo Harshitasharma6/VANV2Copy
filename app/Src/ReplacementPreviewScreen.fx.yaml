@@ -334,8 +334,7 @@
             FocusedBorderThickness: =2
             HoverFill: =ColorFade(_VarGblAppColors.BisleriBlue, -20%)
             OnSelect: |
-                =
-                UpdateContext(
+                =UpdateContext(
                     {
                         varCustomer: LookUp(
                             Customers_1,
@@ -351,7 +350,7 @@
                         {
                             'Order Date': Now(),
                             'Order Type': 'Order Type (Choice)'.'Replacement Order',
-                              //'Payment Type': 'Payment Type (Order Headers)'.Cash,
+                            //'Payment Type': 'Payment Type (Order Headers)'.Cash,
                             'Total Quantity': (Sum(
                                 colReasonsVisits,
                                 qtyCases
@@ -415,10 +414,16 @@
                         CreateReplacementItemsRecord,
                         ForAll(
                             colReasonsVisits As ThissItem,
-                            Collect(colR,{t:LookUp(
+                            Collect(
+                                colR,
+                                {
+                                    t: LookUp(
                                         'SKU Masters',
                                         'SKU Master' = ThissItem.id
-                                    ), ID:ThissItem.id});
+                                    ),
+                                    ID: ThissItem.id
+                                }
+                            );
                             Patch(
                                 'Order Lines',
                                 Defaults('Order Lines'),
@@ -437,7 +442,7 @@
                                         Users,
                                         'Primary Email' = User().Email
                                     )*/,
-                                    'Van No': StockTransferWarehouse 
+                                    'Van No': StockTransferWarehouse
                                     /*LookUp(
                                 Warehouses,
                                 Warehouse = varUserVanNo.Van.Warehouse
@@ -448,7 +453,7 @@
                                         'SKU Masters',
                                         'SKU Master' = ThissItem.id
                                     )*/,
-                                      /*  'Base Price': ThissItem.price,
+                                    /*  'Base Price': ThissItem.price,
                                         'Total Discount Amount': Value(ThissItem.discount),
                                         'Tax Amount': ThissItem.discountedPrice * 0.18,
                                         Rate: ThissItem.discountedPrice + (ThissItem.discountedPrice * 0.18) + ThissItem.emptyJarValue, */
@@ -460,7 +465,10 @@
                                     )*/
                                 }
                             );
-                            RemoveIf(colR, ID=ThissItem.id);
+                            RemoveIf(
+                                colR,
+                                ID = ThissItem.id
+                            );
                         )
                     )
                 );
