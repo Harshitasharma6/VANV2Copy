@@ -361,11 +361,12 @@ NewEmptyJar As screen:
                     /*---update current stock----------------*/
                     ForAll(
                         colEJarsItem As EjarSt,
+                        
                         Patch(
                             'Current Stocks',
                             LookUp(
                                 'Current Stocks',
-                                'Item SKU'.'SKU Master' = EjarSt.productId && 'Van No'.Warehouse = varUserVanNo.Van.Warehouse && 'Created On'>=Today(),
+                                'Item SKU'.'SKU Master' = EjarSt.productId && 'Van No'.Warehouse = varUserVanNo.Van.Warehouse && 'Created On'>=Today()),
                                 {
                                     Cases: If(
                                         !IsBlank(
@@ -380,7 +381,7 @@ NewEmptyJar As screen:
                                         ).Cases/*- EjarSt.Cases*/
                                     )
                                 }
-                            )
+                            
                         )
                     );
                     Set(
