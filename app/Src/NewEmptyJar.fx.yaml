@@ -291,15 +291,15 @@ NewEmptyJar As screen:
                                             'Order Headers',
                                             'Order Number' = First(CreateEjarsOrder).'Order Number'
                                         )*/,
-                                        Salesperson: LookUp(
+                                        Salesperson: /*LookUp(
                                             Users,
                                             'Primary Email' = User().Email
-                                        ),
+                                        )*/ varUser,
                                         'Item Type': 'Item Type (Choice)'.Paid,
-                                        'Van No': LookUp(
+                                        'Van No': /*LookUp(
                                             Warehouses,
                                             Warehouse = varUserVanNo.Van.Warehouse
-                                        ),
+                                        )*/ StockTransferWarehouse,
                                         'Item SKU': LookUp(
                                             'SKU Masters',
                                             'SKU Master' = EJarsItem.productId
@@ -307,10 +307,10 @@ NewEmptyJar As screen:
                                         'Total Quantity': EJarsItem.Qty,
                                         'Customer no.': cmbNewEmptyJarSelectCustomer.Selected,
                                         'Net Amount': 150 * EJarsItem.Qty,
-                                        'Route No': LookUp(
+                                        'Route No': /*LookUp(
                                             Areas,
                                             Area = varUserArea.Area.Area
-                                        )
+                                        )*/varRoute
                                     }
                                 );
                                 //Navigate(EmptyJarPreviewScreen)
@@ -332,18 +332,18 @@ NewEmptyJar As screen:
                             {
                                 'Receipt Date': Today(),
                                 Customer: cmbNewEmptyJarSelectCustomer.Selected,
-                                Salesperson: LookUp(
+                                Salesperson: /*LookUp(
                                     Users,
                                     'Primary Email' = User().Email
-                                ),
-                                'Van No': LookUp(
+                                )*/ varUser,
+                                'Van No': /*LookUp(
                                     Warehouses,
                                     Warehouse = varUserVanNo.Van.Warehouse
-                                ),
-                                Route: LookUp(
+                                )*/ StockTransferWarehouse,
+                                Route: /*LookUp(
                                     Areas,
                                     Area = varUserArea.Area.Area
-                                ),
+                                )*/ varRoute,
                                 'Payment Type': 'Payment Type (Payments)'.'Empty Jar',
                                 Amount: Value(-Sum(
                                     colEJarsItem,
