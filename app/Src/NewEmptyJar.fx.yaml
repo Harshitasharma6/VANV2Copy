@@ -283,7 +283,10 @@ NewEmptyJar As screen:
                             createEjarItemRecord,
                             ForAll(
                                 colEJarsItem As EJarsItem,
-                                
+                                Collect(colItem,{item:LookUp(
+                                            'SKU Masters',
+                                            'SKU Master' = EJarsItem.productId
+                                        ),id:EJarsItem.productId});
                                 Patch(
                                     'Order Lines',
                                     Defaults('Order Lines'),
@@ -301,10 +304,10 @@ NewEmptyJar As screen:
                                             Warehouses,
                                             Warehouse = varUserVanNo.Van.Warehouse
                                         )*/ StockTransferWarehouse,
-                                        'Item SKU': LookUp(
+                                        'Item SKU': /*LookUp(
                                             'SKU Masters',
                                             'SKU Master' = EJarsItem.productId
-                                        ),
+                                        )*/First(colItem).item,
                                         'Total Quantity': EJarsItem.Qty,
                                         'Customer no.': cmbNewEmptyJarSelectCustomer.Selected,
                                         'Net Amount': 150 * EJarsItem.Qty,
@@ -314,6 +317,7 @@ NewEmptyJar As screen:
                                         )*/varRoute
                                     }
                                 );
+                                RemoveIf(colItem,id = EJarsItem.productId);
                                 //Navigate(EmptyJarPreviewScreen)
                             )
                         );
