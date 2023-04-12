@@ -283,6 +283,7 @@ NewEmptyJar As screen:
                             createEjarItemRecord,
                             ForAll(
                                 colEJarsItem As EJarsItem,
+                                
                                 Patch(
                                     'Order Lines',
                                     Defaults('Order Lines'),
@@ -362,23 +363,28 @@ NewEmptyJar As screen:
                     ForAll(
                         colEJarsItem As EjarSt,
                         
-                        Patch(
-                            'Current Stocks',
-                            LookUp(
+                    Collect(colCurrentStock,{Item:LookUp(
                                 'Current Stocks',
-                                'Item SKU'.'SKU Master' = EjarSt.productId && 'Van No'.Warehouse = varUserVanNo.Van.Warehouse && 'Created On'>=Today()),
+                                'Item SKU'.'SKU Master' = EjarSt.productId && 'Van No'.Warehouse = varUserVanNo.Van.Warehouse && 'Created On'>=Today())});
+                        
+                        Patch(
+                            'Current Stocks',First(colCurrentStock).Item
+                            /*LookUp(
+                                'Current Stocks',
+                                'Item SKU'.'SKU Master' = EjarSt.productId && 'Van No'.Warehouse = varUserVanNo.Van.Warehouse && 'Created On'>=Today())*/,
                                 {
                                     Cases: If(
                                         !IsBlank(
-                                            LookUp(
+                                           /* LookUp(
                                                 'Current Stocks',
                                                 'Item SKU'.'SKU Master' = EjarSt.productId && 'Van No'.Warehouse = varUserVanNo.Van.Warehouse && 'Created On'>=Today()
-                                            ).Cases
+                                            ).Cases*/ First(colCurrentStock).Item.Cases
                                         ),
-                                        LookUp(
+                                        First(colCurrentStock).Item.Cases
+                                        /*LookUp(
                                             'Current Stocks',
                                             'Item SKU'.'SKU Master' = EjarSt.productId && 'Van No'.Warehouse = varUserVanNo.Van.Warehouse && 'Created On'>=Today()
-                                        ).Cases/*- EjarSt.Cases*/
+                                        ).Cases*//*- EjarSt.Cases*/
                                     )
                                 }
                             
