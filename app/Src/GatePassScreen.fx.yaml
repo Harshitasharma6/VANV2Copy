@@ -567,9 +567,8 @@ GatePassScreen As screen:
             FocusedBorderThickness: =2
             Height: =49
             HoverFill: =ColorFade(_VarGblAppColors.BisleriBlue, -20%)
-            OnSelect: |-
-                = ClearCollect(colStocktransferLines, 'Stock Transfer Lines');
-                //Set(_VarSignPopUp, !_VarSignPopUp)
+            OnSelect: |
+                =//Set(_VarSignPopUp, !_VarSignPopUp)
                 If(
                     CountIf(
                         Attendances,
@@ -581,31 +580,25 @@ GatePassScreen As screen:
                         2000
                     );
                     Navigate('Attendance Screen'),
-                   
                     ClearCollect(
                         colModifiedGatePassLines,
-                
-                
                         ForAll(
                             colSelectedGatePassLines As oneLine,
-                           
                             Patch(
                                 'Stock Transfer Lines',
-                               LookUp(
-                                    colStocktransferLines,
-                                    'Transfer Lines No' = oneLine.Result)
-                                ,
+                                LookUp(
+                                    'Stock Transfer Lines',
+                                    'Transfer Lines No' = oneLine.Result
+                                ),
                                 {
                                     'Transfer accepted': 'Transfer accepted (Stock Transfer Lines)'.Yes,
                                     'Transfer status': 'Transfer status (Stock Transfer Lines)'.'Transfer accepted'
                                 }
-                            );
-                            
-                        );
-                
+                            )
+                        )
                     );
-                   
-                   //Stock substraction from location ______________________________________________________________
+                    
+                //Stock substraction from location ____________________________________________________________________________________
                 /*ForAll(
                     colModifiedGatePassLines As oneLine,
                     Patch(
@@ -636,58 +629,29 @@ GatePassScreen As screen:
                     )
                 );*/
                 // Stock addition to location_______________________________________________________________________
-                ForAll(
+                
+                    ForAll(
                         colModifiedGatePassLines As oneLine,
-                        Collect(
-                            colCurrent,
-                            {
-                                id: oneLine.'Stock Transfer Lines',
-                                STH: LookUp(
-                                        Warehouses,
-                                        Warehouse = 
-                                         /*LookUp(
-                                            'Stock Transfer Headers',
-                                            'Stock Transfer Header' = oneLine.'Transfer Order No'.'Stock Transfer Header'
-                                        ).'To Location'.Warehouse*/ StockTransferWarehouse.Warehouse
-                                    )
-                                    
-                                    
-                                    ,
-                                sku: LookUp(
-                                    'SKU Masters',
-                                    'SKU Master' = oneLine.SKU.'SKU Master'
-                                ),
-                                cs: LookUp(
+                        If(
+                            IsBlank(
+                                LookUp(
                                     'Current Stocks',
-                                    'Item SKU'.'SKU Master' = oneLine.SKU.'SKU Master' && 'Van No'.Warehouse =/* LookUp(
+                                    'Item SKU'.'SKU Master' = oneLine.SKU.'SKU Master' && 'Van No'.Warehouse = /*LookUp(
                                         'Stock Transfer Headers',
                                         'Stock Transfer Header' = oneLine.'Transfer Order No'.'Stock Transfer Header'
                                     ).'To Location'.Warehouse*/ StockTransferWarehouse.Warehouse && 'Created Date' >= Today()
                                 )
-                            }
-                        );
-                        If(
-                            IsBlank(First(colCurrent).cs
-                                /*LookUp(
-                                    'Current Stocks',
-                                    'Item SKU'.'SKU Master' = oneLine.SKU.'SKU Master' && 'Van No'.Warehouse =
-                                    LookUp(
-                                        'Stock Transfer Headers',
-                                        'Stock Transfer Header' = oneLine.'Transfer Order No'.'Stock Transfer Header'
-                                    ).'To Location'.Warehouse && 'Created Date' >= Today()
-                                )*/
-                ),
+                            ),
                             Patch(
                                 'Current Stocks',
                                 Defaults('Current Stocks'),
                                 {
                                     Cases: oneLine.Cases,
                                     PCs: oneLine.PCs,
-                                    'Item SKU': First(colCurrent).sku
-                                    /*LookUp(
+                                    'Item SKU': LookUp(
                                         'SKU Masters',
                                         'SKU Master' = oneLine.SKU.'SKU Master'
-                                    )*/,
+                                    ),
                                     /*'Route No': LookUp(Areas, Area = LookUp(
                                         'Location VAN Mappings',
                                        Van.Warehouse = LookUp(
@@ -695,53 +659,44 @@ GatePassScreen As screen:
                                             'Stock Transfer Header' = oneLine.'Transfer Order No'.'Stock Transfer Header'
                                         ).'To Location'.Warehouse
                                     ).Area.Area),*/
-                                    'Van No': First(colCurrent).STH
-                                    /*LookUp(
+                                    'Van No': LookUp(
                                         Warehouses,
-                                        Warehouse = 
-                                         LookUp(
+                                        Warehouse = /*LookUp(
                                             'Stock Transfer Headers',
                                             'Stock Transfer Header' = oneLine.'Transfer Order No'.'Stock Transfer Header'
-                                        ).'To Location'.Warehouse
-                                    )*/,
+                                        ).'To Location'.Warehouse*/ StockTransferWarehouse.Warehouse
+                                    ),
                                     'Last Updated Date': Now()
                                 }
                             ),
                             Patch(
-                                'Current Stocks',First(colCurrent).cs
-                                /*LookUp(
+                                'Current Stocks',
+                                LookUp(
                                     'Current Stocks',
-                                    'Item SKU'.'SKU Master' = oneLine.SKU.'SKU Master' && 'Van No'.Warehouse = 
-                                    LookUp(
+                                    'Item SKU'.'SKU Master' = oneLine.SKU.'SKU Master' && 'Van No'.Warehouse = /*LookUp(
                                         'Stock Transfer Headers',
                                         'Stock Transfer Header' = oneLine.'Transfer Order No'.'Stock Transfer Header'
-                                    ).'To Location'.Warehouse && 'Created Date' >= Today()
-                                )*/,
+                                    ).'To Location'.Warehouse*/ StockTransferWarehouse.Warehouse && 'Created Date' >= Today()
+                                ),
                                 {
-                                    Cases: /*LookUp(
+                                    Cases: LookUp(
                                         'Current Stocks',
-                                        'Item SKU'.'SKU Master' = oneLine.SKU.'SKU Master' && 'Van No'.Warehouse =
-                                         LookUp(
+                                        'Item SKU'.'SKU Master' = oneLine.SKU.'SKU Master' && 'Van No'.Warehouse =/* LookUp(
                                             'Stock Transfer Headers',
                                             'Stock Transfer Header' = oneLine.'Transfer Order No'.'Stock Transfer Header'
-                                        ).'To Location'.Warehouse && 'Created Date' >= Today()
-                                    ).Cases*/ First(colCurrent).cs.Cases + oneLine.Cases,
-                                    PCs: /*LookUp(
+                                        ).'To Location'.Warehouse*/ StockTransferWarehouse.Warehouse && 'Created Date' >= Today()
+                                    ).Cases + oneLine.Cases,
+                                    PCs: LookUp(
                                         'Current Stocks',
-                                        'Item SKU'.'SKU Master' = oneLine.SKU.'SKU Master' && 'Van No'.Warehouse =
-                                        LookUp(
+                                        'Item SKU'.'SKU Master' = oneLine.SKU.'SKU Master' && 'Van No'.Warehouse = /*LookUp(
                                             'Stock Transfer Headers',
                                             'Stock Transfer Header' = oneLine.'Transfer Order No'.'Stock Transfer Header'
-                                        ).'To Location'.Warehouse && 'Created Date' >= Today()
-                                    ).PCs*/ First(colCurrent).cs.PCs + oneLine.PCs,
+                                        ).'To Location'.Warehouse*/ StockTransferWarehouse.Warehouse && 'Created Date' >= Today()
+                                    ).PCs + oneLine.PCs,
                                     'Last Updated Date': Now()
                                 }
                             )
-                        );
-                        RemoveIf(
-                            colCurrent,
-                            id = oneLine.'Stock Transfer Lines'
-                        );
+                        )
                     );
                     Clear(colModifiedGatePassLines);
                     Clear(colSelectedGatePassLines);
@@ -759,7 +714,6 @@ GatePassScreen As screen:
                         'Created Date' >= Today() && 'Van No'.Warehouse = varUserVanNo.Van.Warehouse
                     )
                 );
-                 Clear(colStocktransferLines);
             PaddingLeft: =20
             Size: =_VarGblAppFonts.Size.Title
             Text: ="     CONTINUE"
