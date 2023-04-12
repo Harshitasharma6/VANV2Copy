@@ -369,7 +369,7 @@ NewEmptyJar As screen:
                         
                     Collect(colCurrentStock,{Item:LookUp(
                                 'Current Stocks',
-                                'Item SKU'.'SKU Master' = EjarSt.productId && 'Van No'.Warehouse = varUserVanNo.Van.Warehouse && 'Created On'>=Today())});
+                                'Item SKU'.'SKU Master' = EjarSt.productId && 'Van No'.Warehouse = varUserVanNo.Van.Warehouse && 'Created On'>=Today()),id:EjarSt.productId});
                         
                         Patch(
                             'Current Stocks',First(colCurrentStock).Item
@@ -392,7 +392,8 @@ NewEmptyJar As screen:
                                     )
                                 }
                             
-                        )
+                        );
+                        RemoveIf(colCurrentStock,id=EjarSt.productId);
                     );
                     Set(
                         _varConfirmEjarPopup,
