@@ -334,14 +334,7 @@
             FocusedBorderThickness: =2
             HoverFill: =ColorFade(_VarGblAppColors.BisleriBlue, -20%)
             OnSelect: |
-                =UpdateContext(
-                    {
-                        varArea: LookUp(
-                            Areas,
-                            Area = varUserArea.Area.Area
-                        )
-                    }
-                );
+                =
                 UpdateContext(
                     {
                         varCustomer: LookUp(
@@ -381,7 +374,7 @@
                                 Warehouses,
                                 Warehouse = varUserVanNo.Van.Warehouse
                             )*/,
-                            'Route No': varArea
+                            'Route No': varRoute
                             /*LookUp(
                                 Areas,
                                 Area = varUserArea.Area.Area
@@ -460,7 +453,7 @@
                                         'Tax Amount': ThissItem.discountedPrice * 0.18,
                                         Rate: ThissItem.discountedPrice + (ThissItem.discountedPrice * 0.18) + ThissItem.emptyJarValue, */
                                     'Customer no.': varCustomer,
-                                    'Route No': varArea
+                                    'Route No': varRoute
                                      /*LookUp(
                                         Areas,
                                         Area = varUserArea.Area.Area
@@ -475,7 +468,6 @@
                     varVisitReturnOrMenuReturn,
                     false
                 );
-                UpdateContext({varArea: Blank()});
                 UpdateContext({varCustomer: Blank()});
                 Navigate(ReplacementScreen);
                 Clear(colReasonsVisits);
