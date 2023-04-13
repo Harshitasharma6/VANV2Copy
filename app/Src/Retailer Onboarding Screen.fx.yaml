@@ -25,45 +25,58 @@
         FocusedBorderThickness: =0.5
         Height: =844
         Items: |-
-            =Filter(
+            =
                 Sort(
                     If(
                         galOnboardingFilter.Selected.Value = "All",
                         Filter(
                             Customers_1,
-                            Salesperson.'Primary Email' = User().Email
+                            Salesperson.'Primary Email' = User().Email &&   
+                
+                compOnboardingSearch.SearchText in 'Customer Code' || compOnboardingSearch.SearchText in 'Contact Person name' || compOnboardingSearch.SearchText in 'Customer Name'
+            
                         ),
                         galOnboardingFilter.Selected.Value = "Customer",
                         Filter(
                             Customers_1,
                             'Customer status' = 'Customer status (Choice)'.Customer && 'Owning User'.'Primary Email'=User().Email
+                            &&   
+                
+                compOnboardingSearch.SearchText in 'Customer Code' || compOnboardingSearch.SearchText in 'Contact Person name' || compOnboardingSearch.SearchText in 'Customer Name'
                         ),
                         galOnboardingFilter.Selected.Value = "Requested for On-Boarding",
                         Filter(
                             Customers_1,
-                            'Customer status' = 'Customer status (Choice)'.'Requested for On-Boarding' && 'Owning User'.'Primary Email'=User().Email
+                            'Customer status' = 'Customer status (Choice)'.'Requested for On-Boarding' && 'Owning User'.'Primary Email'=User().Email &&   
+                
+                compOnboardingSearch.SearchText in 'Customer Code' || compOnboardingSearch.SearchText in 'Contact Person name' || compOnboardingSearch.SearchText in 'Customer Name'
                         ),
                         galOnboardingFilter.Selected.Value = "Pushed to ERP",
                         Filter(
                             Customers_1,
-                            'Customer status' = 'Customer status (Choice)'.'Pushed to ERP' && 'Owning User'.'Primary Email'=User().Email
+                            'Customer status' = 'Customer status (Choice)'.'Pushed to ERP' && 'Owning User'.'Primary Email'=User().Email &&   
+                
+                compOnboardingSearch.SearchText in 'Customer Code' || compOnboardingSearch.SearchText in 'Contact Person name' || compOnboardingSearch.SearchText in 'Customer Name'
                         ),
                         galOnboardingFilter.Selected.Value = "Rejected On-Boarding",
                         Filter(
                             Customers_1,
                             'Customer status' = 'Customer status (Choice)'.'Rejected On-Boarding' && 'Owning User'.'Primary Email'=User().Email
-                        ),
+                       &&   
+                
+                compOnboardingSearch.SearchText in 'Customer Code' || compOnboardingSearch.SearchText in 'Contact Person name' || compOnboardingSearch.SearchText in 'Customer Name' ),
                         galOnboardingFilter.Selected.Value = "On-Boarded",
                         Filter(
                             Customers_1,
                             'Customer status' = 'Customer status (Choice)'.'On-Boarded' && 'Owning User'.'Primary Email'=User().Email
-                        )
+                      &&   
+                
+                compOnboardingSearch.SearchText in 'Customer Code' || compOnboardingSearch.SearchText in 'Contact Person name' || compOnboardingSearch.SearchText in 'Customer Name'  )
                     ),
                     'Created On',
                     SortOrder.Descending
-                ),
-                compOnboardingSearch.SearchText in 'Customer Code' || compOnboardingSearch.SearchText in 'Contact Person name' || compOnboardingSearch.SearchText in 'Customer Name'
-            )
+                )
+              
         Layout: =Layout.Vertical
         ShowScrollbar: =false
         TabIndex: =
