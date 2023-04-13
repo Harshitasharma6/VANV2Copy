@@ -593,11 +593,11 @@ GatePassScreen As screen:
                                 });
                             Patch(
                                 'Stock Transfer Lines',
-                                First(colStock).STL
+                               First(colStock).STL
                                 /*LookUp(
                                     'Stock Transfer Lines',
-                                    'Transfer Lines No' = oneLine.Result
-                                */
+                                    'Transfer Lines No' = oneLine.Result)*/
+                                
                                 ,
                                 {
                                     'Transfer accepted': 'Transfer accepted (Stock Transfer Lines)'.Yes,
@@ -605,7 +605,7 @@ GatePassScreen As screen:
                                 }
                             );
                         );
-                        //RemoveIf(colStock,Id = oneLine.Result);
+                      
                     );
                    //Stock substraction from location ______________________________________________________________
                 /*ForAll(
@@ -809,11 +809,11 @@ GatePassScreen As screen:
                                 });
                             Patch(
                                 'Stock Transfer Lines',
-                                First(colStock).STL
+                               First(colStock).STL
                                 /*LookUp(
                                     'Stock Transfer Lines',
-                                    'Transfer Lines No' = oneLine.Result
-                                */
+                                    'Transfer Lines No' = oneLine.Result)*/
+                                
                                 ,
                                 {
                                     'Transfer accepted': 'Transfer accepted (Stock Transfer Lines)'.Yes,
@@ -821,7 +821,7 @@ GatePassScreen As screen:
                                 }
                             );
                         );
-                        //RemoveIf(colStock,Id = oneLine.Result);
+                      
                     );
                    //Stock substraction from location ______________________________________________________________
                 /*ForAll(
