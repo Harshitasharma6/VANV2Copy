@@ -543,6 +543,13 @@
             HoverFill: =_VarGblAppColors.BisleriBlueMediumLight
             OnSelect: |
                 =/////////////////////////////////////////////////////////_______________STOCK UPDATION FOR CASES
+                UpdateContext({varCustomer:LookUp(
+                                AllCustomerss,
+                                Branch.'Branch Master' = LookUp(
+                                    Users,
+                                    'Primary Email' = User().Email
+                                ).'Branch Master'.'Branch Master'
+                            )});
                 
                 ClearCollect(
                     CurrentQtyCases,
@@ -996,13 +1003,14 @@
                                 Areas,
                                 Area = varUserArea.Area.Area
                             )*/,
-                            Customer: LookUp(
+                            Customer: varCustomer
+                            /*LookUp(
                                 AllCustomerss,
                                 Branch.'Branch Master' = LookUp(
                                     Users,
                                     'Primary Email' = User().Email
                                 ).'Branch Master'.'Branch Master'
-                            ),
+                            )*/,
                             // 'Total Quantity':Value(txtFOCCasesValue.Text) + Value(txtFOCPcsValue.Text)
                             'Total Quantity': (Sum(
                                 colFOCManipulatedCartItems,
@@ -1061,13 +1069,14 @@
                                         'SKU Masters',
                                         'SKU Master' = FOCItem.skuId
                                     ),
-                                    'Customer no.': LookUp(
+                                    'Customer no.':varCustomer
+                                     /*LookUp(
                                         AllCustomerss,
                                         Branch.'Branch Master' = LookUp(
                                             Users,
                                             'Primary Email' = User().Email
                                         ).'Branch Master'.'Branch Master'
-                                    ),
+                                    )*/,
                                     'Manufacturing Date': DateValue(FOCItem.manDate),
                                     'Total Quantity': FOCItem.qtyCases + FOCItem.qtyPcs,
                                     'Empty Jars': 0,
@@ -1134,13 +1143,13 @@
                                     Users,
                                     'Primary Email' = User().Email
                                 )*/,
-                                Customer: LookUp(
+                                Customer: varCustomer /*LookUp(
                                     AllCustomerss,
                                     Branch.'Branch Master' = LookUp(
                                         Users,
                                         'Primary Email' = User().Email
                                     ).'Branch Master'.'Branch Master'
-                                ),
+                                )*/,
                                 'Route No': varRoute
                                 /*LookUp(
                                     Areas,
@@ -1230,13 +1239,14 @@
                                     'Total Discount Amount': 0,
                                     'Tax Amount': 0,
                                     Rate: 0,
-                                    Customer: LookUp(
+                                    Customer: varCustomer
+                                    /*LookUp(
                                         AllCustomerss,
                                         Branch.'Branch Master' = LookUp(
                                             Users,
                                             'Primary Email' = User().Email
                                         ).'Branch Master'.'Branch Master'
-                                    ),
+                                    )*/,
                                     'Route No': varRoute
                                     /*LookUp(
                                         Areas,
@@ -1302,6 +1312,7 @@
                     false
                 );
                 Clear(colFOCManipulatedCartItems);
+                UpdateContext({varCustomer:Blank()});
                 Navigate(FOCScreen);
             Size: =_VarGblAppFonts.Size.UpperMedium
             Text: ="Yes"
