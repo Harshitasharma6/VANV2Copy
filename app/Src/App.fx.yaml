@@ -476,8 +476,8 @@ App As appinfo:
             Filter(
                 Filter(
                     'Discount Lines',
-                    'Discount Lines (Views)'.'Today''s Discount'
-               ),
+                   'Discount Lines (Views)'.'Today''s Discount'
+              ),
                 Customer.Account in AddColumns(
                     AllCustomerss,
                     "customerId",

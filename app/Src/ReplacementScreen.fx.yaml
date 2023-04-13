@@ -433,10 +433,10 @@ ReplacementScreen As screen:
                                 galReplacementFilter.Selected.Value,
                                 "Last 30 Days",
                                 Filter(
-                                    Filter(
+                                  //  Filter(
                                         'Order Headers',
                                         'Order Type' = 'Order Type (Choice)'.'Replacement Order' && Salesperson.'Primary Email' = User().Email
-                                    ),
+                                 &&//  ),
                                     'Created On' > DateAdd(
                                         Today(),
                                         -30
@@ -444,10 +444,10 @@ ReplacementScreen As screen:
                                 ),
                                 "Last 7 Days",
                                 Filter(
-                                    Filter(
+                                  //  Filter(
                                         'Order Headers',
                                         'Order Type' = 'Order Type (Choice)'.'Replacement Order' && Salesperson.'Primary Email' = User().Email
-                                    ),
+                                    &&// ),
                                     'Created On' > DateAdd(
                                         Today(),
                                         -7
@@ -455,10 +455,10 @@ ReplacementScreen As screen:
                                 ),
                                 "Today's Replacements",
                                 Filter(
-                                    Filter(
+                                    //Filter(
                                         'Order Headers',
                                         'Order Type' = 'Order Type (Choice)'.'Replacement Order' && Salesperson.'Primary Email' = User().Email
-                                    ),
+                                    &&// ),
                                     'Created On' >= Today()
                                 )
                             ),
@@ -527,10 +527,10 @@ ReplacementScreen As screen:
                         galReplacementFilter.Selected.Value,
                         "Last 30 Days",
                         Filter(
-                            Filter(
+                          //  Filter(
                                 'Order Lines',
                                 'Order Number'.'Order Type' = 'Order Type (Choice)'.'Replacement Order' && Salesperson.'Primary Email' = User().Email
-                            ),
+                          &&//  ),
                             'Created On' > DateAdd(
                                 Today(),
                                 -30
@@ -538,10 +538,10 @@ ReplacementScreen As screen:
                         ),
                         "Last 7 Days",
                         Filter(
-                            Filter(
+                          //  Filter(
                                 'Order Lines',
                                 'Order Number'.'Order Type' = 'Order Type (Choice)'.'Replacement Order' && Salesperson.'Primary Email' = User().Email
-                            ),
+                             &&// ),
                             'Created On' > DateAdd(
                                 Today(),
                                 -7
@@ -549,10 +549,10 @@ ReplacementScreen As screen:
                         ),
                         "Today's Replacements",
                         Filter(
-                            Filter(
+                          //  Filter(
                                 'Order Lines',
                                 'Order Number'.'Order Type' = 'Order Type (Choice)'.'Replacement Order' && Salesperson.'Primary Email' = User().Email
-                            ),
+                             &&// ),
                             'Created On' >= Today()
                         )
                     ),
@@ -576,10 +576,10 @@ ReplacementScreen As screen:
                         galReplacementFilter.Selected.Value,
                         "Last 30 Days",
                         Filter(
-                            Filter(
+                          //  Filter(
                                 'Order Lines',
                                 'Order Number'.'Order Type' = 'Order Type (Choice)'.'Replacement Order' && Salesperson.'Primary Email' = User().Email
-                            ),
+                          &&//  ),
                             'Created On' > DateAdd(
                                 Today(),
                                 -30
@@ -587,10 +587,10 @@ ReplacementScreen As screen:
                         ),
                         "Last 7 Days",
                         Filter(
-                            Filter(
+                          //  Filter(
                                 'Order Lines',
                                 'Order Number'.'Order Type' = 'Order Type (Choice)'.'Replacement Order' && Salesperson.'Primary Email' = User().Email
-                            ),
+                            &&// ),
                             'Created On' > DateAdd(
                                 Today(),
                                 -7
@@ -598,10 +598,10 @@ ReplacementScreen As screen:
                         ),
                         "Today's Replacements",
                         Filter(
-                            Filter(
+                            //Filter(
                                 'Order Lines',
                                 'Order Number'.'Order Type' = 'Order Type (Choice)'.'Replacement Order' && Salesperson.'Primary Email' = User().Email
-                            ),
+                     &&//        ),
                             'Created On' >= Today()
                         )
                     ),
