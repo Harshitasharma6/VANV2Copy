@@ -1039,6 +1039,19 @@
                         createFOCItemRecord,
                         ForAll(
                             colFOCManipulatedCartItems As FOCItem,
+                            Collect(colFOCItem,{Case:LookUp(
+                                        varOfflinePricingLines,
+                                        'Item price header'.'Item pricing master' = varPricingMaster.'Item pricing master' && 'Variant code'.'SKU Master' = FOCItem.skuId && UOM = 'UOM (Item Pricing lines)'.CASE
+                                    ).'Base Price',
+                                    Pcs:LookUp(
+                                        varOfflinePricingLines,
+                                        'Item price header'.'Item pricing master' = varPricingMaster.'Item pricing master' && 'Variant code'.'SKU Master' = FOCItem.skuId && UOM = 'UOM (Item Pricing lines)'.PCS
+                                    ).'Base Price',
+                                    SKU:LookUp(
+                                        'SKU Masters',
+                                        'SKU Master' = FOCItem.skuId
+                                    ),
+                                    Id:FOCItem.skuId});
                             Patch(
                                 'Order Lines',
                                 Defaults('Order Lines'),
@@ -1065,10 +1078,10 @@
                                         Areas,
                                         Area = varUserArea.Area.Area
                                     )*/,
-                                    'Item SKU': LookUp(
+                                    'Item SKU': /*LookUp(
                                         'SKU Masters',
                                         'SKU Master' = FOCItem.skuId
-                                    ),
+                                    )*/ First(colFOCItem).SKU,
                                     'Customer no.':varCustomer
                                      /*LookUp(
                                         AllCustomerss,
@@ -1083,16 +1096,19 @@
                                     'Total Discount Amount': 0,
                                     'Tax Amount': 0,
                                     'Net Amount': 0,
-                                    'Cases Unit Price': LookUp(
+                                    'Cases Unit Price': First(colFOCItem).Case
+                                    /*LookUp(
                                         varOfflinePricingLines,
                                         'Item price header'.'Item pricing master' = varPricingMaster.'Item pricing master' && 'Variant code'.'SKU Master' = FOCItem.skuId && UOM = 'UOM (Item Pricing lines)'.CASE
-                                    ).'Base Price',
-                                    'Pcs Unit Price': LookUp(
+                                    ).'Base Price'*/,
+                                    'Pcs Unit Price': First(colFOCItem).Pcs
+                                    /*LookUp(
                                         varOfflinePricingLines,
                                         'Item price header'.'Item pricing master' = varPricingMaster.'Item pricing master' && 'Variant code'.'SKU Master' = FOCItem.skuId && UOM = 'UOM (Item Pricing lines)'.PCS
-                                    ).'Base Price'
+                                    ).'Base Price'*/
                                 }
                             );
+                            RemoveIf(colFOCItem,Id = FOCItem.skuId);
                             /*Notify(
                                 "Your FOC order is placed successfully",
                                 NotificationType.Success,
