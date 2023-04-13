@@ -333,7 +333,7 @@
             Fill: =_VarGblAppColors.BisleriBlue
             FocusedBorderThickness: =2
             HoverFill: =ColorFade(_VarGblAppColors.BisleriBlue, -20%)
-            OnSelect: |
+            OnSelect: |-
                 =UpdateContext(
                     {
                         varCustomer: LookUp(
@@ -410,8 +410,7 @@
                 );
                 If(
                     !IsBlank(CreateReplacementRecord),
-                    ClearCollect(
-                        CreateReplacementItemsRecord,
+                
                         ForAll(
                             colReasonsVisits As ThissItem,
                             Collect(
@@ -424,7 +423,7 @@
                                     ID: ThissItem.id
                                 }
                             );
-                            Patch(
+                       Collect(colOderLinesPatchID,   Patch(
                                 'Order Lines',
                                 Defaults('Order Lines'),
                                 {
@@ -464,13 +463,13 @@
                                         Area = varUserArea.Area.Area
                                     )*/
                                 }
-                            );
+                            ).'Order Lines (zx_orderlinesid)');
                             RemoveIf(
                                 colR,
                                 ID = ThissItem.id
                             );
                         )
-                    )
+                    //)
                 );
                 Set(
                     varVisitReturnOrMenuReturn,
@@ -479,6 +478,9 @@
                 UpdateContext({varCustomer: Blank()});
                 Navigate(ReplacementScreen);
                 Clear(colReasonsVisits);
+                
+                ClearCollect(  CreateReplacementItemsRecord,Filter('Order Lines', 'Order Lines (zx_orderlinesid)' in colOderLinesPatchID));
+                      
             Size: =_VarGblAppFonts.Size.Title
             Text: ="Confirm"
             Width: =150
