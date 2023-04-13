@@ -604,6 +604,7 @@ GatePassScreen As screen:
                                     'Transfer status': 'Transfer status (Stock Transfer Lines)'.'Transfer accepted'
                                 }
                             );
+                            RemoveIf(colStock,Id= oneLine.Result);
                         );
                       
                     );
@@ -820,6 +821,7 @@ GatePassScreen As screen:
                                     'Transfer status': 'Transfer status (Stock Transfer Lines)'.'Transfer accepted'
                                 }
                             );
+                        
                         );
                       
                     );
