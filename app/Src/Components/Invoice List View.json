@@ -1128,7 +1128,7 @@
             "Name": "htmOrderListBillTo_1",
             "Parent": "galOrdersList_2",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 1704,
+            "PublishOrderIndex": 1703,
             "Rules": [
               {
                 "Category": "Data",
@@ -1319,7 +1319,7 @@
             "Name": "htmOrderListQty_9",
             "Parent": "galOrdersList_2",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 1705,
+            "PublishOrderIndex": 1704,
             "Rules": [
               {
                 "Category": "Data",
@@ -1510,7 +1510,7 @@
             "Name": "htmOrderListDate_1",
             "Parent": "galOrdersList_2",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 1706,
+            "PublishOrderIndex": 1705,
             "Rules": [
               {
                 "Category": "Data",
@@ -6960,7 +6960,7 @@
             "Name": "grpOrderListDetails_1",
             "Parent": "galOrdersList_2",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 1703,
+            "PublishOrderIndex": 1706,
             "Rules": [
               {
                 "Category": "Design",
