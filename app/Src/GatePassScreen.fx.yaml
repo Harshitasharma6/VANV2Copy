@@ -585,6 +585,7 @@ GatePassScreen As screen:
                         colModifiedGatePassLines,
                         ForAll(
                             colSelectedGatePassLines As oneLine,
+                                Remove(colStock,First(colStock));
                             Collect(colStock,{STL:LookUp(
                                     'Stock Transfer Lines',
                                     'Transfer Lines No' = oneLine.Result
@@ -604,7 +605,7 @@ GatePassScreen As screen:
                                     'Transfer status': 'Transfer status (Stock Transfer Lines)'.'Transfer accepted'
                                 }
                             );
-                            RemoveIf(colStock,Id= oneLine.Result);
+                     
                         );
                       
                     );
@@ -802,6 +803,7 @@ GatePassScreen As screen:
                         colModifiedGatePassLines,
                         ForAll(
                             colSelectedGatePassLines As oneLine,
+                                Remove(colStock,First(colStock));
                             Collect(colStock,{STL:LookUp(
                                     'Stock Transfer Lines',
                                     'Transfer Lines No' = oneLine.Result
@@ -821,7 +823,7 @@ GatePassScreen As screen:
                                     'Transfer status': 'Transfer status (Stock Transfer Lines)'.'Transfer accepted'
                                 }
                             );
-                        
+                     
                         );
                       
                     );

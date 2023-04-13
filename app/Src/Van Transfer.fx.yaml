@@ -730,10 +730,10 @@
                 ClearCollect(
                     colModifiedTransferLinesNew,
                     ForAll(
-                        colSelectedTransferLines As oneLine,
+                        colSelectedTransferLines As oneLine,             
                         Patch(
                             'Stock Transfer Lines',
-                            LookUp(
+                           LookUp(
                                 'Stock Transfer Lines',
                                 'Transfer Lines No' = oneLine.Result
                             ),
