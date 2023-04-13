@@ -895,22 +895,23 @@
                                  //////______________CART MANIPULATION
                                 If(
                                     !IsBlank(
-                                        LookUp(
+                                        /*LookUp(
                                             colFOCManipulatedCartItems,
                                             skuId = OneFifoItem.SKU.'SKU Master' && manDate = OneFifoItem.'Manufacturing date'
-                                        )
+                                        )*/
+                                        First(colFOC1).FOC1
                                     ),
                                     Patch(
                                         colFOCManipulatedCartItems,
-                                        LookUp(
+                                       /* LookUp(
                                             colFOCManipulatedCartItems,
                                             skuId = OneFifoItem.SKU.'SKU Master' && manDate = OneFifoItem.'Manufacturing date'
-                                        ),
+                                        )*/ First(colFOC1).FOC1,
                                         {
-                                            qtyPcs: (( LookUp(
+                                            qtyPcs: (( /*LookUp(
                                                 colFOCManipulatedCartItems,
                                                 skuId = OneFifoItem.SKU.'SKU Master' && manDate = OneFifoItem.'Manufacturing date'
-                                            ).qtyPcs) + ((OneFifoItem.'Remaining Qty Cases' * LookUp(
+                                            ).qtyPcs*/ First(colFOC1).FOC1.qtyPcs) + ((OneFifoItem.'Remaining Qty Cases' * LookUp(
                                                 'Item UOMS',
                                                 SKU.'SKU Master' = OneFifoItem.SKU.'SKU Master'
                                             ).'Quantity Per UOM') + (OneFifoItem.'Remaining Qty Pcs')))
@@ -964,7 +965,8 @@
                                     }
                                 );
                             )
-                        )
+                        );
+                        RemoveIf(colFOC1,ID = OneFifoItem.'Stock Transfer Lines')
                     )
                 );
                 /*---Create FOC Order Header----------------*/
