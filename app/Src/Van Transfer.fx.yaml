@@ -1891,9 +1891,11 @@
                                         }
                                     );
                                 )
-                            )
+                            );
                     
                             //Remove temp collection 
+                             Remove(colManipulatedTransferTemp,First(colManipulatedTransferTemp));
+                    
                     
                         )
                     );
