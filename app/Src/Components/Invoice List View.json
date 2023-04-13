@@ -7321,7 +7321,7 @@
         "NameMapSourceSchema": "?"
       }
     ],
-    "LastModifiedTimestamp": "638169740791765855",
+    "LastModifiedTimestamp": "638169795535414832",
     "Name": "Invoice List View",
     "Rules": [
       {
@@ -7411,7 +7411,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638169740791765855",
+  "LastModifiedTimestamp": "638169795535414832",
   "Name": "2dc826e94932495ab74095a8f2ec5346",
   "OverridableProperties": {},
   "TemplateOriginalName": "f403aadad82d4272bc528edc7b5ea384",

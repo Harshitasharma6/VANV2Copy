@@ -2528,7 +2528,7 @@
       "Y",
       "ZIndex"
     ],
-    "LastModifiedTimestamp": "638169740791630875",
+    "LastModifiedTimestamp": "638169795535234408",
     "Name": "AttendanceHeaderComp",
     "Rules": [
       {
@@ -2587,7 +2587,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638169740791630875",
+  "LastModifiedTimestamp": "638169795535234408",
   "Name": "725bd40733b54ec4a1cce3217a18ca9c",
   "OverridableProperties": {},
   "TemplateOriginalName": "e1af65520cbd4d9f9f007cff381895cd",

@@ -553,6 +553,7 @@
                     colFOCCartItem As OneProductItem,
                     Collect(
                         StockLinesForFIFO,
+                
                         Sort(
                             Filter(
                                 'Stock Transfer Lines',
@@ -574,7 +575,7 @@
                         Collect(colFOC,{FOC:LookUp(
                                             colFOCManipulatedCartItems,
                                             skuId = OneFifoItem.SKU.'SKU Master' && manDate = OneFifoItem.'Manufacturing date'
-                                        )});
+                                        ),id : OneFifoItem.'Stock Transfer Lines'});
                         If(
                             First(CurrentQtyCases).Value > 0 && OneFifoItem.'Remaining Qty Cases' > 0 && OneFifoItem.SKU.'SKU Master' = OneProductItem.productId,
                             //Checking First condition if the qty is less then remainining of old_______________________________________________
@@ -691,7 +692,7 @@
                                 );
                             )
                         );
-                        //RemoveIf(colFOC,FOC="");
+                        RemoveIf(colFOC,id = OneFifoItem.'Stock Transfer Lines');
                     )
                 );
                 /////////////////////////////////////////////////////////_______________STOCK UPDATION FOR PCS       ____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
@@ -728,6 +729,10 @@
                     );
                     ForAll(
                         StockLinesForFIFO As OneFifoItem,
+                        Collect(colFOC1,{FOC1:LookUp(
+                                            colFOCManipulatedCartItems,
+                                            skuId = OneFifoItem.SKU.'SKU Master' && manDate = OneFifoItem.'Manufacturing date'
+                                        ),ID:OneFifoItem.'Stock Transfer Lines'});
                         If(
                             First(CurrentQty).Value > 0 /* && OneFifoItem.'Remaining Qty Pcs' > 0 */&& (OneFifoItem.'Remaining Qty Pcs' > 0 || OneFifoItem.'Remaining Qty Cases' > 0) && OneFifoItem.SKU.'SKU Master' = OneProductItem.productId,
                             //Checking First condition if the qty is less then remainining of old_______________________________________________
@@ -736,22 +741,23 @@
                                 //////______________CART MANIPULATION
                                 If(
                                     !IsBlank(
-                                        LookUp(
+                                        /*LookUp(
                                             colFOCManipulatedCartItems,
                                             skuId = OneFifoItem.SKU.'SKU Master' && manDate = OneFifoItem.'Manufacturing date'
-                                        )
+                                        )*/
+                                        First(colFOC1).FOC1
                                     ),
                                     Patch(
                                         colFOCManipulatedCartItems,
-                                        LookUp(
+                                        /*LookUp(
                                             colFOCManipulatedCartItems,
                                             skuId = OneFifoItem.SKU.'SKU Master' && manDate = OneFifoItem.'Manufacturing date'
-                                        ),
+                                        )*/ First(colFOC1).FOC1,
                                         {
-                                            qtyPcs: ((LookUp(
+                                            qtyPcs: ((/*LookUp(
                                                 colFOCManipulatedCartItems,
                                                 skuId = OneFifoItem.SKU.'SKU Master' && manDate = OneFifoItem.'Manufacturing date'
-                                            ).qtyPcs) + (First(CurrentQty).Value))
+                                            ).qtyPcs*/ First(colFOC1).FOC1.qtyPcs) + (First(CurrentQty).Value))
                                         }
                                     ),
                                     Collect(
@@ -794,22 +800,23 @@
                                  //////______________CART MANIPULATION
                                 If(
                                     !IsBlank(
-                                        LookUp(
+                                        /*LookUp(
                                             colFOCManipulatedCartItems,
                                             skuId = OneFifoItem.SKU.'SKU Master' && manDate = OneFifoItem.'Manufacturing date'
-                                        )
+                                        )*/
+                                        First(colFOC1).FOC1
                                     ),
                                     Patch(
                                         colFOCManipulatedCartItems,
-                                        LookUp(
+                                        /*LookUp(
                                             colFOCManipulatedCartItems,
                                             skuId = OneFifoItem.SKU.'SKU Master' && manDate = OneFifoItem.'Manufacturing date'
-                                        ),
+                                        )*/ First(colFOC1).FOC1,
                                         {
-                                            qtyPcs: ((LookUp(
+                                            qtyPcs: ((/*LookUp(
                                                 colFOCManipulatedCartItems,
                                                 skuId = OneFifoItem.SKU.'SKU Master' && manDate = OneFifoItem.'Manufacturing date'
-                                            ).qtyPcs) + (First(CurrentQty).Value))
+                                            ).qtyPcs*/ First(colFOC1).FOC1.qtyPcs) + (First(CurrentQty).Value))
                                         }
                                     ),
                                     Collect(

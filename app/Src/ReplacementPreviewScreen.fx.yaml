@@ -480,6 +480,7 @@
                 Clear(colReasonsVisits);
                 
                 ClearCollect(  CreateReplacementItemsRecord,Filter('Order Lines', 'Order Lines (zx_orderlinesid)' in colOderLinesPatchID));
+                Clear(colOderLinesPatchID)
                       
             Size: =_VarGblAppFonts.Size.Title
             Text: ="Confirm"
