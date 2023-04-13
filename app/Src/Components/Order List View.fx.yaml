@@ -97,13 +97,13 @@
                             galOrderDateFilter.Selected.Value,
                             "Last 30 Days",
                             Filter(
-                                Filter(
-                                    Filter(
+                               // Filter(
+                                   // Filter(
                                         'Order Headers',
                                         Salesperson.'Primary Email' = User().Email && 'Van No'.Warehouse = varUserVanNo.Van.Warehouse
-                                    ),
+                                   &&// ),
                                     'Order Type' = galOrderStatusFilter.Selected.Value
-                                ),
+                              &&//  ),
                                 'Order Date' > DateAdd(
                             Today(),
                             -30
@@ -111,13 +111,13 @@
                             ),
                             "Last 7 Days",
                             Filter(
-                                Filter(
-                                    Filter(
+                              //  Filter(
+                                 //   Filter(
                                       'Order Headers',
                                        Salesperson.'Primary Email' = User().Email && 'Van No'.Warehouse = varUserVanNo.Van.Warehouse
-                                    ),
+                                   &&// ),
                                     'Order Type' = galOrderStatusFilter.Selected.Value
-                                ),
+                              &&//  ),
                                 'Order Date' > DateAdd(
                             Today(),
                             -7
@@ -125,14 +125,14 @@
                             ),
                             "Today's Orders",
                             Filter(
-                                Filter(
-                                    Filter(
+                             //   Filter(
+                               //     Filter(
                                         //colOfflineOrderHeader,
                                         'Order Headers',
                                        Salesperson.'Primary Email' = User().Email && 'Van No'.Warehouse = varUserVanNo.Van.Warehouse
-                                    ),
+                                &&//    ),
                                     'Order Type' = galOrderStatusFilter.Selected.Value
-                                ),
+                              &&//  ),
                                 'Order Date'>= Today()
                             )
                         ),

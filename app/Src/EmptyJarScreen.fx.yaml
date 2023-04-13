@@ -91,13 +91,15 @@ EmptyJarScreen As screen:
                     SortOrder.Descending
                 ),
               //With Search Bar----------------------------------------------------
-                Filter(
+               
                     Sort(
                         If(
                             galOrderDateFilter_3.Selected.Value = "Today's",
                             Filter(
                                 'Order Lines',
-                                'Order Number'.'Order Type' = 'Order Type (Choice)'.'Empty jar Order' && Salesperson.'Primary Email' = User().Email && 'Created On' >= Today()
+                                'Order Number'.'Order Type' = 'Order Type (Choice)'.'Empty jar Order' && Salesperson.'Primary Email' = User().Email && 'Created On' >= Today() 
+            &&   compEmptyJarSearch_1.SearchText in 'Customer no.'.'Customer Name' || compEmptyJarSearch_1.SearchText in 'Customer no.'.'Contact Person name' || compEmptyJarSearch_1.SearchText in 'Customer no.'.'Address 1'
+            
                             ),
                             galOrderDateFilter_3.Selected.Value = "Yesterday",
                             Filter(
@@ -105,7 +107,7 @@ EmptyJarScreen As screen:
                                 'Order Number'.'Order Type' = 'Order Type (Choice)'.'Empty jar Order' && Salesperson.'Primary Email' = User().Email && 'Order Number'.'Order Date' > DateAdd(
                                     Today(),
                                     -1
-                                ) && 'Order Number'.'Order Date'< Today()
+                                ) && 'Order Number'.'Order Date'< Today() &&   compEmptyJarSearch_1.SearchText in 'Customer no.'.'Customer Name' || compEmptyJarSearch_1.SearchText in 'Customer no.'.'Contact Person name' || compEmptyJarSearch_1.SearchText in 'Customer no.'.'Address 1'
                             ),
                             galOrderDateFilter_3.Selected.Value = "Last 7 Days",
                             Filter(
@@ -113,7 +115,7 @@ EmptyJarScreen As screen:
                                 'Order Number'.'Order Type' = 'Order Type (Choice)'.'Empty jar Order' && Salesperson.'Primary Email' = User().Email && 'Order Number'.'Order Date' > DateAdd(
                                     Today(),
                                     -7
-                                ) && 'Order Number'.'Order Date'< Today()
+                                ) && 'Order Number'.'Order Date'< Today() &&   compEmptyJarSearch_1.SearchText in 'Customer no.'.'Customer Name' || compEmptyJarSearch_1.SearchText in 'Customer no.'.'Contact Person name' || compEmptyJarSearch_1.SearchText in 'Customer no.'.'Address 1'
                             ),
                             galOrderDateFilter_3.Selected.Value = "Last 30 Days",
                             Filter(
@@ -121,14 +123,14 @@ EmptyJarScreen As screen:
                                 'Order Number'.'Order Type' = 'Order Type (Choice)'.'Empty jar Order' && Salesperson.'Primary Email' = User().Email && 'Order Number'.'Order Date' > DateAdd(
                                     Today(),
                                     -30
-                                ) && 'Order Number'.'Order Date'< Today()
+                                ) && 'Order Number'.'Order Date'< Today()  && compEmptyJarSearch_1.SearchText in 'Customer no.'.'Customer Name' || compEmptyJarSearch_1.SearchText in 'Customer no.'.'Contact Person name' || compEmptyJarSearch_1.SearchText in 'Customer no.'.'Address 1'
                             )
                         ),
                         'Created On',
                         SortOrder.Descending
-                    ),
-                    compEmptyJarSearch_1.SearchText in 'Customer no.'.'Customer Name' || compEmptyJarSearch_1.SearchText in 'Customer no.'.'Contact Person name' || compEmptyJarSearch_1.SearchText in 'Customer no.'.'Address 1'
-                )
+                    )
+                  
+                
             )
         Layout: =Layout.Vertical
         OnSelect: =

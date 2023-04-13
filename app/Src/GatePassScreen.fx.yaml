@@ -44,11 +44,11 @@ GatePassScreen As screen:
                 SortByColumns(
                     Sort(
                         Filter(
-                            Filter(
+                          //  Filter(
                                 //colOfflineStockLine,
                                 'Stock Transfer Lines',
                                 'Transfer Order No'.'Stock Transfer Header' in varGatePassHeader.headerGUID
-                            ),
+                           &&// ),
                             'Created On' >= Today()
                         ),
                         'Created On',
@@ -1049,10 +1049,10 @@ GatePassScreen As screen:
                 IsBlank(
                     LookUp(
                         Filter(
-                            Filter(
+                           // Filter(
                                 'Stock Transfer Lines',
                                 'Transfer Order No'.'Stock Transfer Header' in varGatePassHeader.headerGUID
-                            ),
+                 &&//),
                             Date >= Today()
                         ),
                         'Transfer accepted' = 'Transfer accepted (Stock Transfer Lines)'.No
