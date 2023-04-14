@@ -333,10 +333,16 @@
                                 ),1
                             ).'Total Amount'
                         )*/
-                        IsBlank(LookUp(
-                                        'Order Headers',
-                                        Customer.Account = ThisItem.Account
-                                    ).'Order Date'),
+                        IsBlank(
+                            LookUp(
+                                Sort(
+                                    'Order Headers',
+                                    'Created On',
+                                    SortOrder.Descending
+                                ),
+                                Customer.Account = ThisItem.Account
+                            ).'Total Amount'
+                        ),
                         "0",
                         //First
                         Index(
@@ -345,9 +351,10 @@
                                     'Order Headers',
                                     Customer.Account = ThisItem.Account
                                 ),
-                                 'Created On',
+                                'Created On',
                                 SortOrder.Descending
-                            ),1
+                            ),
+                            1
                         ).'Total Amount'
                     )
                 Width: =100
@@ -539,9 +546,13 @@
                             )
                         )*/ 
                         IsBlank(LookUp(
-                                        'Order Headers',
-                                        Customer.Account = ThisItem.Account
-                                    ).'Order Date'),
+                                Sort(
+                                    'Order Headers',
+                                    'Created On',
+                                    SortOrder.Descending
+                                ),
+                                Customer.Account = ThisItem.Account
+                            ).'Order Date'),
                         Text("-"),
                         Text(
                             //First
@@ -551,7 +562,7 @@
                                         'Order Headers',
                                         Customer.Account = ThisItem.Account
                                     ),
-                                    'Order Date',
+                                    'Created On',
                                     SortOrder.Descending
                                 ),1
                             ).'Order Date',
