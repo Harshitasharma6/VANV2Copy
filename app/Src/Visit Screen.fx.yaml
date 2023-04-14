@@ -1092,11 +1092,10 @@
                 OnSelect: =Select(Parent)
                 Size: =12
                 Text: |-
-                    =//Concatenate("₹", RandBetween(11000, 36000))
-                    "₹" & If(
+                    ="₹ " & If(
                         /*IsBlank(
-                            //First
-                            Index(
+                           // First
+                           Index(
                                 Sort(
                                     Filter(
                                         'Order Headers',
@@ -1107,21 +1106,28 @@
                                 ),1
                             ).'Total Amount'
                         )*/
-                        IsBlank(LookUp(
-                                        'Order Headers',
-                                        Customer.Account = ThisItem.Customer.Account
-                                    ).'Order Date'),
+                        IsBlank(
+                            LookUp(
+                                Sort(
+                                    'Order Headers',
+                                    'Created On',
+                                    SortOrder.Descending
+                                ),
+                                Customer.Account = ThisItem.Customer.Account
+                            ).'Total Amount'
+                        ),
                         "0",
-                       // First
-                       Index(
+                        //First
+                        Index(
                             Sort(
                                 Filter(
                                     'Order Headers',
                                     Customer.Account = ThisItem.Customer.Account
                                 ),
-                                 'Created On',
+                                'Created On',
                                 SortOrder.Descending
-                            ),1
+                            ),
+                            1
                         ).'Total Amount'
                     )
                 Width: =133
@@ -1309,10 +1315,16 @@
                                 "dd mmm yyyy"
                             )
                         )*/
-                        IsBlank(LookUp(
-                                            'Order Headers',
-                                            Customer.Account = ThisItem.Customer.Account
-                                        ).'Order Date'),
+                        IsBlank(
+                            LookUp(
+                                Sort(
+                                    'Order Headers',
+                                    'Created On',
+                                    SortOrder.Descending
+                                ),
+                                Customer.Account = ThisItem.Customer.Account
+                            ).'Order Date'
+                        ),
                         Text("-"),
                         Text(
                             //First
@@ -1324,7 +1336,8 @@
                                     ),
                                     'Order Date',
                                     SortOrder.Descending
-                                ),1
+                                ),
+                                1
                             ).'Order Date',
                             "dd mmm yyyy"
                         )

@@ -182,14 +182,20 @@
                             "dd mmm yyyy"
                         )
                     )*/  
-                   IsBlank(LookUp(
-                                    'Order Headers',
-                                    Customer.Account = ThisItem.Account
-                                ).'Order Date'),
+                    IsBlank(
+                        LookUp(
+                            Sort(
+                                'Order Headers',
+                                'Created On',
+                                SortOrder.Descending
+                            ),
+                            Customer.Account = ThisItem.Account
+                        ).'Order Date'
+                    ),
                     Text("-"),
                     Text(
                        // First
-                       Index(
+                        Index(
                             Sort(
                                 Filter(
                                     'Order Headers',
@@ -197,14 +203,15 @@
                                 ),
                                 'Order Date',
                                 SortOrder.Descending
-                            ),1
+                            ),
+                            1
                         ).'Order Date',
                         "dd mmm yyyy"
                     )
                 )
             Width: =127
-            X: =255
-            Y: =131
+            X: =256
+            Y: =132
             ZIndex: =12
 
         lblGalCustomerAddress As label:
@@ -309,10 +316,16 @@
                             1
                         ).'Net Amount'
                     )*/ 
-                    IsBlank(LookUp(
-                                    'Order Headers',
-                                    Customer.Account = ThisItem.Account
-                                ).'Order Date'),
+                    IsBlank(
+                        LookUp(
+                            Sort(
+                                'Order Headers',
+                                'Created On',
+                                SortOrder.Descending
+                            ),
+                            Customer.Account = ThisItem.Account
+                        ).'Net Amount'
+                    ),
                     "0",
                    // First
                     Index(
